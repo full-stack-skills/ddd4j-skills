@@ -1,10 +1,12 @@
-# 发布与消费
+# Publication and Consumption
 
-1. clean 构建和完整测试。
-2. 串行 deploy，记录模块总数和退出码。
-3. 检查远端 metadata、timestamped SNAPSHOT 和 sidecar。
-4. 新建隔离 Maven 本地仓库并使用 -U。
-5. 消费 parent、dependencies、BOM 和代表性 JAR。
-6. CI、Security 和生产验收分别报告。
+> Collection date: 2026-09-11.
 
-RFC9457 JSON 404 或模块中途失败属于 PARTIAL，不是 PASS。
+1. Run a clean build with the full test suite.
+2. Deploy modules serially; record the total module count and the exit code.
+3. Verify remote metadata, timestamped SNAPSHOT, and sidecar artifacts.
+4. Create an isolated local Maven repository and use `-U`.
+5. Consume `parent`, `dependencies`, BOM, and a representative JAR.
+6. Report CI, Security, and production acceptance as separate gates.
+
+An RFC 9457 JSON 404 or a mid-sequence module failure is `PARTIAL`, not `PASS`.

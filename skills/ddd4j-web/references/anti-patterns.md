@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **Context 泄漏**：只清理成功路径；覆盖异常/异步。
-2. **固定 READY**：不查依赖；聚合 participant。
-3. **宽松 CORS**：生产 anyHost；明确 allowlist。
-4. **本地幂等冒充集群**：使用共享 CAS。
-5. **适配器漂移**：只测一个运行时；用 testkit 对齐。
+> Collection date: 2026-09-11.
+
+1. **Context leakage** — Only the success path cleans up. Cover exception and async paths.
+2. **Hardcoded READY** — Do not skip the dependency check. Aggregate participants.
+3. **Permissive CORS** — Any host in production. Use an explicit allowlist.
+4. **Local idempotency impersonating cluster** — Use shared CAS.
+5. **Adapter drift** — Only one runtime tested. Use the testkit to align.

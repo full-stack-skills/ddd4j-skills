@@ -1,5 +1,7 @@
 # Testcontainers
 
-测试至少覆盖：容器可达、真实 publish/consume、header、ack、nack/retry、duplicate、recovery、close。
+> Collection date: 2026-09-11.
 
-优先官方 Testcontainers module；无官方模块时使用有界 GenericContainer。Docker 不可用标 BLOCKED/SKIPPED，不是 PASS。
+Tests must at least cover: container reachability, real publish/consume, headers, ack, nack/retry, duplicates, recovery, and close.
+
+Prefer the official Testcontainers module; when none exists, use a bounded GenericContainer. When Docker is unavailable, mark BLOCKED/SKIPPED — not PASS.

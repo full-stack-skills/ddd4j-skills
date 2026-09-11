@@ -1,5 +1,7 @@
 # Validation
 
-公开约束：AllowableValues(allows, nullable)、PhoneNumber(lang)、NumberValue(regex)、StringDateValue(pattern)。
+> Collection date: 2026-09-11.
 
-StringDateValue 当前空文本通过且严格日期解析；Number/Phone 的 null 行为需配合 NotNull 和测试。3.0.x 使用 jakarta.validation，旧线逐线确认。
+Public constraints: `AllowableValues(allows, nullable)`, `PhoneNumber(lang)`, `NumberValue(regex)`, `StringDateValue(pattern)`.
+
+`StringDateValue` currently passes empty strings and performs strict date parsing. `Number` and `Phone` null behavior requires `NotNull` and tests. 3.0.x uses `jakarta.validation`; older lines must be confirmed per line.

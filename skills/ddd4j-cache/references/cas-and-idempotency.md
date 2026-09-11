@@ -1,5 +1,7 @@
-# CAS 与幂等
+# CAS and Idempotency
 
-core 提供 AtomicCache、CasCache、CASOperation、GetsResponse。
+> Collection date: 2026-09-11.
 
-集群幂等测试至少包含：两个独立客户端竞争同一 key、单一成功者、TTL 后再获取、网络失败、重试不重复提交。本地同步或单 JVM测试不能证明跨实例 CAS。
+Core provides AtomicCache, CasCache, CASOperation, and GetsResponse.
+
+Cluster idempotency tests must at least cover: two independent clients contending for the same key, a single winner, re-acquisition after TTL, network failure, and retries without duplicate submission. Local synchronous or single-JVM tests cannot prove cross-instance CAS.

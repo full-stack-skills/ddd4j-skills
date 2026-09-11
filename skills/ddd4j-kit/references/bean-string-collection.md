@@ -1,8 +1,10 @@
-# Bean、字符串与集合
+# Bean, String, and Collection
 
-- BeanKit：通用 Bean 属性操作；领域/PO 核心映射仍应显式或使用 DomainObjectMapper。
-- StrKit/StrPool：字符串判空、常量和转换。
-- CollKit：集合判空和常用组合。
-- ArrayKit：数组工具。
+> Collection date: 2026-09-11.
 
-使用前读取当前签名和测试，尤其关注 null、不可变集合和类型擦除。
+- **`BeanKit`** — generic bean property operations. Domain-to-PO core mappings should remain explicit or use `DomainObjectMapper`.
+- **`StrKit` / `StrPool`** — string null-checking, constants, and conversions.
+- **`CollKit`** — collection null-checking and common composition.
+- **`ArrayKit`** — array utilities.
+
+Always read the current signature and tests before use — pay special attention to null handling, immutable collections, and type erasure.

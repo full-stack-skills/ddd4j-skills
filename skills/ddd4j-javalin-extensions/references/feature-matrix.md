@@ -1,5 +1,7 @@
-# 功能矩阵
+# Feature Matrix
 
-本技能统一覆盖：Guice Module、Modules.override、业务绑定、SPI provider、扩展生命周期。
+> Collection date: 2026-09-11.
 
-对每种实现记录 artifact、入口、配置、默认/覆盖、生命周期、测试和支持维护线。未实现或未验证明确标记。
+This skill uniformly covers: Guice Module, Modules.override, business bindings, SPI provider, and extension lifecycle.
+
+For each implementation, record the artifact, entry points, configuration, defaults/overrides, lifecycle, tests, and supported maintenance lines. Mark unimplemented or unverified items explicitly.

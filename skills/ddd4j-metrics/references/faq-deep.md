@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **Metrics 和 tracing 相同吗？** 不同。
-2. **Noop 是错误吗？** 是允许降级但无观测。
-3. **tenantId 能做 label 吗？** 通常高基数且敏感。
-4. **Projection lag 怎么算？** 需要权威 head 与 position。
-5. **指标名能改吗？** 属于监控契约变更。
-6. **测试要启动 collector 吗？** 单元测 API，集成测 exporter。
-7. **日志能替代 metrics 吗？** 不能。
-8. **readiness 能从错误率推导吗？** 不应直接替代。
-9. **MQ retry 如何计数？** 按 attempt/result 稳定标签。
-10. **完成证据是什么？** 单元行为、导出链和告警演练。
+> Collection date: 2026-09-11.
+
+1. **Are metrics the same as tracing?** No.
+2. **Is Noop an error?** It is an allowed degradation, but it provides no observability.
+3. **Can tenantId be a label?** Usually high-cardinality and sensitive.
+4. **How is projection lag computed?** An authoritative head and position are required.
+5. **Can metric names change?** That is a monitoring contract change.
+6. **Do tests need a collector?** Unit tests exercise the API; integration tests exercise the exporter.
+7. **Can logs replace metrics?** No.
+8. **Can readiness be derived from error rates?** Not as a direct substitute.
+9. **How are MQ retries counted?** With stable attempt/result labels.
+10. **What is the completion evidence?** Unit behavior, the export chain, and an alerting drill.

@@ -1,7 +1,7 @@
-# 反模式
+# Anti-Patterns
 
-1. **框架泄漏**：领域服务直接读 StpUtil/SecurityContext；改用 Subject。
-2. **多 Provider 争用**：三框架同时注册；明确唯一主实现。
-3. **上下文残留**：成功路径清理但异常路径遗漏；finally/作用域。
-4. **凭据日志**：打印 Token/API Key；只留脱敏指纹。
-5. **只测成功**：补充匿名、过期、权限不足、注销和线程复用。
+1. **Framework leakage**: domain services read StpUtil/SecurityContext directly; use Subject instead.
+2. **Multiple Provider contention**: all three frameworks registered at once; define exactly one primary implementation.
+3. **Context residue**: cleanup on the success path but missed on the exception path; use finally/scope.
+4. **Credential logging**: printing tokens/API keys; keep only redacted fingerprints.
+5. **Testing success only**: add anonymous, expired, insufficient-permission, logout, and thread-reuse cases.

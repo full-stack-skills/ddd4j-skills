@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **一包一技能**：按功能聚合多实现。
-2. **跨线复制**：逐线适配 Boot/JDK/Maven。
-3. **Bean 即行为**：执行真实合同测试。
-4. **用户覆盖失效**：验证 MissingBean/Property 条件。
-5. **证据混淆**：源码、测试、CI、发布分开。
+> Collection date: 2026-09-11.
+
+1. **One package, one skill**: aggregate implementations by feature.
+2. **Copying across lines**: adapt Boot/JDK/Maven per line.
+3. **Bean as behavior**: execute real contract tests.
+4. **Broken user overrides**: verify MissingBean/Property conditions.
+5. **Evidence conflation**: keep source, tests, CI, and publish separate.

@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **本地即集群**：Caffeine 用于多实例幂等；改共享 CAS。
-2. **非原子组合**：get+put；使用原子接口。
-3. **键泄密**：key 包含 Token/手机号；哈希或内部 ID。
-4. **缓存权威化**：无回源/恢复；定义数据权威。
-5. **测试假绿**：mock Redis；增加真实容器。
+> Collection date: 2026-09-11.
+
+1. **Local as cluster**: Caffeine used for multi-instance idempotency; switch to shared CAS.
+2. **Non-atomic composition**: get+put; use the atomic interfaces.
+3. **Key secrets**: keys containing tokens/phone numbers; use hashes or internal IDs.
+4. **Cache as authority**: no source-of-truth fallback/recovery; define data authority.
+5. **False green tests**: mocking Redis; add real containers.

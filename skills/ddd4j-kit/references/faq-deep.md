@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **JacksonKit 还存在吗？** 当前能力已合并到 JsonKit。
-2. **默认 mapper 和 Redis mapper 相同吗？** 不同。
-3. **Redis mapper 能处理外部 JSON 吗？** 不应。
-4. **事件为何不用 DefaultTyping？** 避免任意类多态攻击。
-5. **BeanKit 能替代 DomainObjectMapper 吗？** 不能保证领域语义。
-6. **StrKit 与 Spring StringUtils 如何选？** ddd4j 内部优先当前 Kit 契约，适配层按框架边界。
-7. **工具返回 null 怎么办？** 读取具体签名和测试，不统一猜测。
-8. **Kit 能访问数据库吗？** 不应承载该资源生命周期。
-9. **旧线工具都一致吗？** 不保证。
-10. **何时新增工具？** 多模块复用、语义稳定且有边界测试时。
+> Collection date: 2026-09-11.
+
+1. **Does `JacksonKit` still exist?** Its capability has been merged into `JsonKit`.
+2. **Are the default mapper and Redis mapper the same?** No.
+3. **Can the Redis mapper handle external JSON?** No — it should not.
+4. **Why does event serialization avoid `DefaultTyping`?** To prevent arbitrary-class polymorphic attacks.
+5. **Can `BeanKit` replace `DomainObjectMapper`?** It cannot guarantee domain semantics.
+6. **How do I choose between `StrKit` and Spring `StringUtils`?** Inside ddd4j prefer the current Kit contract; in the adapter layer respect the framework boundary.
+7. **What if a utility returns `null`?** Read the specific signature and tests; do not guess.
+8. **Can Kit access a database?** It must not own that resource lifecycle.
+9. **Are the utility signatures consistent across old lines?** Not guaranteed.
+10. **When should I add a new utility?** When multiple modules reuse it, the semantics are stable, and boundary tests exist.

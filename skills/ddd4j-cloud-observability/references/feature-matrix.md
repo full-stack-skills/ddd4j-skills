@@ -1,5 +1,7 @@
-# 功能矩阵
+# Feature Matrix
 
-本技能统一覆盖：Nacos、Sentinel、monitor、trace、metrics、logging、health、readiness。
+> Collection date: 2026-09-11.
 
-每种实现记录 Cloud/Boot/ddd4j 线、artifact、配置、传播/生命周期、测试和外部依赖。未实现或未验证明确标记。
+This skill uniformly covers: Nacos, Sentinel, monitor, trace, metrics, logging, health, and readiness.
+
+For each implementation, record the Cloud/Boot/ddd4j lines, artifact, configuration, propagation/lifecycle, tests, and external dependencies. Mark unimplemented or unverified items explicitly.

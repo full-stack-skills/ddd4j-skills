@@ -1,14 +1,16 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **新项目优先哪条线？** 先由组织 JDK 和目标运行时决定，再选已验证最高线。
-2. **Java 17 能用 ddd4j 3.0.x 吗？** 当前 3.0.x 要求 Java 21。
-3. **Javalin 7.1.x 能用 Maven 4 吗？** 当前正式契约仍是 Maven 3/POM 4.0。
-4. **Quarkus 4.0.x 是 Quarkus 4 吗？** 不是，当前平台是 3.38.2。
-5. **Cloud 分支能任配 Boot 吗？** 主组合由矩阵锁定；备选必须单独验证。
-6. **SNAPSHOT 在本地存在算可用吗？** 不算远端可消费。
-7. **CI 因计费未启动怎么办？** 标记 BLOCKED，不算代码失败或 PASS。
-8. **Security 被豁免怎么办？** 标记 SKIPPED 风险。
-9. **如何证明远端可用？** 隔离空 Maven 仓库使用 -U 消费。
-10. **历史线能升级 JDK 吗？** 这是兼容性变更，不能由版本技能自动决定。
-11. **矩阵冲突听谁的？** 当前 POM与执行结果优先，矩阵脚本需同步修复。
-12. **何时选择备选组合？** 主组合无法满足明确约束且备选有独立证据时。
+> Collection date: 2026-09-11.
+
+1. **Which line takes priority for a new project?** The organization's JDK and target runtime decide first, then the highest verified line.
+2. **Can Java 17 use ddd4j 3.0.x?** Current 3.0.x requires Java 21.
+3. **Can Javalin 7.1.x use Maven 4?** The current formal contract is still Maven 3/POM 4.0.
+4. **Is Quarkus 4.0.x Quarkus 4?** No — the current platform is 3.38.2.
+5. **Can a Cloud line pair with any Boot?** Primary combinations are locked by the matrix; alternatives need separate verification.
+6. **Does a local SNAPSHOT count as available?** It is not remotely consumable.
+7. **What if CI did not start due to billing?** Mark BLOCKED; it is neither code failure nor PASS.
+8. **What if Security was exempted?** Mark SKIPPED as a risk.
+9. **How is remote availability proven?** Consume with -U from an isolated clean Maven repository.
+10. **Can a historical line upgrade its JDK?** That is a compatibility change and cannot be decided automatically by the version skill.
+11. **Who wins on matrix conflicts?** The current POMs and execution results take priority; fix the matrix scripts in sync.
+12. **When is an alternative combination chosen?** When the primary combination cannot satisfy explicit constraints and the alternative has independent evidence.

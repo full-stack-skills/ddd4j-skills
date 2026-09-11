@@ -1,19 +1,21 @@
-# JSON 与 Jackson
+# JSON and Jackson
 
-## 当前入口
+> Collection date: 2026-09-11.
 
-- io.ddd4j.kit.lang.JsonKit
-- JsonKit.DEFAULT_OBJECT_MAPPER
-- JsonKit.REDIS_OBJECT_MAPPER
-- io.ddd4j.core.cqrs.eventstore.jackson.EventPayloadSerializer
+## Current Entry Points
 
-## 场景选择
+- `io.ddd4j.kit.lang.JsonKit`
+- `JsonKit.DEFAULT_OBJECT_MAPPER`
+- `JsonKit.REDIS_OBJECT_MAPPER`
+- `io.ddd4j.core.cqrs.eventstore.jackson.EventPayloadSerializer`
 
-| 场景 | 选择 |
+## Scenario Selection
+
+| Scenario | Choice |
 |---|---|
-| 普通对象 JSON | JsonKit 默认 mapper/API |
-| Redis 受信任对象 | REDIS_OBJECT_MAPPER |
-| EventStore payload | EventPayloadSerializer + 显式事件 Class |
-| Javalin 7 HTTP | 对应 JavalinJackson3 配置 |
+| Ordinary object JSON | `JsonKit` default mapper / API |
+| Redis trusted object | `REDIS_OBJECT_MAPPER` |
+| EventStore payload | `EventPayloadSerializer` + explicit event Class |
+| Javalin 7 HTTP | the corresponding `JavalinJackson3` configuration |
 
-Redis mapper 的 DefaultTyping 不能用于不可信外部数据。事件 payload 禁止依赖 @class。
+`REDIS_OBJECT_MAPPER`'s `DefaultTyping` must not be used on untrusted external data. Event payloads must not depend on `@class`.

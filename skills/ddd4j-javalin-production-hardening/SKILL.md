@@ -13,9 +13,9 @@ Turn a `ddd4j-javalin` hardening request into an evidence-backed delivery withou
 
 Typical requests:
 
-- “用 `$ddd4j-javalin-production-hardening` 审查三条 Javalin 分支的生产就绪差距，并更新现有计划。”
-- “按已批准的 Phase D 计划，用 TDD 完成 runtime/readiness/CORS hardening。”
-- “检查三分支 CI，并发布到阿里云私有 Maven 仓库，最后做空缓存消费验证。”
+- "Use `$ddd4j-javalin-production-hardening` to review the production-readiness gaps of the three Javalin branches and update the existing plan."
+- "Complete runtime/readiness/CORS hardening with TDD according to the approved Phase D plan."
+- "Check CI on the three branches, publish to the Alibaba Cloud private Maven repository, and finish with a clean-cache consumption verification."
 
 Start by locating the real repository and reading current evidence. Do not assume the historical branch matrix, plan state, remote state, or credentials are still current.
 
@@ -67,20 +67,20 @@ Read [references/workflow.md](references/workflow.md) before planning or impleme
 
 Infer the mode from the request. If multiple modes are requested, preserve the order `review → plan approval → execute → verify → release`. Accept user constraints such as target branches, excluded modules, required CI jobs, private repository name, security-waiver status, and whether commit/push/deploy are authorized. These parameters override historical defaults but not current repository evidence or safety boundaries.
 
-When required material is missing, report it in Chinese as “缺少：具体项目/分支/规格/授权/凭据来源；补充方式：明确路径或授权范围”. Continue all safe read-only checks and give a provisional result instead of returning an empty response.
+When required material is missing, report it as "missing: specific project/branch/specification/authorization/credential source; how to provide: state the path or authorization scope". Continue all safe read-only checks and give a provisional result instead of returning an empty response.
 
 ## Decision rules
 
 - Keep the request Javalin-only. Escalate an upstream dependency only when current evidence proves it blocks Javalin.
-- Review first. If the user says “先写计划，后执行”, update the existing plan and pause implementation until plan approval is explicit.
+- Review first. If the user says "write the plan first, execute later", update the existing plan and pause implementation until plan approval is explicit.
 - Do not copy code mechanically across lines. Preserve Javalin 6 versus 7 APIs, Java syntax, Maven model, and dependency contracts.
 - Convert each risk into an observable contract: fail first, implement the smallest behavior, then run focused and affected regression tests.
 - Keep evidence tiers separate: source review → focused tests → per-line clean reactor → runtime/container tests → Git/remote SHA → CI → private publication → isolated remote consumption → production acceptance.
 - Never expose repository credentials, settings files, tokens, private URLs containing secrets, or raw environment values. Report only credential presence/source and redact sensitive output.
 
-## 功能技能路由
+## Capability skill routing
 
-详细实现分别交给 `ddd4j-javalin-runtime`、`ddd4j-javalin-auth`、`ddd4j-javalin-data`、`ddd4j-javalin-web`、`ddd4j-javalin-mq`、`ddd4j-javalin-cache`、`ddd4j-javalin-testing` 和 `ddd4j-javalin-release`。本技能只保留跨能力审查、计划审批、TDD 编排和生产发布门禁。
+Detailed implementations are handed off separately to `ddd4j-javalin-runtime`, `ddd4j-javalin-auth`, `ddd4j-javalin-data`, `ddd4j-javalin-web`, `ddd4j-javalin-mq`, `ddd4j-javalin-cache`, `ddd4j-javalin-testing`, and `ddd4j-javalin-release`. This skill retains only cross-capability review, plan approval, TDD orchestration, and production release gates.
 
 ## Hardening model
 
@@ -113,7 +113,7 @@ Use explicit states such as `PASS`, `FAIL`, `BLOCKED`, `SKIPPED`, and `NOT RUN`.
 ## Common questions
 
 1. **Can an existing plan be replaced?** No. Extend the active fact source unless the user authorizes migration or replacement.
-2. **Can all lines use Maven 4?** No. Derive and preserve each line’s current core/POM contract.
+2. **Can all lines use Maven 4?** No. Derive and preserve each line's current core/POM contract.
 3. **Is a focused test enough?** It proves only that contract; run affected regression and the appropriate per-line gate.
 4. **Does a push mean CI passed?** No. Resolve the run for the exact SHA and wait for terminal job conclusions.
 5. **Does `deploy` upload activity mean release success?** No. Require a zero exit code, complete module inventory, remote metadata/integrity checks, and clean-cache consumption.
@@ -121,8 +121,8 @@ Use explicit states such as `PASS`, `FAIL`, `BLOCKED`, `SKIPPED`, and `NOT RUN`.
 
 For failure patterns and edge cases, read [references/anti-patterns-and-faq.md](references/anti-patterns-and-faq.md).
 
-## 深度参考
+## Deep Reference
 
-- [源码证据路由](references/source-evidence.md)
-- [反模式](references/anti-patterns.md)
-- [深度 FAQ](references/faq-deep.md)
+- [Source Evidence Routing](references/source-evidence.md)
+- [Anti-Patterns](references/anti-patterns.md)
+- [Deep FAQ](references/faq-deep.md)

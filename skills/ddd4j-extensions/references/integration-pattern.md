@@ -1,3 +1,5 @@
-# 集成模式
+# Integration Pattern
 
-扩展定义可选应用能力；运行时/Boot 自动配置负责条件装配。检查 classpath guard、enabled 开关、用户 Bean 覆盖、资源 owner、close 和真实行为测试。
+> Collection date: 2026-09-11.
+
+Extensions define optional application capabilities; runtime/Boot auto-configuration handles conditional wiring. Check the classpath guard, the enabled switch, user Bean overrides, resource owners, close, and real behavior tests.

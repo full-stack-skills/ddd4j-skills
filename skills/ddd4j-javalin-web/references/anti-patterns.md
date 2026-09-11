@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **跨线复制**：按 Javalin/JDK/Maven 适配。
-2. **smoke 假绿**：要求真实 HTTP/Auth/DB/MQ 行为。
-3. **Context 泄漏**：所有终态清理。
-4. **固定 READY**：聚合真实依赖。
-5. **证据混淆**：源码、测试、CI、发布分开。
+> Collection date: 2026-09-11.
+
+1. **Copying across lines**: adapt per Javalin/JDK/Maven.
+2. **Smoke false green**: require real HTTP/Auth/DB/MQ behavior.
+3. **Context leakage**: clean up on all terminal states.
+4. **Hardcoded READY**: aggregate real dependencies.
+5. **Evidence conflation**: keep source, tests, CI, and publish separate.

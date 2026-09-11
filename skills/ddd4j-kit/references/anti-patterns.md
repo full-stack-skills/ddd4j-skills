@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **重复造轮子**：业务模块再写 Str/Coll/JSON 工具；先查 Kit。
-2. **场景混用**：Redis mapper 用于 HTTP/EventStore；按边界选择。
-3. **隐式领域映射**：Bean copy 掩盖语义差异；显式映射。
-4. **异常吞噬**：工具失败返回 null；保留可诊断异常。
-5. **跨线假定**：3.0.x 工具签名用于旧线；逐线验证。
+> Collection date: 2026-09-11.
+
+1. **Reinventing the wheel** — Business modules write their own string / collection / JSON utilities. Always check Kit first.
+2. **Cross-scenario mixing** — Using the Redis mapper for HTTP or EventStore. Match the scenario to the mapper.
+3. **Implicit domain mapping** — Bean copy obscures semantic differences. Map explicitly.
+4. **Swallowed exceptions** — A utility failure returns `null`. Preserve diagnosable exceptions.
+5. **Cross-line assumption** — 3.0.x utility signatures used on older lines. Verify per line.

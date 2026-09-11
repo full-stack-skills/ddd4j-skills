@@ -1,10 +1,10 @@
-# Subject 生命周期
+# Subject Lifecycle
 
-1. 请求入口认证。
-2. Provider 构造 ddd4j Subject。
-3. Web/Runtime 绑定 ThreadContext 或请求作用域。
-4. 应用层只读取 Subject/SubjectKit。
-5. finally/作用域关闭恢复旧上下文。
-6. 退出、异常、异步和线程复用均测试。
+1. Authenticate at the request entry point.
+2. The Provider constructs the ddd4j Subject.
+3. Web/Runtime binds the ThreadContext or request scope.
+4. The application layer reads only Subject/SubjectKit.
+5. finally/scope close restores the previous context.
+6. Test logout, exceptions, async, and thread reuse.
 
-禁止把前一个请求的 Subject 泄漏到后一个请求。
+Never leak the previous request's Subject into the next request.

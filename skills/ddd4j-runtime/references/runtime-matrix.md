@@ -1,11 +1,13 @@
-# 运行时矩阵
+# Runtime Matrix
 
-- Spring：Bean 生命周期和 afterSingletonsInstantiated 等注册点。
-- Guice：Module/Injector 显式装配。
-- Quarkus：CDI/Arc producer、observer、request scope。
-- Micronaut：Bean/PropagatedContext。
-- Vert.x：Context/Verticle 生命周期。
-- Helidon：服务注册与请求 scope。
-- Dropwizard：Bundle/Environment 生命周期。
+> Collection date: 2026-09-11.
 
-具体 API 以当前 adapter 源码和 runtime-testkit 为准。
+- Spring: bean lifecycle and registration points such as afterSingletonsInstantiated.
+- Guice: explicit assembly via Module/Injector.
+- Quarkus: CDI/Arc producers, observers, request scope.
+- Micronaut: Bean/PropagatedContext.
+- Vert.x: Context/Verticle lifecycle.
+- Helidon: service registration and request scope.
+- Dropwizard: Bundle/Environment lifecycle.
+
+The concrete APIs are defined by the current adapter source and runtime-testkit.

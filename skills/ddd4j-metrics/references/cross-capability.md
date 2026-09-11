@@ -1,9 +1,11 @@
-# 跨能力指标
+# Cross-Capability Metrics
 
-- Web：请求数、延迟、状态族、限流/幂等结果。
-- MQ：publish/consume、ack/nack、retry/dead-letter、lag。
-- Cache：hit/miss/error/latency。
-- Runtime：startup、readiness、shutdown。
-- Data：transaction、conflict、projection/outbox。
+> Collection date: 2026-09-11.
 
-仅记录源码真实提供或计划明确新增的指标。
+- Web: request count, latency, status families, rate-limit/idempotency outcomes.
+- MQ: publish/consume, ack/nack, retry/dead-letter, lag.
+- Cache: hit/miss/error/latency.
+- Runtime: startup, readiness, shutdown.
+- Data: transactions, conflicts, projection/outbox.
+
+Record only metrics the source actually provides or that are explicitly planned.

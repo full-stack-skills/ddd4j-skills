@@ -1,5 +1,7 @@
-# 源码证据
+# Source Evidence
 
-主要来源：stream extension, BindingNamingContributor and broker integration tests。
+> Collection date: 2026-09-11.
 
-根目录：/Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-cloud/ddd4j-cloud。使用时刷新分支、SHA、OpenSpec、POM、CodeGraph 和测试代码。
+Primary sources: the stream extension, BindingNamingContributor, and the broker integration tests.
+
+Root directory: /Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-cloud/ddd4j-cloud. Refresh the branch, SHA, OpenSpec, POMs, CodeGraph, and test code before use.

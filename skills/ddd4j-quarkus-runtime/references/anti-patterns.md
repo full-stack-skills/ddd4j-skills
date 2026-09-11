@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **线名误读**：4.0.x 当 Quarkus 4；读 BOM。
-2. **Spring 投射**：按 Quarkus 构建期/CDI 模型处理。
-3. **BOM 即运行**：验证 Bean/BuildItem。
-4. **容器即成功**：要求真实行为。
-5. **Security 假绿**：SKIPPED 不等于 PASS。
+> Collection date: 2026-09-11.
+
+1. **Line-name misreading**: treating 4.0.x as Quarkus 4; read the BOM.
+2. **Spring projection**: work within the Quarkus build-time/CDI model.
+3. **BOM as runtime**: verify beans/BuildItems.
+4. **Container as success**: require real behavior.
+5. **Security false green**: SKIPPED does not equal PASS.

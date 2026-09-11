@@ -1,7 +1,9 @@
-# MyBatis 与 MyBatis-Plus
+# MyBatis and MyBatis-Plus
 
-原生轨道：Ddd4jMapper<P> + MybatisAggregateRepository，删除和生产查询 SQL 需显式实现。
+> Collection date: 2026-09-11.
 
-Plus 轨道：BaseMapper<P> + 同名仓储，Query<M> 翻译为 Wrapper。
+**Native track**: `Ddd4jMapper<P>` + `MybatisAggregateRepository`. Delete and production query SQL must be implemented explicitly.
 
-共同规则：M/P/Q/ID 五泛型、DomainObjectMapper、RepositoryRegistry、租户/数据范围/SQL observation。两个 artifact 含同包同类名，不要同时依赖。
+**Plus track**: `BaseMapper<P>` + a same-named repository. `Query<M>` is translated into a Wrapper.
+
+Shared rules: M / P / Q / ID generics, `DomainObjectMapper`, `RepositoryRegistry`, tenant / data scope / SQL observation. The two artifacts share package and class names — do not depend on both simultaneously.

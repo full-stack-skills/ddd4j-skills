@@ -1,5 +1,7 @@
-# Broker 矩阵
+# Broker Matrix
 
-当前模块包括 activemq、disruptor、kafka、mqtt、mqtt-mica、nats、ons、pulsar、rabbitmq、redis-stream、rocketmq、sqs、tdmq、spring。
+> Collection date: 2026-09-11.
 
-每个实现必须核对 Properties、MQClient、Acknowledgment、header 映射和测试；Artemis 若仅通过 ActiveMQ/JMS 兼容或上层依赖出现，要明确当前是否有独立 adapter。
+Current modules include activemq, disruptor, kafka, mqtt, mqtt-mica, nats, ons, pulsar, rabbitmq, redis-stream, rocketmq, sqs, tdmq, and spring.
+
+For each implementation, verify the Properties, MQClient, Acknowledgment, header mapping, and tests; if Artemis appears only through ActiveMQ/JMS compatibility or an upper-layer dependency, state explicitly whether a standalone adapter currently exists.

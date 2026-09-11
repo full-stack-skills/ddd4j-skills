@@ -1,3 +1,5 @@
-# 运行时矩阵
+# Runtime Matrix
 
-当前 adapter：webmvc、webflux、javalin、quarkus、micronaut、vertx、helidon、dropwizard。web-core 提供共享契约，web-testkit 提供端点和断言。使用时读取目标 adapter 的真实 API 和测试。
+> Collection date: 2026-09-11.
+
+Current adapters: `webmvc`, `webflux`, `javalin`, `quarkus`, `micronaut`, `vertx`, `helidon`, `dropwizard`. `web-core` provides the shared contract; `web-testkit` provides endpoints and assertions. Read the real adapter API and tests in the target branch before adopting.

@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **旧 CRUD 基类冒充核心**：使用 `io.hiwepy.boot BaseEntity`；改为从当前 `AggregateRoot/Repository` 建模。
-2. **混合持久化轨道**：同一聚合既 `save()` 又持久化 `pullDomainEvents()`；选择单一策略。
-3. **领域依赖框架**：Domain 导入 Spring/MyBatis/Javalin；通过 core SPI 隔离。
-4. **上下文泄漏**：绑定 Subject 后未关闭；使用作用域/finally。
-5. **默认方法假绿**：未覆盖 Repository 操作却认为可用；测试实际适配器并处理 UnsupportedOperationException。
+> Collection date: 2026-09-11.
+
+1. **Legacy CRUD base classes masquerading as core** — Using `io.hiwepy.boot BaseEntity`. Model against the current `AggregateRoot` / `Repository` instead.
+2. **Mixed persistence tracks** — The same aggregate both calls `save()` and persists `pullDomainEvents()`. Choose one strategy per aggregate.
+3. **Domain depending on frameworks** — Domain imports Spring, MyBatis, or Javalin. Isolate via the core SPI.
+4. **Context leakage** — Subject is bound but never closed. Use a scope or `finally` block.
+5. **False-green default methods** — Uncovered `Repository` operations assumed to work. Test the actual adapter and handle `UnsupportedOperationException`.

@@ -4,106 +4,106 @@ description: Use when designing, reviewing, or locating boundaries in ddd4j modu
 license: Apache-2.0
 ---
 
-# ddd4j 架构
+# ddd4j Architecture
 
 ## Overview
 
-ddd4j 的稳定中心是框架无关的领域/CQRS/SPI，外围模块提供数据、消息、Web、认证、缓存、观测和运行时适配。
+ddd4j's stable center is the framework-agnostic domain, CQRS, and SPI layer. The outer modules deliver data, messaging, web, authentication, caching, observability, and runtime adapters.
 
-## 快速开始
+## Quick Start
 
-- “领域层能否依赖 MyBatis Wrapper？”
-- “CommandBus 应该在哪个模块装配？”
-- “新增 Broker 应实现 core 还是 mq 模块？”
-- “Spring、Guice、Quarkus CDI 如何共享核心契约？”
+- "Can the domain layer depend on a MyBatis Wrapper?"
+- "Which module should assemble the CommandBus?"
+- "Should a new broker live in core or in the mq module?"
+- "How do Spring, Guice, and Quarkus CDI share the core contracts?"
 
-## 架构分区
+## Architecture Zones
 
-| 分区 | 职责 |
+| Zone | Responsibility |
 |---|---|
-| annotation | DDD/CQRS/API/ORM 元数据 |
-| core | AggregateRoot、Command/Query、Event、Repository、Context、SPI |
-| kit | 基础工具，不承载业务运行时 |
-| auth/data/mq/web/cache/metrics | 能力接口实现与聚合 |
-| runtime-* | Spring、Guice、Quarkus 等 DI 和生命周期绑定 |
-| extensions | 跨领域可选扩展 |
-| ddd-rules | 架构约束和静态检查 |
-| parent/dependencies/bom | 构建、版本所有权和消费面 |
+| annotation | DDD / CQRS / API / ORM metadata |
+| core | AggregateRoot, Command/Query, Event, Repository, Context, SPI |
+| kit | Foundational utilities, no business runtime |
+| auth / data / mq / web / cache / metrics | Capability interfaces and their implementations |
+| runtime-* | DI and lifecycle wiring for Spring, Guice, Quarkus, etc. |
+| extensions | Cross-cutting optional extensions |
+| ddd-rules | Architecture constraints and static checks |
+| parent / dependencies / bom | Build, version ownership, and consumer surface |
 
-## 决策规则
+## Decision Rules
 
-1. Domain 只依赖 core/annotation/必要值类型。
-2. ORM、Broker、HTTP、认证框架位于适配层。
-3. 静态门面通过 Contexts/Registry/SPI 解析实现。
-4. 框架运行时负责注册、请求作用域、回滚和关闭。
-5. BOM 只管理版本，不证明运行时实现已装配。
-6. 同一聚合不得混用快照 Active Record 与 Event Sourcing。
+1. Domain depends only on core, annotation, and necessary value types.
+2. ORM, broker, HTTP, and authentication frameworks live in the adapter layer.
+3. Static facades resolve implementations through Contexts, Registry, or SPI.
+4. Framework runtimes own registration, request scoping, rollback, and shutdown.
+5. BOM manages versions only — it does not prove runtime wiring succeeded.
+6. The same aggregate must not mix snapshot Active Record with Event Sourcing.
 
-## 能力边界
+## Capability Boundaries
 
-### ✅ 擅长
+### ✅ Strong At
 
-- 模块归属和依赖方向。
-- DDD/CQRS 与端口适配。
-- 多运行时共享核心。
-- 架构审查和新能力落位。
+- Module ownership and dependency direction.
+- DDD / CQRS layering with ports and adapters.
+- Sharing the core across multiple runtimes.
+- Architecture review and landing new capabilities.
 
-### ⚠️ 需要素材
+### ⚠️ Needs Input
 
-- 目标维护线和模块 POM。
-- 业务行为与事务边界。
-- 运行时和部署模型。
+- Target maintenance line and module POMs.
+- Business behavior and transaction boundaries.
+- Runtime and deployment model.
 
-### ❌ 超范围
+### ❌ Out of Scope
 
-- 具体框架 API 详解。
-- 仅凭目录名判断实现完成。
-- 未验证的跨维护线等价声明。
+- Detailed framework API explanations.
+- Concluding implementation from directory names alone.
+- Unverified cross-line parity claims.
 
-## 工作流
+## Workflow
 
-1. 确认 Git 根、分支和 CodeGraph 健康。
-2. 从调用链找核心端口和实际适配器。
-3. 标出编译依赖、运行时注册和资源生命周期。
-4. 用架构测试、行为测试和运行证据分别验证。
-5. 输出事实、推断、违规项和建议落位。
+1. Confirm the Git root, branch, and CodeGraph health.
+2. Trace core ports and their actual adapters from the call graph.
+3. Mark compile dependencies, runtime registrations, and resource lifecycles.
+4. Verify separately with architecture tests, behavior tests, and runtime evidence.
+5. Report facts, inferences, violations, and proposed landing points.
 
-## 常见错误
+## Common Mistakes
 
-- Domain 导入 Spring/MyBatis/Javalin/Quarkus 类型。
-- 在 core 创建具体 Broker/数据库客户端。
-- 把 runtime 注册遗漏误诊为 core API 缺失。
-- 聚合模块名称被当作功能证据。
-- 只看依赖树不看调用和生命周期。
+- Domain imports Spring, MyBatis, Javalin, or Quarkus types.
+- Concrete broker or database clients created inside core.
+- Missing runtime registration misdiagnosed as missing core API.
+- Aggregate module names treated as functional evidence.
+- Inspecting the dependency tree without reading calls and lifecycle.
 
-## 输出与异常
+## Output and Exceptions
 
-输出“当前分支、模块、端口、适配器、注册点、测试、风险”。找不到实现时写“缺少：具体适配器/注册点；补充方式：提供模块或运行时”，不得补写虚构链路。
+Return `current branch, modules, ports, adapters, registration points, tests, risks`. When an implementation is missing, return `missing: specific adapter or registration point; how to provide: module or runtime` — never invent a fictitious chain.
 
-## 深度参考
+## Deep Reference
 
-- [模块边界](references/module-boundaries.md)
-- [依赖规则](references/dependency-rules.md)
-- [反模式](references/anti-patterns.md)
-- [深度 FAQ](references/faq-deep.md)
+- [Module Boundaries](references/module-boundaries.md)
+- [Dependency Rules](references/dependency-rules.md)
+- [Anti-Patterns](references/anti-patterns.md)
+- [Deep FAQ](references/faq-deep.md)
 
-## 隐私与安全
+## Privacy and Security
 
-架构证据不得包含凭据、真实租户数据或私服认证信息。
+Architecture evidence must not include credentials, real tenant data, or private Maven repository authentication.
 
-## 受众与定制
+## Audience and Customization
 
-- 开发者提供目标模块、运行时和行为。
-- 架构师指定只读边界、迁移或兼容性审查。
-- 测试人员指定所需证据层级。
+- Developers: provide the target modules, runtime, and behavior.
+- Architects: specify a read-only boundary, migration, or compatibility review.
+- Testers: specify the required evidence levels.
 
-可定制目标维护线、允许依赖和输出深度。输入不足时先给暂定判断，再列“缺少：模块/运行时；补充方式：提供 POM 与调用点”。
+Customize the target maintenance line, allowed dependencies, and output depth. When input is insufficient, give a tentative verdict first, then list `missing: module or runtime; how to provide: POM and call site`.
 
-## 常见问题
+## FAQ
 
-1. **是否按模块建技能？** 不，按决策域。
-2. **目录存在等于能力完成吗？** 不等于。
-3. **Domain 能依赖框架吗？** 不应。
-4. **Runtime 做什么？** 注册和生命周期。
-5. **跨线结构相同等于行为相同吗？** 不等于。
-6. **缺少实现怎么办？** 明确缺口，不编造。
+1. **Are skills organized by module?** No — by decision domain.
+2. **Does a directory's existence mean the capability is complete?** No.
+3. **Can the domain layer depend on a framework?** It should not.
+4. **What does the runtime layer do?** Registration and lifecycle.
+5. **Does identical cross-line structure imply identical behavior?** No.
+6. **What if an implementation is missing?** State the gap explicitly; do not invent one.

@@ -1,9 +1,9 @@
 # Apache Shiro
 
-入口：ShiroSubject、ShiroSubjectProvider。
+Entry points: ShiroSubject, ShiroSubjectProvider.
 
-- 从当前 Shiro Subject 映射 principal、roles、permissions。
-- 无绑定 Subject 时返回明确匿名/空主体语义。
-- Realm 和 SessionManager 属于运行时配置，不放进领域层。
-- 线程池和请求结束必须解除 Shiro ThreadContext。
-- 用 ShiroSubjectProviderTest/ShiroSubjectTest 校正行为。
+- Map principal, roles, and permissions from the current Shiro Subject.
+- Return explicit anonymous/empty-principal semantics when no Subject is bound.
+- Realm and SessionManager belong to runtime configuration, not the domain layer.
+- Thread pools and request end must unbind the Shiro ThreadContext.
+- Calibrate behavior with ShiroSubjectProviderTest/ShiroSubjectTest.

@@ -1,12 +1,14 @@
-# 源码证据路由
+# Source Evidence Routing
 
-使用本技能时必须在目标 `ddd4j-javalin` 检出中重新确认：
+> Collection date: 2026-09-11.
 
-- 当前分支、POM 模型、Maven Wrapper、JDK 与 Javalin 版本。
-- `Ddd4jJavalinApplication`、配置对象、Web 生命周期、readiness、idempotency 和 CORS 实现。
-- `Ddd4jJavalinRuntime`、`JavalinLifecycleParticipant` 是否已存在及其测试状态。
-- JPA EntityManagerFactory、MQ、Outbox、调度器与 shutdown hook 的实际所有者。
-- `docs/superpowers/specs/`、`plans/`、`reports/` 中当前事实源。
-- GitHub Actions 最终 SHA 的必需 job，以及私有 Maven 远端元数据和空缓存消费者。
+When using this skill, re-confirm in the target `ddd4j-javalin` checkout:
 
-历史矩阵只能作为定位假设，不能替代当前源码、POM、测试、CI 和远端制品证据。
+- Current branch, POM model, Maven Wrapper, JDK, and Javalin version.
+- `Ddd4jJavalinApplication`, configuration objects, web lifecycle, readiness, idempotency, and CORS implementations.
+- Whether `Ddd4jJavalinRuntime` and `JavalinLifecycleParticipant` exist and their test status.
+- The actual owners of the JPA EntityManagerFactory, MQ, Outbox, schedulers, and shutdown hooks.
+- The current fact source in `docs/superpowers/specs/`, `plans/`, and `reports/`.
+- GitHub Actions required jobs for the final SHA, plus private Maven remote metadata and clean-cache consumers.
+
+The historical matrix serves only as a locating hypothesis; it cannot substitute for current source, POM, test, CI, and remote artifact evidence.

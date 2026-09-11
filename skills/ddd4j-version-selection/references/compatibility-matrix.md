@@ -1,10 +1,10 @@
-# 兼容矩阵
+# Compatibility Matrix
 
-> 采集日期：2026-09-11。使用时必须重读当前 POM、矩阵脚本和远端状态。
+> Collection date: 2026-09-11. Re-read the current POMs, matrix scripts, and remote state before use.
 
 ## ddd4j
 
-| 线 | JDK | Maven/POM | revision |
+| Line | JDK | Maven/POM | revision |
 |---|---:|---|---|
 | 1.0.x | 8 | Maven 3 / 4.0.0 | 1.0.x.20260630-SNAPSHOT |
 | 2.0.x | 17 | Maven 3 / 4.0.0 | 2.0.x.20260630-SNAPSHOT |
@@ -12,7 +12,7 @@
 
 ## ddd4j-boot
 
-| Boot 线 | Spring Boot | ddd4j | JDK | Maven/POM |
+| Boot Line | Spring Boot | ddd4j | JDK | Maven/POM |
 |---|---|---|---:|---|
 | 2.3.x | 2.3.12.RELEASE | 1.0.x | 8 | Maven 3 / 4.0 |
 | 2.4.x | 2.4.13 | 1.0.x | 8 | Maven 3 / 4.0 |
@@ -30,7 +30,7 @@
 
 ## ddd4j-javalin
 
-| 线 | Javalin | ddd4j | JDK | Maven/POM |
+| Line | Javalin | ddd4j | JDK | Maven/POM |
 |---|---|---|---:|---|
 | 6.7.x | 6.7.0 | 1.0.x | 17 | Maven 3 / 4.0 |
 | 7.1.x | 7.1.0 | 2.0.x | 17 | Maven 3 / 4.0 |
@@ -38,16 +38,16 @@
 
 ## ddd4j-quarkus
 
-| 线 | Quarkus Platform | ddd4j | JDK | Maven/POM |
+| Line | Quarkus Platform | ddd4j | JDK | Maven/POM |
 |---|---|---|---:|---|
 | 3.3.x | 3.37.4 | 2.0.x | 17 | Maven 3 / 4.0 |
 | 4.0.x | 3.38.2 | 3.0.x | 21 | Maven 4 / 4.1 |
 
-4.0.x 是 ddd4j-quarkus 维护线名称，不代表 Quarkus Platform 4。
+4.0.x is the ddd4j-quarkus maintenance line name and does not mean Quarkus Platform 4.
 
-## ddd4j-cloud 主组合
+## ddd4j-cloud primary combinations
 
-| Cloud 线 | Spring Cloud | Boot parent | ddd4j | Maven/POM |
+| Cloud Line | Spring Cloud | Boot parent | ddd4j | Maven/POM |
 |---|---|---|---|---|
 | Hoxton.x | Hoxton.SR12 | 2.3.x | 1.0.x | Maven 3 / 4.0 |
 | 2020.0.x | 2020.0.6 | 2.4.x | 1.0.x | Maven 3 / 4.0 |
@@ -58,9 +58,9 @@
 | 2025.0.x | 2025.0.3 | 3.5.x | 2.0.x | Maven 3 / 4.0 |
 | 2025.1.x | 2025.1.3 | 4.0.x | 3.0.x | Maven 4 / 4.1 |
 
-## 证据路径
+## Evidence paths
 
 - ddd4j-boot/config/consistency/ddd4j-boot-build-matrix.tsv
 - ddd4j-cloud/scripts/compatibility/verify_cloud_release_matrix.py
-- ddd4j-javalin 各 feature 分支 pom.xml
-- ddd4j-quarkus 各 feature 分支 pom.xml
+- ddd4j-javalin per-feature-branch pom.xml
+- ddd4j-quarkus per-feature-branch pom.xml

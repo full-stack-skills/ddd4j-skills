@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **本地缓存能用于开发吗？** 可以，明确非生产集群语义。
-2. **Redis 等于 CAS 吗？** 不等于，取决于命令/脚本实现。
-3. **Redisson 一定安全释放锁吗？** 需 owner 和异常测试。
-4. **JetCache 是存储吗？** 是抽象/多级能力，底层仍需配置。
-5. **TTL 用什么单位？** 读取具体实现。
-6. **缓存能存 DomainEvent 吗？** 需明确序列化和权威来源。
-7. **何时降级？** 按业务一致性决定 fail-open/closed。
-8. **如何做租户隔离？** key namespace 与上下文共同验证。
-9. **能记录完整 key 吗？** 敏感 key 不应。
-10. **完成证明是什么？** provider 行为、真实后端、并发和故障测试。
+> Collection date: 2026-09-11.
+
+1. **Can local caches be used in development?** Yes — with non-production cluster semantics stated explicitly.
+2. **Does Redis equal CAS?** No — it depends on the command/script implementation.
+3. **Does Redisson always release locks safely?** Owner and exception tests are required.
+4. **Is JetCache a storage engine?** It is an abstraction/multilevel capability; the underlying store still needs configuration.
+5. **What unit does TTL use?** Read the specific implementation.
+6. **Can a cache store DomainEvents?** Only with explicit serialization and a defined source of truth.
+7. **When to degrade?** Decide fail-open/fail-closed based on business consistency.
+8. **How is tenant isolation achieved?** Key namespace verified together with the context.
+9. **Can full keys be logged?** Not for sensitive keys.
+10. **What proves completion?** Provider behavior, real backends, concurrency, and failure tests.

@@ -1,5 +1,7 @@
-# 当前扩展
+# Current Extensions
 
-3.0.x 当前顶层：excel、license、monitor、otel、pf4j、qlexpress、qrcode、validation。
+> Collection date: 2026-09-11.
 
-Jackson：JsonKit/EventPayloadSerializer 位于 kit/core。Akka：当前主要由 ddd4j-boot extension 提供。使用时先查当前根 POM和目录，不复制历史列表。
+3.0.x current top level: excel, license, monitor, otel, pf4j, qlexpress, qrcode, validation.
+
+Jackson: JsonKit/EventPayloadSerializer live in kit/core. Akka: currently provided mainly by the ddd4j-boot extension. Before use, check the current root POM and directories; do not copy historical lists.

@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **Java 8 能用 Boot 3 吗？** 不能。
-2. **Java 17 能用 ddd4j 3 吗？** 当前不支持。
-3. **Boot 2.7 对应什么？** ddd4j 1.0.x。
-4. **Boot 3.5 对应什么？** ddd4j 2.0.x。
-5. **Boot 4.1 对应什么？** ddd4j 3.0.x/Maven 4。
-6. **能跳过 Enforcer 吗？** 不能用于发布。
-7. **SNAPSHOT 本地存在够吗？** 不够。
-8. **升级只改 parent 吗？** 不够。
-9. **矩阵冲突怎么办？** 当前 POM与执行结果优先并修复矩阵。
-10. **如何证明可用？** 构建、CI、发布、空缓存消费分层证明。
+> Collection date: 2026-09-11.
+
+1. **Can Java 8 use Boot 3?** No.
+2. **Can Java 17 use ddd4j 3?** Not currently supported.
+3. **What does Boot 2.7 pair with?** ddd4j 1.0.x.
+4. **What does Boot 3.5 pair with?** ddd4j 2.0.x.
+5. **What does Boot 4.1 pair with?** ddd4j 3.0.x/Maven 4.
+6. **Can Enforcer be skipped?** Not for releases.
+7. **Is a local SNAPSHOT enough?** No.
+8. **Is upgrading just the parent enough?** No.
+9. **What about matrix conflicts?** The current POMs and execution results win; fix the matrix.
+10. **How is availability proven?** Layered evidence: build, CI, publish, clean-cache consumption.

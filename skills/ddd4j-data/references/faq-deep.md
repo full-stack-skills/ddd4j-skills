@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **快照和事件溯源能混用吗？** 同一聚合不应混用。
-2. **JPA Entity 是 AggregateRoot 吗？** 建议分离，除非明确权衡。
-3. **原生 MyBatis 支持删除吗？** 默认 mapper 不定义，需显式实现。
-4. **R2DBC 能加入阻塞事务吗？** 不能假定。
-5. **Panache 只用于 Quarkus 吗？** 是对应运行时适配。
-6. **Projection 一定实时吗？** 不一定，需定义延迟和恢复。
-7. **Outbox 等于 MQ 吗？** 不等于，是可靠发布存储模式。
-8. **EventStore append 如何并发？** expected version/数据库约束。
-9. **租户忽略何时允许？** 受控系统操作并审计。
-10. **完成证据是什么？** 真实数据库、事务、并发、恢复测试。
+> Collection date: 2026-09-11.
+
+1. **Can snapshot and event sourcing mix?** The same aggregate must not mix them.
+2. **Is a JPA Entity an AggregateRoot?** Keep them separate unless an explicit trade-off justifies the merge.
+3. **Does native MyBatis support delete?** The default mapper does not define it; implement it explicitly.
+4. **Can R2DBC join a blocking transaction?** Cannot be assumed.
+5. **Is Panache only for Quarkus?** Yes — it is the matching runtime adapter.
+6. **Is Projection always real-time?** No — define latency and recovery.
+7. **Is Outbox equal to MQ?** No — it is a reliable-publish storage pattern.
+8. **How does EventStore append handle concurrency?** Expected version and database constraints.
+9. **When is tenant bypass allowed?** Only in controlled system operations with auditing.
+10. **What counts as proof of completion?** Real-database, transaction, concurrency, and recovery tests.

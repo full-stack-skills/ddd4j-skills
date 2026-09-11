@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **框架侵入 core**：适配放 runtime。
-2. **重复覆盖**：SPI 后注册静默覆盖；fail-fast/作用域。
-3. **部分启动泄漏**：失败无回滚；逆序关闭。
-4. **固定 readiness**：聚合真实依赖。
-5. **Context 残留**：所有终态恢复。
+> Collection date: 2026-09-11.
+
+1. **Framework intrusion into core**: keep adapters in the runtime.
+2. **Duplicate overrides**: later SPI registration silently overwriting; fail fast/use scopes.
+3. **Partial startup leakage**: no rollback on failure; close in reverse order.
+4. **Hardcoded readiness**: aggregate real dependencies.
+5. **Context residue**: restore on every terminal state.

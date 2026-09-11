@@ -1,8 +1,10 @@
-# ACK、重试和死信
+# ACK, Retries, and Dead Letters
 
-- 业务成功且 acknowledgment open/未确认时 ack。
-- 业务异常时 nack，并由策略决定 requeue。
-- 重试记录 attempts、next attempt、last error。
-- 超限进入 dead-letter。
-- producer 发送与业务事务之间需要 Outbox 等可靠桥。
-- consumer 按 message/event id 幂等。
+> Collection date: 2026-09-11.
+
+- Ack when business processing succeeds and the acknowledgment is open/unconfirmed.
+- Nack on business exception; policy decides whether to requeue.
+- Retries record attempts, next attempt, and the last error.
+- Exhausted retries enter the dead letter.
+- A reliable bridge such as an Outbox is needed between producer send and the business transaction.
+- Consumers are idempotent by message/event id.

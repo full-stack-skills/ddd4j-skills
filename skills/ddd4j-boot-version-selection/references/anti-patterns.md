@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **只选最新版**：忽略 JDK。
-2. **Boot 4 用 Maven 3**：违反模型。
-3. **跨线混 BOM**：保持完整元组。
-4. **只看分支名**：读取 POM/TSV。
-5. **热缓存假绿**：空缓存消费。
+> Collection date: 2026-09-11.
+
+1. **Latest-version only**: ignoring the JDK.
+2. **Boot 4 on Maven 3**: violates the model.
+3. **Mixed BOM across lines**: keep the complete tuple.
+4. **Branch names only**: read the POM/TSV.
+5. **Warm-cache false green**: consume from a clean cache.

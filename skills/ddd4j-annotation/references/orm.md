@@ -1,9 +1,11 @@
-# ORM 注解
+# ORM Annotations
 
-- DomainField：Domain 字段与 PO 属性/列映射。
-- BizKey：业务键。
-- TenantId/SystemId：隔离字段。
-- OnCreate/OnUpdate：审计填充。
-- OrderBy：默认排序元数据。
+> Collection date: 2026-09-11.
 
-验证链：注解→DomainModelInfo/TableInfo→Repository/Interceptor→真实数据库行为。
+- **`DomainField`** — Domain field to PO property / column mapping.
+- **`BizKey`** — business key.
+- **`TenantId` / `SystemId`** — isolation fields.
+- **`OnCreate` / `OnUpdate`** — audit population.
+- **`OrderBy`** — default ordering metadata.
+
+Verification chain: annotation → `DomainModelInfo` / `TableInfo` → repository / interceptor → actual database behavior.

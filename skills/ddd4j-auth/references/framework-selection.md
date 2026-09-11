@@ -1,11 +1,11 @@
-# 框架选择
+# Framework Selection
 
-| 维度 | Sa-Token | Shiro | Spring Security |
+| Dimension | Sa-Token | Shiro | Spring Security |
 |---|---|---|---|
-| 当前模块 | ddd4j-auth-satoken | ddd4j-auth-shiro | ddd4j-auth-security |
-| 统一出口 | SaTokenSubjectProvider | ShiroSubjectProvider | SecuritySubjectProvider |
-| 原生上下文 | StpLogic | Shiro Subject | SecurityContextHolder |
-| 强项 | 多账号/临时 Token | Realm/权限模型 | Spring/OAuth2/OIDC |
-| 主要风险 | 账号体系混用 | ThreadLocal 清理 | Filter/Context 生命周期 |
+| Current module | ddd4j-auth-satoken | ddd4j-auth-shiro | ddd4j-auth-security |
+| Unified exit | SaTokenSubjectProvider | ShiroSubjectProvider | SecuritySubjectProvider |
+| Native context | StpLogic | Shiro Subject | SecurityContextHolder |
+| Strengths | Multiple account types / temporary tokens | Realm/permission model | Spring/OAuth2/OIDC |
+| Main risk | Mixing account systems | ThreadLocal cleanup | Filter/Context lifecycle |
 
-选定一个主 SubjectProvider；多框架共存必须显式定义优先级。
+Select one primary SubjectProvider; if multiple frameworks coexist, the priority must be defined explicitly.

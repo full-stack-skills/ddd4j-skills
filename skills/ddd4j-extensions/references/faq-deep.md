@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **Jackson 是独立 extension 吗？** 当前核心能力在 kit/core。
-2. **Akka 在哪里？** 当前主要在 Boot 扩展。
-3. **PF4J 插件可信么？** 需来源和权限策略。
-4. **QLExpress 能执行任意代码吗？** 按 builder 权限和函数 allowlist 限制。
-5. **License 能绕过吗？** 不能。
-6. **OTel 等于 metrics 模块吗？** 是适配/导出关系，不同职责。
-7. **扩展关闭会影响 core 吗？** 应可选降级。
-8. **配置开关谁实现？** 具体 runtime/auto-configuration。
-9. **扩展需要 BOM 吗？** 由 ddd4j-bom 管理消费版本。
-10. **完成证据是什么？** 模块测试、运行时装配和外部行为。
+> Collection date: 2026-09-11.
+
+1. **Is Jackson a standalone extension?** The core capability currently lives in kit/core.
+2. **Where is Akka?** Currently mainly in the Boot extension.
+3. **Can PF4J plugins be trusted?** Origin and permission policies are required.
+4. **Can QLExpress execute arbitrary code?** Restrict it with builder permissions and function allowlists.
+5. **Can the license be bypassed?** No.
+6. **Is OTel the same as the metrics module?** It is an adapter/export relationship with different responsibilities.
+7. **Does disabling an extension affect core?** It should degrade optionally.
+8. **Who implements configuration switches?** The specific runtime/auto-configuration.
+9. **Do extensions need the BOM?** ddd4j-bom manages consumed versions.
+10. **What proves completion?** Module tests, runtime assembly, and external behavior.

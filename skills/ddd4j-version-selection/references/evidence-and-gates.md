@@ -1,29 +1,31 @@
-# 证据与门禁
+# Evidence and Gates
 
-## 状态层级
+> Collection date: 2026-09-11.
 
-1. SOURCE：POM、矩阵、源码存在。
-2. TEST：目标构建/行为测试实际执行。
-3. CI：最终 SHA 的必需 job 终态成功。
-4. PUBLISHED：完整 deploy 零退出且远端元数据完整。
-5. CONSUMED：隔离空缓存从私服解析和编译。
-6. PRODUCTION：真实部署和运行验收。
+## Status hierarchy
 
-不得用较低层级替代较高层级。
+1. SOURCE: POMs, matrix, and source code exist.
+2. TEST: target build/behavior tests actually executed.
+3. CI: required jobs for the final SHA succeeded in terminal state.
+4. PUBLISHED: full deploy exited zero and remote metadata is complete.
+5. CONSUMED: isolated clean cache resolved and compiled from the private repository.
+6. PRODUCTION: real deployment and production acceptance.
 
-## 选择前检查
+A lower level must not substitute for a higher one.
+
+## Pre-selection checks
 
 - git branch --show-current
 - git status --short --branch
 - java -version
 - ./mvnw -version
-- 根 POM modelVersion、revision、java.version
-- 适配项目 framework/BOM 版本
-- CI 与私服目标坐标
+- Root POM modelVersion, revision, java.version
+- Adapter project framework/BOM versions
+- CI and private repository target coordinates
 
-## 当前采集 SHA
+## Currently collected SHAs
 
-| 仓库/线 | SHA |
+| Repository/Line | SHA |
 |---|---|
 | ddd4j 1.0.x | d9149cb0371cf24328822c17596a408bde3562a5 |
 | ddd4j 2.0.x | bbf3dfa330c083ccccafdfe1ac2c266a74513a27 |
@@ -33,4 +35,4 @@
 | ddd4j-quarkus 4.0.x checkout | e899da7e6eecd4d39320982c0141d29f48028915 |
 | ddd4j-cloud 2024.0.x | a3a11af917b221d63ebad3c2481e85b7cb2ed270 |
 
-这些 SHA 只证明采集时来源，使用时必须刷新。
+These SHAs only prove the source at collection time; refresh them before use.

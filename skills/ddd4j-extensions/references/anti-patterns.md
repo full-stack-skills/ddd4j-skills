@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **历史列表冒充当前**：先查根 POM。
-2. **扩展污染 core**：保持可选依赖。
-3. **配置即行为**：运行真实测试。
-4. **表达式无沙箱**：限制函数/访问/超时。
-5. **插件全信任**：签名、来源、隔离和权限。
+> Collection date: 2026-09-11.
+
+1. **Historical list passed off as current**: check the root POM first.
+2. **Extension polluting core**: keep dependencies optional.
+3. **Configuration as behavior**: run real tests.
+4. **Expressions without a sandbox**: restrict functions/access/timeouts.
+5. **Fully trusted plugins**: signature, origin, isolation, and permissions.

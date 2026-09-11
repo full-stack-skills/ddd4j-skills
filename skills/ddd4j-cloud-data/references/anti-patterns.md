@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **分支猜版本**：读取矩阵/POM。
-2. **旧新命名混用**：保持 extensions canonical。
-3. **Context 泄漏**：覆盖异常/异步/Feign。
-4. **外部配置假绿**：要求真实行为或标 NOT VERIFIED。
-5. **上游缺件误诊**：分类 Boot/ddd4j 与 Cloud。
+> Collection date: 2026-09-11.
+
+1. **Guessing versions from branch names**: read the matrix/POMs.
+2. **Mixing old and new naming**: keep extensions canonical.
+3. **Context leakage**: cover exception/async/Feign paths.
+4. **External-configuration false green**: require real behavior or mark NOT VERIFIED.
+5. **Misdiagnosing upstream gaps**: classify Boot/ddd4j versus Cloud.

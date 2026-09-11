@@ -4,105 +4,105 @@ description: Use when choosing or changing ddd4j parent, dependencies, BOM impor
 license: Apache-2.0
 ---
 
-# ddd4j BOM 与 Maven 治理
+# ddd4j BOM and Maven Governance
 
 ## Overview
 
-Parent 管构建，dependencies 管第三方版本，BOM 管 ddd4j 消费坐标。三者职责不同；适配项目 BOM 只拥有自身生态版本。
+`parent` owns the build, `dependencies` owns third-party versions, `BOM` owns ddd4j consumer coordinates. The three have distinct responsibilities. Adapter-project BOMs own only their own ecosystem versions.
 
-## 快速选择
+## Quick Selection
 
-| 需求 | 使用 |
+| Need | Use |
 |---|---|
-| 插件、编译、发布默认值 | ddd4j-parent |
-| 第三方 dependencyManagement | ddd4j-dependencies |
-| 业务消费者导入 ddd4j 模块版本 | ddd4j-bom |
-| Boot/Javalin/Quarkus/Cloud 专有版本 | 对应适配项目 dependencies/BOM |
+| Plugin, compile, and publish defaults | `ddd4j-parent` |
+| Third-party `dependencyManagement` | `ddd4j-dependencies` |
+| Business consumer imports ddd4j module versions | `ddd4j-bom` |
+| Boot / Javalin / Quarkus / Cloud specific versions | Corresponding adapter-project `dependencies` / BOM |
 
-## 核心规则
+## Core Rules
 
-1. 1.0.x/2.0.x 保持 POM 4.0/Maven 3；3.0.x 使用 POM 4.1/Maven 4。
-2. POM 4.0 使用 modules/module；4.1 使用 subprojects/subproject。
-3. 具体模块不重复固定已由 dependencies 管理的第三方版本。
-4. ddd4j-dependencies 是普通平台依赖权威。
-5. Boot/Cloud/Javalin/Quarkus BOM 只管理生态表面。
-6. 导入 BOM 的顺序会影响有效版本，必须检查 effective POM。
-7. parent/BOM 可解析不代表全部 JAR 已发布。
+1. `1.0.x` / `2.0.x` stay on POM 4.0 / Maven 3. `3.0.x` uses POM 4.1 / Maven 4.
+2. POM 4.0 uses `<modules>` / `<module>`. POM 4.1 uses `<subprojects>` / `<subproject>`.
+3. Concrete modules must not duplicate third-party versions already managed by `dependencies`.
+4. `ddd4j-dependencies` is the authoritative platform dependency source.
+5. Boot / Cloud / Javalin / Quarkus BOMs manage only their own ecosystem surface.
+6. BOM import order affects the effective version — always check the effective POM.
+7. A resolvable parent / BOM does not mean every JAR is published.
 
-## 能力边界
+## Capability Boundaries
 
-### ✅ 擅长
+### ✅ Strong At
 
-- Parent、Dependencies、BOM 职责选择。
-- Maven 3/4 与 Model 4.0/4.1。
-- 属性布局、版本泄漏和导入冲突。
-- 多维护线依赖对齐和消费验证。
+- Choosing between `parent`, `dependencies`, and BOM responsibilities.
+- Maven 3 / 4 and Model 4.0 / 4.1 differences.
+- Property layout, version leakage, and import conflicts.
+- Aligning dependencies across multiple maintenance lines and verifying consumption.
 
-### ⚠️ 需要素材
+### ⚠️ Needs Input
 
-- 当前维护线与 JDK/Maven。
-- 目标 POM和 effective POM。
-- 私服/中央仓库解析结果。
+- Current maintenance line and JDK / Maven versions.
+- Target POM and effective POM.
+- Private / central Maven resolution results.
 
-### ❌ 超范围
+### ❌ Out of Scope
 
-- 静默改版本或发布。
-- 用 enforcer.skip 作为发布证明。
-- 仅靠 XML关键词判断所有权。
+- Silently changing versions or publishing.
+- Using `enforcer.skip` as proof of release.
+- Inferring ownership from XML keywords alone.
 
-## 验证门禁
+## Validation Gates
 
-- scripts/test_maven4_model_contract.py
-- scripts/test_dependency_property_layout.py
-- scripts/test_bom_import_conflicts.py
-- scripts/test_dependency_alignment.py
-- scripts/check-bom-alignment.sh
-- 空缓存 consumer 的 dependency:go-offline/compile
+- `scripts/test_maven4_model_contract.py`
+- `scripts/test_dependency_property_layout.py`
+- `scripts/test_bom_import_conflicts.py`
+- `scripts/test_dependency_alignment.py`
+- `scripts/check-bom-alignment.sh`
+- Clean-cache consumer `dependency:go-offline` / `compile`
 
-## 常见错误
+## Common Mistakes
 
-- BOM 与 parent 混用。
-- 在具体模块散落数字版本。
-- Maven 4 聚合 POM保留 modules。
-- 只看 source POM，不看 effective POM。
-- 上传部分模块后宣称全量发布。
-- 私服热缓存掩盖缺失 parent/BOM。
+- Mixing BOM and parent responsibilities.
+- Scattered numeric versions inside concrete modules.
+- Keeping `<modules>` in Maven 4 aggregator POMs.
+- Reading the source POM without checking the effective POM.
+- Claiming a full release after only some modules uploaded.
+- A warm private-repository cache masking missing parent / BOM artifacts.
 
-## 输出与异常
+## Output and Exceptions
 
-输出维护线、JDK、Maven、POM Model、版本所有者、effective POM 和消费状态。缺失时写“缺少：有效模型/远端坐标；补充方式：执行 help:effective-pom 或空缓存解析”。
+Return `maintenance line, JDK, Maven, POM Model, version owners, effective POM, and consumption state`. When missing, return `missing: effective model or remote coordinate; how to provide: run help:effective-pom or a clean-cache resolve`.
 
-## 深度参考
+## Deep Reference
 
-- [职责与导入](references/ownership-and-imports.md)
+- [Ownership and Imports](references/ownership-and-imports.md)
 - [Maven Model](references/maven-model.md)
-- [发布消费](references/publication-and-consumption.md)
-- [反模式](references/anti-patterns.md)
-- [深度 FAQ](references/faq-deep.md)
+- [Publication and Consumption](references/publication-and-consumption.md)
+- [Anti-Patterns](references/anti-patterns.md)
+- [Deep FAQ](references/faq-deep.md)
 
-## 隐私与安全
+## Privacy and Security
 
-不得打印 settings.xml、服务器密码或私服 Token。
+Never print `settings.xml`, server passwords, or private-repository tokens.
 
-## 快速开始
+## Quick Start
 
-- “使用 `$ddd4j-bom` 分析我当前项目应该采用的实现和配置。”
-- “使用 `$ddd4j-bom` 对照当前源码审查现有用法。”
-- “使用 `$ddd4j-bom` 给出实现选择、证据状态和剩余风险。”
+- "Use `$ddd4j-bom` to analyze the implementation and configuration my current project should adopt."
+- "Use `$ddd4j-bom` to review existing usage against the current source."
+- "Use `$ddd4j-bom` to return an implementation choice, evidence state, and remaining risk."
 
-## 受众与定制
+## Audience and Customization
 
-- 开发者：提供目标维护线、POM、功能和验收行为。
-- 架构师：指定只读边界审查、兼容性或迁移目标。
-- 测试/发布人员：指定所需证据层级，不自动扩大到发布或生产操作。
+- Developers: provide the target maintenance line, POM, capabilities, and acceptance behavior.
+- Architects: specify a read-only boundary, compatibility, or migration review.
+- Testers / release engineers: specify the required evidence levels; do not auto-expand to release or production operations.
 
-可定制目标框架、允许实现、排除模块、兼容性要求和输出证据层级。输入不足时先给暂定判断，再列出“缺少：具体项；补充方式：所需路径或配置”。
+Customize the target framework, allowed implementations, excluded modules, compatibility requirements, and evidence level. When input is insufficient, give a tentative verdict first, then list `missing: specific item; how to provide: path or configuration`.
 
-## 常见问题
+## FAQ
 
-1. **是否按 Maven artifact 创建技能？** 不，按用户面对的功能域组织。
-2. **是否能直接套用其他维护线？** 不能，先核对版本和源码。
-3. **源码中有类就表示能力可用吗？** 不表示，还需注册和行为证据。
-4. **测试未运行如何报告？** 标记 NOT RUN 或 BLOCKED。
-5. **可以自动提交或发布吗？** 只有用户明确授权后才执行。
-6. **找不到实现怎么办？** 说明缺失的模块或证据，不编造 API。
+1. **Are skills organized by Maven artifact?** No — by the user-facing capability domain.
+2. **Can I copy another maintenance line directly?** No — verify the version and source first.
+3. **Does a class existing in source prove the capability works?** No — registration and behavior evidence are also required.
+4. **How do I report tests that did not run?** Mark `NOT RUN` or `BLOCKED`.
+5. **Can the skill commit or release automatically?** Only after explicit user authorization.
+6. **What if the implementation is missing?** Describe the missing module or evidence; do not invent APIs.

@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **先选什么？** Cloud→Boot→ddd4j 主组合。
-2. **备选等于主组合吗？** 不等于。
-3. **配置存在等于服务可用吗？** 不等于。
-4. **Context 只在线程内吗？** 还需异步/Reactor/Feign。
-5. **旧 cmpt 能继续用吗？** 按当前硬切规范处理。
-6. **Binder 名称能跨 Broker 通用吗？** 物理 destination 有差异。
-7. **上游缺件怎么报？** BLOCKED(upstream)。
-8. **CI 未启动怎么办？** BLOCKED(infrastructure)。
-9. **能打印 Nacos 配置吗？** 敏感值必须脱敏。
-10. **完成证据是什么？** 当前线源码、外部行为和远端消费层级。
+> Collection date: 2026-09-11.
+
+1. **What is chosen first?** The Cloud→Boot→ddd4j primary combination.
+2. **Is an alternative the same as the primary combination?** No.
+3. **Does configuration presence equal service availability?** No.
+4. **Does Context stay within one thread?** Async/Reactor/Feign propagation is also needed.
+5. **Can old cmpt modules continue in use?** Handle per the current hard-cut specification.
+6. **Do Binder names work across brokers?** Physical destinations differ.
+7. **How is an upstream gap reported?** BLOCKED(upstream).
+8. **What if CI did not start?** BLOCKED(infrastructure).
+9. **Can Nacos configuration be printed?** Sensitive values must be redacted.
+10. **What is the completion evidence?** Current-line source, external behavior, and remote consumption tiers.

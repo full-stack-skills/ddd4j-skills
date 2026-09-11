@@ -1,5 +1,7 @@
-# 功能矩阵
+# Feature Matrix
 
-本技能统一覆盖：Quarkus Cache、Redis、ddd4j Cache SPI、TTL、CAS、幂等、CDI scope。
+> Collection date: 2026-09-11.
 
-每种实现记录 artifact、runtime/deployment、CDI scope、配置、生命周期、测试和支持线。未实现明确标 NOT IMPLEMENTED。
+This skill uniformly covers: Quarkus Cache, Redis, ddd4j Cache SPI, TTL, CAS, idempotency, and CDI scope.
+
+For each implementation, record the artifact, runtime/deployment, CDI scope, configuration, lifecycle, tests, and supported lines. Mark unimplemented items explicitly NOT IMPLEMENTED.

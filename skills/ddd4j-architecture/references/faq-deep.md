@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **core 能依赖 Jackson 吗？** 以 CoreIndependenceTest 和 POM白名单为准。
-2. **annotation 是运行时吗？** 注解 retention/消费者决定，不能统一假定。
-3. **Repository 属于 data 吗？** 端口在 core，实现位于 data。
-4. **CommandBus 属于 runtime 吗？** 接口在 core，装配在 runtime。
-5. **Web 能直接改 Domain Context 吗？** 通过受控作用域绑定并释放。
-6. **BOM 引入等于 Bean 可用吗？** 不等于。
-7. **聚合模块能放代码吗？** 以当前 POM和源码为准，通常是聚合边界。
-8. **如何验证架构？** CodeGraph、ArchUnit/规则测试、编译和运行分层验证。
-9. **可以同时用 Spring 和 Guice 吗？** 需明确注册所有权，避免重复 SPI。
-10. **跨线结构相同等于行为相同吗？** 不等于，需要行为和运行证据。
+> Collection date: 2026-09-11.
+
+1. **Can core depend on Jackson?** Follow the `CoreIndependenceTest` and the POM allowlist.
+2. **Is annotation a runtime concern?** Annotation retention and consumers decide; do not assume uniformly.
+3. **Does Repository belong to data?** The port lives in core; the implementation lives in data.
+4. **Does CommandBus belong to runtime?** The interface lives in core; wiring lives in runtime.
+5. **Can Web modify Domain Context directly?** Bind and release only through a controlled scope.
+6. **Does a BOM import mean a Bean is available?** No.
+7. **Can aggregate modules contain code?** Follow the current POM and source. Typically they are aggregation boundaries only.
+8. **How do we verify the architecture?** Combine CodeGraph, ArchUnit / rule tests, and compile + runtime layered validation.
+9. **Can Spring and Guice coexist?** Only if registration ownership is explicit to avoid duplicate SPI bindings.
+10. **Does identical cross-line structure imply identical behavior?** No — behavior and runtime evidence are required.

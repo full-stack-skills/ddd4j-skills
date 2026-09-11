@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **先计划还是先实现？** 用户要求计划优先时，更新现有事实源并等待明确批准。
-2. **三条分支能共享实现吗？** 共享行为契约，代码需适配 Javalin/JDK/Maven 差异。
-3. **required participant 失败怎么办？** 启动或 readiness 按批准契约失败。
-4. **optional participant 失败怎么办？** 返回明确降级状态，不静默 READY。
-5. **Caffeine 何时可用？** 单实例或开发模式，且配置明确。
-6. **CORS 能用 anyHost 吗？** 生产不应使用，应配置来源、凭据、方法和头。
-7. **正常 stop 后 hook 怎么办？** 移除或证明不会累积，close 必须幂等。
-8. **Actions 账单阻塞算代码失败吗？** 不算，标记基础设施 BLOCKED。
-9. **本地发布能让 CI 变绿吗？** 不能，两者是独立门禁。
-10. **怎样证明私服发布？** 完整 deploy 成功、远端元数据/校验和及隔离空缓存消费。
+> Collection date: 2026-09-11.
+
+1. **Plan first or implement first?** When the user requests plan priority, update the existing fact source and wait for explicit approval.
+2. **Can the three branches share an implementation?** Share the behavior contract; code must adapt to Javalin/JDK/Maven differences.
+3. **What if a required participant fails?** Startup or readiness fails according to the approved contract.
+4. **What if an optional participant fails?** Return an explicit degraded status; never silently report READY.
+5. **When is Caffeine acceptable?** Single-instance or development mode, with explicit configuration.
+6. **Can CORS use anyHost?** Production should not; configure origins, credentials, methods, and headers.
+7. **What happens to hooks after a normal stop?** Remove them or prove they do not accumulate; close must be idempotent.
+8. **Is Actions blocked by billing a code failure?** No — mark infrastructure BLOCKED.
+9. **Does a local publication turn CI green?** No — the two are independent gates.
+10. **How is a private publication proven?** Full deploy success, remote metadata/checksums, and isolated clean-cache consumption.

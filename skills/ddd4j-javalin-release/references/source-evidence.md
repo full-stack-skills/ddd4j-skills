@@ -1,5 +1,7 @@
-# 源码证据
+# Source Evidence
 
-主要来源：workflows、POM、target/resume.properties 和远端 consumer 证据。
+> Collection date: 2026-09-11.
 
-根目录：/Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-boot/ddd4j-javalin。使用时刷新分支、SHA、POM、CodeGraph 和测试代码。
+Primary sources: workflows, POMs, target/resume.properties, and remote consumer evidence.
+
+Root directory: /Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-boot/ddd4j-javalin. Refresh the branch, SHA, POMs, CodeGraph, and test code before use.

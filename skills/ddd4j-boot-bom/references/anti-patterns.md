@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **跨线抹平**：统一 JDK/Maven；保留矩阵。
-2. **模块即行为**：只看 artifact；验证自动配置和运行测试。
-3. **依赖越权**：具体模块拥有平台版本；回到对应 BOM。
-4. **默认覆盖用户配置**：缺少 MissingBean；验证用户覆盖。
-5. **证据混淆**：本地成功当 CI/发布；分层报告。
+> Collection date: 2026-09-11.
+
+1. **Flattening across lines**: unifying JDK/Maven; keep the matrix.
+2. **Module as behavior**: reading artifacts only; verify auto-configuration and run tests.
+3. **Dependency overreach**: concrete modules owning platform versions; return them to the corresponding BOM.
+4. **Defaults overriding user configuration**: missing MissingBean checks; verify user overrides.
+5. **Evidence conflation**: counting local success as CI/publish; report in layers.

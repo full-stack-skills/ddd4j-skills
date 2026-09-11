@@ -1,7 +1,9 @@
-# ID、函数与反射
+# ID, Function, and Reflection
 
-- IdKit：标识生成与转换入口。
-- FunctionKit：受控类型转换函数。
-- ReflectKit/元数据工具：仅在类型信息无法静态表达时使用。
+> Collection date: 2026-09-11.
 
-反射失败必须携带目标类型和成员信息；不得吞异常或绕过访问安全。
+- **`IdKit`** — identifier generation and conversion entry point.
+- **`FunctionKit`** — controlled type-conversion functions.
+- **`ReflectKit` and metadata utilities** — use only when type information cannot be expressed statically.
+
+Reflection failures must carry the target type and member information. Do not swallow exceptions or bypass access safety.

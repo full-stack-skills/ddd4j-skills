@@ -1,9 +1,11 @@
-# Provider 矩阵
+# Provider Matrix
 
-- CaffeineCache、GuavaCache、HutoolCache：本地。
-- LettuceCache、JedisCache、RedissonCache：Redis。
-- JetCacheAdapter/Manager：统一/多级。
-- MemcachedCache：Memcached。
-- CacheKit：静态访问/注册入口。
+> Collection date: 2026-09-11.
 
-使用前检查当前构造器、配置和测试；类存在不等于生产连接已验证。
+- CaffeineCache, GuavaCache, HutoolCache: local.
+- LettuceCache, JedisCache, RedissonCache: Redis.
+- JetCacheAdapter/Manager: unified/multilevel.
+- MemcachedCache: Memcached.
+- CacheKit: static access/registration entry.
+
+Check the current constructors, configuration, and tests before use; a class existing does not mean the production connection is verified.

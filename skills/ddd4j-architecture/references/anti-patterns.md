@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **目录即完成**：模块存在就称能力可用；要求入口、注册和行为测试。
-2. **依赖倒置破坏**：core 引入具体框架；把实现移到适配层。
-3. **静态门面无注册**：调用 Registry/Contexts 前未装配；由 runtime 注册。
-4. **生命周期遗失**：创建连接/线程池但无关闭；定义 owner 和反向关闭。
-5. **跨线复制**：高线 API 直接移植旧 JDK；逐线适配。
+> Collection date: 2026-09-11.
+
+1. **Directory equals completion** — A module's existence does not mean the capability works. Require an entry point, registration, and behavior tests.
+2. **Broken dependency inversion** — Core imports concrete frameworks. Move implementations to the adapter layer.
+3. **Static facade without registration** — Code calls Registry/Contexts before any wiring has happened. The runtime layer must perform registration.
+4. **Lost lifecycle** — Connections or thread pools are created but never closed. Define an owner and reverse-close it.
+5. **Cross-line copy-paste** — Higher-line APIs ported directly to older JDKs. Adapt per line.

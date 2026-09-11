@@ -1,7 +1,9 @@
-# DDD 与契约注解
+# DDD and Contract Annotations
 
-- Contract：标注其他注解是可审计契约。
-- BusinessType：业务类型枚举/分类模型。
-- DDDAnnotation：通用 DDD 元数据入口。
+> Collection date: 2026-09-11.
 
-不要假设 DDDAnnotation 自动注册 Spring/CDI Bean。运行时融合由对应 Runtime 模块验证。
+- **`Contract`** — marks another annotation as an auditable contract.
+- **`BusinessType`** — business type enumeration / classification model.
+- **`DDDAnnotation`** — generic DDD metadata entry point.
+
+Do not assume `DDDAnnotation` auto-registers a Spring or CDI Bean. Runtime integration must be verified in the corresponding Runtime module.

@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **先选什么？** 先选维护线。
-2. **4.0.x 是 Quarkus 4 吗？** 不是。
-3. **runtime/deployment 为什么分开？** Quarkus 构建期模型。
-4. **类无 CDI scope 会怎样？** Arc 可能不发现。
-5. **BOM 能创建 Bean 吗？** 不能。
-6. **Docker 探测为何特殊？** Quarkus 多 ClassLoader。
-7. **native test 等于 JVM test 吗？** 不等于。
-8. **Security skip 怎么报？** SKIPPED 风险。
-9. **能打印 OIDC 配置吗？** secret 必须脱敏。
-10. **完成证据是什么？** 当前线源码和对应测试/发布层级。
+> Collection date: 2026-09-11.
+
+1. **What is chosen first?** The maintenance line.
+2. **Is 4.0.x Quarkus 4?** No.
+3. **Why are runtime/deployment separate?** It is the Quarkus build-time model.
+4. **What happens to a class without a CDI scope?** Arc may not discover it.
+5. **Can a BOM create beans?** No.
+6. **Why is Docker detection special?** Quarkus uses multiple classloaders.
+7. **Does a native test equal a JVM test?** No.
+8. **How is a Security skip reported?** SKIPPED, as a risk.
+9. **Can OIDC configuration be printed?** Secrets must be redacted.
+10. **What is the completion evidence?** Current-line source plus the matching test/release tiers.

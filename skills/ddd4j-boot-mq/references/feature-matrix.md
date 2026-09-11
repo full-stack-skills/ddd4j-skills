@@ -1,5 +1,7 @@
-# 功能矩阵
+# Feature Matrix
 
-本技能统一覆盖：Kafka、RabbitMQ、Pulsar、RocketMQ、ActiveMQ、MQTT、NATS、SQS、ONS/TDMQ、listener 生命周期。
+> Collection date: 2026-09-11.
 
-对每种实现记录 artifact、配置前缀、AutoConfiguration、默认 Bean、用户覆盖点、资源生命周期、测试和支持维护线。不存在或未验证的实现标 NOT IMPLEMENTED/NOT VERIFIED。
+This skill uniformly covers: Kafka, RabbitMQ, Pulsar, RocketMQ, ActiveMQ, MQTT, NATS, SQS, ONS/TDMQ, and listener lifecycle.
+
+For each implementation, record the artifact, configuration prefix, AutoConfiguration, default beans, user override points, resource lifecycle, tests, and supported maintenance lines. Mark missing or unverified implementations NOT IMPLEMENTED/NOT VERIFIED.

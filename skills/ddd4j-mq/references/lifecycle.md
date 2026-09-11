@@ -1,5 +1,7 @@
-# 生命周期
+# Lifecycle
 
-顺序：validate→producer init→consumer init→listener register→ready。
+> Collection date: 2026-09-11.
 
-任一步失败：逆序关闭已初始化资源。正常停止：先停止接收、drain、关闭 consumer、producer、connection。close 必须幂等。
+Order: validate → producer init → consumer init → listener register → ready.
+
+On any step failure: shut down initialized resources in reverse order. Normal stop: stop receiving first, drain, then close consumer, producer, and connection. close must be idempotent.

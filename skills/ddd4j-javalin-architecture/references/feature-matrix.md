@@ -1,5 +1,7 @@
-# 功能矩阵
+# Feature Matrix
 
-本技能统一覆盖：parent、bom、dependencies、core、ddd、auth、data、mq、web、cache、extensions、testcontainers。
+> Collection date: 2026-09-11.
 
-对每种实现记录 artifact、入口、配置、默认/覆盖、生命周期、测试和支持维护线。未实现或未验证明确标记。
+This skill uniformly covers: parent, bom, dependencies, core, ddd, auth, data, mq, web, cache, extensions, and testcontainers.
+
+For each implementation, record the artifact, entry points, configuration, defaults/overrides, lifecycle, tests, and supported maintenance lines. Mark unimplemented or unverified items explicitly.

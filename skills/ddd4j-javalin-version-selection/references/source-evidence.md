@@ -1,5 +1,7 @@
-# 源码证据
+# Source Evidence
 
-主要来源：各 feature 分支根 POM、BuildLineContractTest、workflow。
+> Collection date: 2026-09-11.
 
-根目录：/Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-boot/ddd4j-javalin。使用时刷新分支、SHA、POM、CodeGraph 和测试代码。
+Primary sources: each feature branch's root POM, BuildLineContractTest, and the workflow.
+
+Root directory: /Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-boot/ddd4j-javalin. Refresh the branch, SHA, POMs, CodeGraph, and test code before use.

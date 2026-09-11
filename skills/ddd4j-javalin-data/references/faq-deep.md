@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **先选什么？** 先选维护线。
-2. **7.1.x 能用 Maven 4 吗？** 当前正式契约是 Maven 3。
-3. **Javalin 6/7 API相同吗？** 不同。
-4. **容器启动等于行为通过吗？** 不等于。
-5. **本地 Caffeine 能集群幂等吗？** 不能。
-6. **readiness 能固定吗？** 不能。
-7. **Context 何时清理？** 所有终态。
-8. **CI 未启动怎么办？** BLOCKED。
-9. **能输出认证配置吗？** 敏感值必须脱敏。
-10. **完成证据是什么？** 当前线源码和对应行为/发布层级。
+> Collection date: 2026-09-11.
+
+1. **What is chosen first?** The maintenance line.
+2. **Can 7.1.x use Maven 4?** The current formal contract is Maven 3.
+3. **Are Javalin 6/7 APIs the same?** No.
+4. **Does a container starting equal behavior passing?** No.
+5. **Can local Caffeine provide cluster idempotency?** No.
+6. **Can readiness be hardcoded?** No.
+7. **When is the Context cleaned?** On all terminal states.
+8. **What if CI did not start?** BLOCKED.
+9. **Can authentication configuration be output?** Sensitive values must be redacted.
+10. **What is the completion evidence?** Current-line source plus the matching behavior/release tiers.

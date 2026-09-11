@@ -1,5 +1,7 @@
-# 功能矩阵
+# Feature Matrix
 
-本技能统一覆盖：双线 clean build、Git SHA、CI、Security、私服、61模块、空缓存消费。
+> Collection date: 2026-09-11.
 
-每种实现记录 artifact、runtime/deployment、CDI scope、配置、生命周期、测试和支持线。未实现明确标 NOT IMPLEMENTED。
+This skill uniformly covers: dual-line clean build, Git SHA, CI, Security, private repository, 61 modules, and clean-cache consumption.
+
+For each implementation, record the artifact, runtime/deployment, CDI scope, configuration, lifecycle, tests, and supported lines. Mark unimplemented items explicitly NOT IMPLEMENTED.

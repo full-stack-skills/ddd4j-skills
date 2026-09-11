@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **先选什么？** 先选维护线。
-2. **每个 artifact 都建技能吗？** 不。
-3. **配置存在等于启用吗？** 不等于。
-4. **Bean 创建等于外部服务可用吗？** 不等于。
-5. **用户 Bean 能覆盖吗？** 必须测试。
-6. **旧线能照搬新 API 吗？** 不能。
-7. **Docker skip 算通过吗？** 不算。
-8. **CI 未启动怎么报？** BLOCKED。
-9. **能打印配置排障吗？** 敏感值必须脱敏。
-10. **完成证据是什么？** 当前线源码、行为测试、CI/发布按需分级。
+> Collection date: 2026-09-11.
+
+1. **What is chosen first?** The maintenance line.
+2. **Is a skill created per artifact?** No.
+3. **Does configuration presence equal enabled?** No.
+4. **Does bean creation equal external service availability?** No.
+5. **Can user beans override?** It must be tested.
+6. **Can old lines copy new APIs verbatim?** No.
+7. **Does a Docker skip count as passing?** No.
+8. **How is a non-started CI reported?** BLOCKED.
+9. **Can configuration be printed for troubleshooting?** Sensitive values must be redacted.
+10. **What is the completion evidence?** Current-line source, behavior tests, CI/publish graded as needed.

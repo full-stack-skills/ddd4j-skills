@@ -1,12 +1,14 @@
-# 深度 FAQ
+# Deep FAQ
 
-1. **使用前先做什么？** 先选择维护线。
-2. **Boot 模块能修改 core 语义吗？** 不应。
-3. **聚合 POM 等于 Starter 吗？** 不等于。
-4. **依赖解析等于 Bean 创建吗？** 不等于。
-5. **用户 Bean 如何覆盖？** 由条件装配验证。
-6. **旧线能复制新注解吗？** 需逐线适配。
-7. **测试用什么？** 目标模块上下文和行为测试。
-8. **CI 未启动怎么办？** 标 BLOCKED。
-9. **私服热缓存够吗？** 不够。
-10. **完成证据是什么？** 源码、测试、CI、消费分别给出。
+> Collection date: 2026-09-11.
+
+1. **What comes first before use?** Select the maintenance line.
+2. **Can Boot modules change core semantics?** They should not.
+3. **Is an aggregator POM a Starter?** No.
+4. **Is dependency resolution the same as bean creation?** No.
+5. **How do user beans override?** Verified through conditional wiring.
+6. **Can old lines copy new annotations?** Each line must adapt them individually.
+7. **What tests are used?** Target module context and behavior tests.
+8. **What if CI did not start?** Mark BLOCKED.
+9. **Is a warm private-repository cache enough?** No.
+10. **What is the completion evidence?** Source, tests, CI, and consumption reported separately.

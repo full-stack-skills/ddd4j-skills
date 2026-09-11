@@ -1,3 +1,5 @@
-# 测试与告警
+# Testing and Alerting
 
-测试 counter/timer 值、标签集合、异常递增和无后端降级。告警从 SLO 推导，区分瞬时错误、持续错误和无数据。运行时还需验证 exporter/collector 实际收到数据。
+> Collection date: 2026-09-11.
+
+Test counter/timer values, label sets, increments on exceptions, and degradation without a backend. Alerts derive from SLOs and distinguish transient errors, sustained errors, and no data. The runtime also needs verification that the exporter/collector actually receives data.

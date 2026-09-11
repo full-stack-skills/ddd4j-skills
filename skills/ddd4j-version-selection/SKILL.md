@@ -4,41 +4,41 @@ description: Use when choosing compatible ddd4j, ddd4j-boot, ddd4j-cloud, ddd4j-
 license: Apache-2.0
 ---
 
-# ddd4j 版本选择
+# ddd4j Version Selection
 
 ## Overview
 
-选择的是完整兼容元组，不是单个“最新版本”。先固定 JDK、构建工具和运行时，再选择 ddd4j 及适配项目。
+What gets selected is a complete compatibility tuple, not a single "latest version". Fix the JDK, build tool, and runtime first, then choose ddd4j and the adapter project.
 
-## 快速开始
+## Quick Start
 
-- “JDK 17 的 Spring Boot 3.4 项目应该选哪条 ddd4j？”
-- “Javalin 7.1 能否使用 ddd4j 3.0.x？”
-- “Spring Cloud 2024.0.x 对应哪些 Boot 和 ddd4j 版本？”
-- “Quarkus 4.0.x 为什么仍使用 Quarkus 3.38？”
+- "Which ddd4j line should a JDK 17 Spring Boot 3.4 project pick?"
+- "Can Javalin 7.1 use ddd4j 3.0.x?"
+- "Which Boot and ddd4j versions correspond to Spring Cloud 2024.0.x?"
+- "Why does Quarkus 4.0.x still use Quarkus 3.38?"
 
-## 输入契约
+## Input Contract
 
-至少收集：
+Collect at least:
 
-1. 项目是新建、升级还是维护。
-2. JDK 与 Maven 可用版本。
-3. Spring Boot/Cloud、Javalin 或 Quarkus 目标版本。
-4. 是否必须使用 POM 4.0/Maven 3。
-5. 是否要求远端 SNAPSHOT 可消费和 CI 已验证。
+1. Whether the project is new, an upgrade, or maintenance.
+2. Available JDK and Maven versions.
+3. Target Spring Boot/Cloud, Javalin, or Quarkus versions.
+4. Whether POM 4.0/Maven 3 is mandatory.
+5. Whether remote SNAPSHOT consumption and verified CI are required.
 
-缺失时先给暂定候选，再输出“缺少：具体约束；补充方式：提供 POM、java -version、mvn -version”。
+When input is missing, give a tentative candidate first, then output "missing: specific constraint; how to provide: supply the POM, java -version, mvn -version".
 
-## 决策顺序
+## Decision Order
 
-1. 用 JDK 锁定 ddd4j 主线：Java 8→1.0.x，Java 17→2.0.x，Java 21→3.0.x。
-2. 用运行时锁定适配项目维护线。
-3. 校验 Maven/POM Model：1.x/2.x 通常为 Maven 3/POM 4.0；3.x 为 Maven 4/POM 4.1。
-4. 校验上游框架精确版本。
-5. 查询私有 Maven 元数据和最终 SHA；未验证时标为 NOT VERIFIED。
-6. 输出推荐、备选、不兼容、未验证四类。
+1. Lock the ddd4j main line by JDK: Java 8→1.0.x, Java 17→2.0.x, Java 21→3.0.x.
+2. Lock the adapter project maintenance line by runtime.
+3. Verify the Maven/POM Model: 1.x/2.x are usually Maven 3/POM 4.0; 3.x is Maven 4/POM 4.1.
+4. Verify the exact upstream framework version.
+5. Query private Maven repository metadata and the final SHA; mark NOT VERIFIED when unverified.
+6. Output four categories: recommended, alternative, incompatible, unverified.
 
-## 快速矩阵
+## Quick Matrix
 
 | ddd4j | JDK | Maven/POM | Boot |
 |---|---:|---|---|
@@ -46,72 +46,72 @@ license: Apache-2.0
 | 2.0.x | 17 | Maven 3 / 4.0.0 | Boot 3.0–3.5 |
 | 3.0.x | 21 | Maven 4 / 4.1.0 | Boot 4.0–4.1 |
 
-完整 Boot、Cloud、Javalin、Quarkus 矩阵见 [兼容矩阵](references/compatibility-matrix.md)。
+For the full Boot, Cloud, Javalin, and Quarkus matrices, see the [Compatibility Matrix](references/compatibility-matrix.md).
 
-## 输出格式
+## Output Format
 
-| 字段 | 内容 |
+| Field | Content |
 |---|---|
-| 推荐组合 | JDK、Maven、POM、ddd4j、适配项目、框架 |
-| 选择理由 | 命中的源码矩阵和约束 |
-| 不兼容项 | 冲突字段与原因 |
-| 证据状态 | SOURCE / TEST / CI / PUBLISHED / CONSUMED |
-| 后续验证 | 精确命令、分支和坐标 |
+| Recommended combination | JDK, Maven, POM, ddd4j, adapter project, framework |
+| Selection rationale | Matched source matrix and constraints |
+| Incompatible items | Conflicting fields and reasons |
+| Evidence status | SOURCE / TEST / CI / PUBLISHED / CONSUMED |
+| Follow-up verification | Exact commands, branches, and coordinates |
 
-## 能力边界
+## Capability Boundaries
 
-### ✅ 擅长
+### ✅ Strong At
 
-- 五仓库版本组合选择。
-- Maven 3/4 和 POM 4.0/4.1 边界。
-- 主组合、兼容备选和升级路径。
-- 识别本地成功与远端可消费的差别。
+- Version combination selection across the five repositories.
+- The Maven 3/4 and POM 4.0/4.1 boundary.
+- Primary combinations, compatible alternatives, and upgrade paths.
+- Distinguishing local success from remote consumability.
 
-### ⚠️ 需要素材
+### ⚠️ Needs Input
 
-- 当前 POM、分支或目标框架版本。
-- 私服访问条件。
-- 历史线是否允许升级 JDK/Maven。
+- Current POM, branch, or target framework version.
+- Private repository access conditions.
+- Whether historical lines may upgrade JDK/Maven.
 
-### ❌ 超范围
+### ❌ Out of Scope
 
-- 猜测未发布版本可用。
-- 自动升级依赖或切换分支。
-- 用分支名代替 POM、CI 和远端证据。
+- Guessing that unreleased versions work.
+- Automatically upgrading dependencies or switching branches.
+- Substituting branch names for POM, CI, and remote evidence.
 
-## 常见错误
+## Common Mistakes
 
-1. 给所有项目推荐最高 ddd4j 主线。
-2. 把 Javalin 7.1.x 提升到 Maven 4。
-3. 把 Quarkus adapter 版本当 Quarkus Platform 版本。
-4. 只看 Cloud 分支名，不检查 Boot parent。
-5. 把 deploy 上传开始当发布完成。
-6. 把 Security SKIPPED 写成 PASS。
+1. Recommending the highest ddd4j main line to every project.
+2. Promoting Javalin 7.1.x to Maven 4.
+3. Treating the Quarkus adapter version as the Quarkus Platform version.
+4. Reading only the Cloud branch name without checking the Boot parent.
+5. Treating the start of a deploy upload as a finished release.
+6. Writing Security SKIPPED down as PASS.
 
-## 深度参考
+## Deep Reference
 
-- [兼容矩阵](references/compatibility-matrix.md)
-- [证据与门禁](references/evidence-and-gates.md)
-- [反模式](references/anti-patterns.md)
-- [深度 FAQ](references/faq-deep.md)
+- [Compatibility Matrix](references/compatibility-matrix.md)
+- [Evidence and Gates](references/evidence-and-gates.md)
+- [Anti-Patterns](references/anti-patterns.md)
+- [Deep FAQ](references/faq-deep.md)
 
-## 隐私与安全
+## Privacy and Security
 
-不得输出 Maven settings、Token、密码或带签名的私服 URL；仅报告凭据来源和脱敏错误。
+Never output Maven settings, tokens, passwords, or credentialed private repository URLs; report only credential sources and redacted errors.
 
-## 受众与定制
+## Audience and Customization
 
-- 新项目开发者提供 JDK 和目标运行时。
-- 维护者提供现有 POM、分支和升级限制。
-- 发布人员指定 CI/私服/空缓存证据要求。
+- New project developers provide the JDK and target runtime.
+- Maintainers provide the existing POM, branch, and upgrade constraints.
+- Release engineers specify CI/private repository/clean-cache evidence requirements.
 
-可定制目标产品、允许维护线和证据层级。输入不足时先给暂定组合，再列“缺少：版本约束；补充方式：提供 POM 与工具版本”。
+Customize the target product, allowed maintenance lines, and evidence level. When input is insufficient, give a tentative combination first, then list "missing: version constraints; how to provide: supply the POM and tool versions".
 
-## 常见问题
+## FAQ
 
-1. **是否总选最新版？** 不，先看约束。
-2. **只选 ddd4j 版本够吗？** 不够，要完整元组。
-3. **分支名能证明框架版本吗？** 不能。
-4. **本地 SNAPSHOT 算可用吗？** 不算远端可用。
-5. **CI 未启动怎么办？** 标 BLOCKED。
-6. **矩阵过期怎么办？** 刷新当前 POM和验证脚本。
+1. **Is the latest version always chosen?** No — constraints come first.
+2. **Is picking just the ddd4j version enough?** No — the full tuple is required.
+3. **Can a branch name prove the framework version?** No.
+4. **Does a local SNAPSHOT count as available?** It is not remotely available.
+5. **What if CI never started?** Mark BLOCKED.
+6. **What if the matrix is stale?** Refresh the current POMs and verification scripts.

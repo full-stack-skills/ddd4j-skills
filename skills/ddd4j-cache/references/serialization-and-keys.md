@@ -1,7 +1,9 @@
-# 序列化与键
+# Serialization and Keys
 
-- Key 包含业务域、租户、版本和稳定标识。
-- 避免把 PII 写入可观察 key。
-- Redis JSON 使用受信任数据边界。
-- Schema 变化需版本化或兼容读取。
-- 删除/失效使用精确前缀，禁止生产全库 flush。
+> Collection date: 2026-09-11.
+
+- Keys include the business domain, tenant, version, and stable identifier.
+- Avoid writing PII into observable keys.
+- Redis JSON uses a trusted data boundary.
+- Schema changes require versioning or compatible reads.
+- Deletion/invalidation uses precise prefixes; never flush an entire production database.

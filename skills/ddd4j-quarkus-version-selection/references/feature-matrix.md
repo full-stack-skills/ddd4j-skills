@@ -1,5 +1,7 @@
-# 功能矩阵
+# Feature Matrix
 
-本技能统一覆盖：3.3.x→ddd4j2/JDK17/Maven3/Quarkus3.37.4；4.0.x→ddd4j3/JDK21/Maven4/Quarkus3.38.2。
+> Collection date: 2026-09-11.
 
-每种实现记录 artifact、runtime/deployment、CDI scope、配置、生命周期、测试和支持线。未实现明确标 NOT IMPLEMENTED。
+This skill uniformly covers: 3.3.x→ddd4j 2/JDK17/Maven3/Quarkus 3.37.4; 4.0.x→ddd4j 3/JDK21/Maven4/Quarkus 3.38.2.
+
+For each implementation, record the artifact, runtime/deployment, CDI scope, configuration, lifecycle, tests, and supported lines. Mark unimplemented items explicitly NOT IMPLEMENTED.

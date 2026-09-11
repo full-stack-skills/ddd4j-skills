@@ -1,5 +1,7 @@
-# 源码证据
+# Source Evidence
 
-主要来源：根 POM和聚合模块。
+> Collection date: 2026-09-11.
 
-根目录：/Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-cloud/ddd4j-cloud。使用时刷新分支、SHA、OpenSpec、POM、CodeGraph 和测试代码。
+Primary sources: the root POM and the aggregator modules.
+
+Root directory: /Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-cloud/ddd4j-cloud. Refresh the branch, SHA, OpenSpec, POMs, CodeGraph, and test code before use.

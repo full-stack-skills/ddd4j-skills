@@ -1,6 +1,8 @@
-# 13 条维护线
+# 13 Maintenance Lines
 
-| 线 | Spring Boot | ddd4j | JDK | Maven/POM |
+> Collection date: 2026-09-11.
+
+| Line | Spring Boot | ddd4j | JDK | Maven/POM |
 |---|---|---|---:|---|
 | 2.3.x | 2.3.12.RELEASE | 1.0.x | 8 | 3/4.0 |
 | 2.4.x | 2.4.13 | 1.0.x | 8 | 3/4.0 |
@@ -16,4 +18,4 @@
 | 4.0.x | 4.0.8 | 3.0.x | 21 | 4/4.1 |
 | 4.1.x | 4.1.0 | 3.0.x | 21 | 4/4.1 |
 
-来源：config/consistency/ddd4j-boot-build-matrix.tsv。使用时重新运行 verifier。
+Source: config/consistency/ddd4j-boot-build-matrix.tsv. Re-run the verifier before use.

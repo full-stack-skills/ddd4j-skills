@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **高基数标签**：user/message/sql；使用稳定低基数维度。
-2. **Noop 假绿**：无 exporter 仍称观测完成；标记降级。
-3. **只测注册**：不测递增；验证行为。
-4. **指标代替健康**：readiness 另行判断。
-5. **异常漏记**：只统计成功；覆盖失败。
+> Collection date: 2026-09-11.
+
+1. **High-cardinality labels**: user/message/sql; use stable low-cardinality dimensions.
+2. **Noop false green**: claiming observability complete with no exporter; mark it degraded.
+3. **Testing registration only**: never testing increments; verify behavior.
+4. **Metrics as health**: readiness is judged separately.
+5. **Missing exception recording**: counting successes only; cover failures.

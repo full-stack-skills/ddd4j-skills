@@ -1,7 +1,9 @@
-# 反模式
+# Anti-Patterns
 
-1. **注解即实现**：只加 ApiIdempotent 就宣称幂等；验证消费者。
-2. **框架语义投射**：认为 RUNTIME 注解都是 Bean；检查注册器。
-3. **字段元数据泄漏**：Domain 引用 PO 注解；通过映射隔离。
-4. **跨线复制**：高线注解属性直接复制旧线；逐线编译。
-5. **无行为测试**：只测试反射存在；补充适配器行为。
+> Collection date: 2026-09-11.
+
+1. **Annotation equals implementation** — Adding `@ApiIdempotent` does not prove idempotency. Verify the consumer.
+2. **Framework semantics projected** — Assume every `RUNTIME` annotation is a Bean. Check the registrar.
+3. **Field metadata leakage** — Domain references PO annotations. Isolate via mapping.
+4. **Cross-line copy** — High-line annotation attributes copied to old lines verbatim. Recompile per line.
+5. **No behavior tests** — Only test that reflection finds the annotation. Add adapter behavior tests.

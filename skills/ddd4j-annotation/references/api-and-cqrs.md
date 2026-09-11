@@ -1,14 +1,16 @@
-# API 与 CQRS 注解
+# API and CQRS Annotations
+
+> Collection date: 2026-09-11.
 
 ## API
 
-- ApiIdempotent / ApiIdempotentType：声明幂等策略，行为由 Web guard 实现。
-- ApiModule：API 模块元数据。
-- ApiOperationLog：操作日志元数据。
-- RawResponse：跳过统一响应包装的意图。
+- **`ApiIdempotent` / `ApiIdempotentType`** — declares the idempotency strategy; behavior is implemented by a Web guard.
+- **`ApiModule`** — API module metadata.
+- **`ApiOperationLog`** — operation log metadata.
+- **`RawResponse`** — intent to skip the unified response wrapper.
 
 ## CQRS
 
-- CreateEvent、UpdateEvent、DeleteEvent：方法级事件意图。
+- **`CreateEvent`**, **`UpdateEvent`**, **`DeleteEvent`** — method-level event intent.
 
-每项都要追踪实际扫描器/拦截器；注解存在不是行为证据。
+Track the actual scanner or interceptor for each item. The annotation's existence is not behavior evidence.

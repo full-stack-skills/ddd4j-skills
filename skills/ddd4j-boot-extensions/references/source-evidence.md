@@ -1,5 +1,7 @@
-# 源码证据
+# Source Evidence
 
-主要来源：ddd4j-boot-extensions 各子模块和对应自动配置测试。
+> Collection date: 2026-09-11.
 
-根目录：/Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-boot/ddd4j-boot。使用时重新确认分支、SHA、矩阵、POM、CodeGraph 和测试结果。
+Primary sources: the ddd4j-boot-extensions submodules and their corresponding auto-configuration tests.
+
+Root directory: /Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-boot/ddd4j-boot. Re-confirm the branch, SHA, matrix, POMs, CodeGraph, and test results before use.

@@ -8,105 +8,105 @@ license: Apache-2.0
 
 ## Overview
 
-所有 Broker 适配统一到 MQClient、MQListener、MQEvent、Acknowledgment；先选择交付和运维语义，再选择 Broker。
+All broker adapters unify onto MQClient, MQListener, MQEvent, and Acknowledgment; choose delivery and operational semantics first, then the broker.
 
-## Broker 路由
+## Broker Routing
 
-| 需求 | 候选 |
+| Requirement | Candidates |
 |---|---|
-| 高吞吐日志/流 | Kafka |
-| AMQP 路由 | RabbitMQ |
-| 多租户流/队列 | Pulsar/TDMQ |
-| 国内事务/顺序消息 | RocketMQ/ONS |
+| High-throughput logs/streams | Kafka |
+| AMQP routing | RabbitMQ |
+| Multi-tenant streams/queues | Pulsar/TDMQ |
+| Domestic transactional/ordered messages | RocketMQ/ONS |
 | JMS | ActiveMQ/Artemis |
 | IoT | MQTT/Mica MQTT |
-| 轻量 JetStream | NATS |
+| Lightweight JetStream | NATS |
 | AWS | SQS |
-| Redis 基础设施 | Redis Stream |
-| 进程内 | Disruptor |
-| Spring Cloud | 由 Cloud Stream 适配统一 |
+| Redis infrastructure | Redis Stream |
+| In-process | Disruptor |
+| Spring Cloud | unified by the Cloud Stream adapter |
 
-## 核心规则
+## Core Rules
 
-1. required listener 初始化失败应阻止启动；optional 可降级 readiness。
-2. 成功业务处理后 ack，失败按策略 nack/requeue。
-3. 重试需 backoff、上限和 dead-letter。
-4. message id/业务键用于幂等，不能只依赖 Broker。
-5. 初始化部分失败要反向关闭已创建资源。
-6. close 幂等；线程、consumer、producer、connection 均有 owner。
-7. persist=true 等配置必须有行为测试。
+1. Required listeners that fail initialization must block startup; optional ones may degrade readiness.
+2. Ack after successful business processing; on failure nack/requeue according to policy.
+3. Retries need backoff, an upper bound, and dead-lettering.
+4. Message id/business key drives idempotency; never rely on the broker alone.
+5. Partial initialization failure must shut down already-created resources in reverse order.
+6. close is idempotent; threads, consumers, producers, and connections all have owners.
+7. Configurations such as persist=true must have behavior tests.
 
-## 能力边界
+## Capability Boundaries
 
-### ✅ 擅长
+### ✅ Strong At
 
-- Broker 选择和统一 API。
-- ACK/NACK、重试、死信、幂等。
-- 监听器扫描和生命周期。
-- Testcontainers round-trip。
+- Broker selection and the unified API.
+- ACK/NACK, retries, dead letters, idempotency.
+- Listener scanning and lifecycle.
+- Testcontainers round-trips.
 
-### ⚠️ 需要素材
+### ⚠️ Needs Input
 
-- Broker、交付语义和顺序要求。
-- topic/tag/group/namespace。
-- 部署和容灾模型。
+- Broker, delivery semantics, and ordering requirements.
+- topic/tag/group/namespace.
+- Deployment and disaster-recovery model.
 
-### ❌ 超范围
+### ❌ Out of Scope
 
-- 只启动容器就称消息链成功。
-- 用 mock 证明 Broker durability。
-- 把 topic 命名跨 Broker 机械统一。
+- Declaring the message chain successful because a container started.
+- Using mocks to prove broker durability.
+- Mechanically unifying topic naming across brokers.
 
-## 工作流
+## Workflow
 
-1. 定义 at-most/at-least-once 和顺序。
-2. 选择 Broker/adapter。
-3. 配置 producer/consumer/listener。
-4. 验证 publish→consume→ack。
-5. 验证 retry/dead-letter/duplicate/recovery。
-6. 验证启动回滚、readiness 和关闭。
+1. Define at-most/at-least-once and ordering.
+2. Choose the broker/adapter.
+3. Configure producer/consumer/listener.
+4. Verify publish→consume→ack.
+5. Verify retry/dead-letter/duplicate/recovery.
+6. Verify startup rollback, readiness, and shutdown.
 
-## 常见错误
+## Common Mistakes
 
-- ACK 在业务处理前完成。
-- 消费失败被吞掉。
-- required consumer 启动失败仍 READY。
-- Broker 容器启动被当 round-trip。
-- RocketMQ destination 使用非法字符。
-- 测试 skip 被写成 PASS。
+- ACK completed before business processing.
+- Consumed failures being swallowed.
+- A required consumer failing at startup while the app still reports READY.
+- Counting a broker container start as a round-trip.
+- Illegal characters in RocketMQ destinations.
+- Writing skipped tests down as PASS.
 
-## 深度参考
+## Deep Reference
 
-- [Broker 矩阵](references/broker-matrix.md)
-- [ACK 与可靠性](references/ack-retry-dead-letter.md)
-- [生命周期](references/lifecycle.md)
-- [测试](references/testcontainers.md)
-- [反模式](references/anti-patterns.md)
-- [深度 FAQ](references/faq-deep.md)
+- [Broker Matrix](references/broker-matrix.md)
+- [ACK and Reliability](references/ack-retry-dead-letter.md)
+- [Lifecycle](references/lifecycle.md)
+- [Testing](references/testcontainers.md)
+- [Anti-Patterns](references/anti-patterns.md)
+- [Deep FAQ](references/faq-deep.md)
 
-## 隐私与安全
+## Privacy and Security
 
-消息 payload、headers 和日志不得泄露 Token、PII、云访问密钥。
+Message payloads, headers, and logs must not leak tokens, PII, or cloud access keys.
 
-## 快速开始
+## Quick Start
 
-- “使用 `$ddd4j-mq` 分析我当前项目应该采用的实现和配置。”
-- “使用 `$ddd4j-mq` 对照当前源码审查现有用法。”
-- “使用 `$ddd4j-mq` 给出实现选择、证据状态和剩余风险。”
+- "Use `$ddd4j-mq` to analyze the implementation and configuration my current project should adopt."
+- "Use `$ddd4j-mq` to review existing usage against the current source."
+- "Use `$ddd4j-mq` to return an implementation choice, evidence state, and remaining risk."
 
-## 受众与定制
+## Audience and Customization
 
-- 开发者：提供目标维护线、POM、功能和验收行为。
-- 架构师：指定只读边界审查、兼容性或迁移目标。
-- 测试/发布人员：指定所需证据层级，不自动扩大到发布或生产操作。
+- Developers: provide the target maintenance line, POM, capabilities, and acceptance behavior.
+- Architects: specify a read-only boundary review, compatibility, or migration target.
+- Testers / release engineers: specify the required evidence levels; do not auto-expand to release or production operations.
 
-可定制目标框架、允许实现、排除模块、兼容性要求和输出证据层级。输入不足时先给暂定判断，再列出“缺少：具体项；补充方式：所需路径或配置”。
+Customize the target framework, allowed implementations, excluded modules, compatibility requirements, and output evidence level. When input is insufficient, give a tentative verdict first, then list "missing: specific item; how to provide: required path or configuration".
 
-## 常见问题
+## FAQ
 
-1. **是否按 Maven artifact 创建技能？** 不，按用户面对的功能域组织。
-2. **是否能直接套用其他维护线？** 不能，先核对版本和源码。
-3. **源码中有类就表示能力可用吗？** 不表示，还需注册和行为证据。
-4. **测试未运行如何报告？** 标记 NOT RUN 或 BLOCKED。
-5. **可以自动提交或发布吗？** 只有用户明确授权后才执行。
-6. **找不到实现怎么办？** 说明缺失的模块或证据，不编造 API。
+1. **Are skills organized by Maven artifact?** No — by the user-facing capability domain.
+2. **Can I copy another maintenance line directly?** No — verify the version and source first.
+3. **Does a class existing in source prove the capability works?** No — registration and behavior evidence are also required.
+4. **How do I report tests that did not run?** Mark `NOT RUN` or `BLOCKED`.
+5. **Can the skill commit or release automatically?** Only after explicit user authorization.
+6. **What if the implementation is missing?** Describe the missing module or evidence; do not invent APIs.
