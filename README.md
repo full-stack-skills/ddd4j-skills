@@ -24,7 +24,7 @@ Install one skill:
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## Skills (50)
+## Skills (62)
 
 | Skill | Use when |
 |---|---|
@@ -78,6 +78,18 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-quarkus-cache` | Integrating Quarkus Cache, Redis, ddd4j Cache SPI, TTL, CAS, and idempotency |
 | `ddd4j-quarkus-testing` | Testing QuarkusTest, TestResource, Arc, Docker, classloaders, and native paths |
 | `ddd4j-quarkus-release` | Validating and publishing 3.3.x/4.0.x with CI, Security, and clean-cache consumption |
+| `ddd4j-cloud-version-selection` | Selecting Cloud, Boot, ddd4j, JDK, Maven, and POM maintenance combinations |
+| `ddd4j-cloud-architecture` | Designing Cloud parent, BOM, extensions, compatibility, verification, and upstream boundaries |
+| `ddd4j-cloud-bom` | Managing Cloud/Alibaba BOMs, Boot parents, ddd4j imports, and effective POMs |
+| `ddd4j-cloud-context` | Propagating and clearing request, thread, Reactor, async, and Feign context |
+| `ddd4j-cloud-tenant` | Implementing tenant/system isolation, data scope, SQL, and cross-service propagation |
+| `ddd4j-cloud-data` | Integrating data sources, MyBatis, JPA, transactions, Seata, tenants, and migrations |
+| `ddd4j-cloud-feign` | Configuring headers, interceptors, error decoders, retries, and cleanup |
+| `ddd4j-cloud-stream` | Integrating StreamBridge, bindings, destinations, ACK, Kafka, RabbitMQ, Pulsar, and RocketMQ |
+| `ddd4j-cloud-web` | Building MVC/WebFlux i18n, errors, context, tenant, auth, validation, and readiness |
+| `ddd4j-cloud-observability` | Configuring Nacos, Sentinel, monitor, trace, metrics, logging, and health |
+| `ddd4j-cloud-testing` | Testing compatibility, MySQL, context, Feign, binders, brokers, and remote consumers |
+| `ddd4j-cloud-release` | Validating and publishing eight lines with upstream and clean-cache proof |
 
 ## Boundaries
 

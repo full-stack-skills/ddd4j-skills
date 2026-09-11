@@ -60,5 +60,17 @@
     ,"./skills/ddd4j-quarkus-cache"
     ,"./skills/ddd4j-quarkus-testing"
     ,"./skills/ddd4j-quarkus-release"
+    ,"./skills/ddd4j-cloud-version-selection"
+    ,"./skills/ddd4j-cloud-architecture"
+    ,"./skills/ddd4j-cloud-bom"
+    ,"./skills/ddd4j-cloud-context"
+    ,"./skills/ddd4j-cloud-tenant"
+    ,"./skills/ddd4j-cloud-data"
+    ,"./skills/ddd4j-cloud-feign"
+    ,"./skills/ddd4j-cloud-stream"
+    ,"./skills/ddd4j-cloud-web"
+    ,"./skills/ddd4j-cloud-observability"
+    ,"./skills/ddd4j-cloud-testing"
+    ,"./skills/ddd4j-cloud-release"
   ]
 }

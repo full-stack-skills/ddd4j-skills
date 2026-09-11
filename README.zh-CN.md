@@ -24,7 +24,7 @@ npx skills add full-stack-skills/ddd4j-skills
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## 技能列表（50）
+## 技能列表（62）
 
 | 技能 | 适用场景 |
 |---|---|
@@ -78,6 +78,18 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-quarkus-cache` | 集成 Quarkus Cache、Redis、ddd4j Cache SPI、TTL、CAS 和幂等 |
 | `ddd4j-quarkus-testing` | 测试 QuarkusTest、TestResource、Arc、Docker、ClassLoader 和 Native 路径 |
 | `ddd4j-quarkus-release` | 验证和发布 3.3.x/4.0.x、CI、Security 与空缓存消费 |
+| `ddd4j-cloud-version-selection` | 选择 Cloud、Boot、ddd4j、JDK、Maven 和 POM 维护组合 |
+| `ddd4j-cloud-architecture` | 设计 Cloud parent、BOM、扩展、兼容、验证和上游边界 |
+| `ddd4j-cloud-bom` | 管理 Cloud/Alibaba BOM、Boot parent、ddd4j 导入和 effective POM |
+| `ddd4j-cloud-context` | 传播和清理请求、线程、Reactor、异步和 Feign Context |
+| `ddd4j-cloud-tenant` | 实现租户/系统隔离、数据范围、SQL 和跨服务传播 |
+| `ddd4j-cloud-data` | 集成数据源、MyBatis、JPA、事务、Seata、租户和迁移 |
+| `ddd4j-cloud-feign` | 配置 Header、Interceptor、ErrorDecoder、重试和清理 |
+| `ddd4j-cloud-stream` | 集成 StreamBridge、Binding、Destination、ACK、Kafka、RabbitMQ、Pulsar 和 RocketMQ |
+| `ddd4j-cloud-web` | 构建 MVC/WebFlux i18n、错误、Context、租户、认证、校验和 Readiness |
+| `ddd4j-cloud-observability` | 配置 Nacos、Sentinel、Monitor、Trace、Metrics、Logging 和 Health |
+| `ddd4j-cloud-testing` | 测试兼容、MySQL、Context、Feign、Binder、Broker 和远端消费者 |
+| `ddd4j-cloud-release` | 验证和发布八条维护线、上游与空缓存证明 |
 
 ## 边界
 
