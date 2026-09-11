@@ -117,8 +117,8 @@
 - Create: skills/ddd4j-extensions/
 - Delete after migration: skills/ddd4j-validation/
 
-- [ ] **Step 1:** Web 统一多运行时响应、上下文、认证、幂等、CORS 和 readiness。
-- [ ] **Step 2:** Validation 迁入 web/references/validation.md。
-- [ ] **Step 3:** Runtime 比较 Spring/Guice/Quarkus CDI 的 SPI 与生命周期。
-- [ ] **Step 4:** Extensions 按功能介绍 Jackson/Excel/Akka/PF4J/QLExpress/QR/Monitor。
-- [ ] **Step 5:** 全量场景、TRACE、插件、README 和安装发现验证后提交。
+- [x] **Step 1:** Web 统一多运行时响应、上下文、认证、幂等、CORS 和 readiness。
+- [x] **Step 2:** Validation 迁入 web/references/validation.md。
+- [x] **Step 3:** Runtime 比较 Spring/Guice/Quarkus CDI 的 SPI 与生命周期。
+- [x] **Step 4:** Extensions 按功能介绍 Jackson/Excel/Akka/PF4J/QLExpress/QR/Monitor。
+- [x] **Step 5:** 全量场景、TRACE、插件、README 和安装发现验证后提交。
