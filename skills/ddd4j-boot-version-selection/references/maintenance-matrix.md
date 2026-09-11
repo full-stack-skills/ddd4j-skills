@@ -17,4 +17,3 @@
 | 4.1.x | 4.1.0 | 3.0.x | 21 | 4/4.1 |
 
 来源：config/consistency/ddd4j-boot-build-matrix.tsv。使用时重新运行 verifier。
-

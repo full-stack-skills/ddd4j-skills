@@ -3,4 +3,3 @@
 本技能统一覆盖：双线 clean build、Git SHA、CI、Security、私服、61模块、空缓存消费。
 
 每种实现记录 artifact、runtime/deployment、CDI scope、配置、生命周期、测试和支持线。未实现明确标 NOT IMPLEMENTED。
-

@@ -3,4 +3,3 @@
 主要来源：stream extension, BindingNamingContributor and broker integration tests。
 
 根目录：/Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-cloud/ddd4j-cloud。使用时刷新分支、SHA、OpenSpec、POM、CodeGraph 和测试代码。
-

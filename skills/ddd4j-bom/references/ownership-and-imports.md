@@ -6,4 +6,3 @@
 - adapter dependencies/BOM：只拥有 Boot、Cloud、Javalin、Quarkus 专属依赖。
 
 审查顺序：直接声明→父级→导入 BOM 顺序→effective POM→dependency tree。
-

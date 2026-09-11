@@ -17,4 +17,3 @@
 | Javalin 7 HTTP | 对应 JavalinJackson3 配置 |
 
 Redis mapper 的 DefaultTyping 不能用于不可信外部数据。事件 payload 禁止依赖 @class。
-

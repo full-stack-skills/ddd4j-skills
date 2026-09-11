@@ -64,4 +64,3 @@
 - ddd4j-cloud/scripts/compatibility/verify_cloud_release_matrix.py
 - ddd4j-javalin 各 feature 分支 pom.xml
 - ddd4j-quarkus 各 feature 分支 pom.xml
-

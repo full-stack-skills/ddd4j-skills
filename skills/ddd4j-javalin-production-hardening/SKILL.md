@@ -1,6 +1,6 @@
 ---
 name: ddd4j-javalin-production-hardening
-description: Audit, plan, implement, verify, and privately release production-hardening changes across the ddd4j-javalin 6.7.x, 7.1.x, and 7.2.x maintenance lines. Use for Javalin runtime lifecycle, readiness, configuration, idempotency, CORS, multi-branch TDD, CI, or private Maven release work; do not use for generic ddd4j or Quarkus releases.
+description: Use when hardening or releasing ddd4j-javalin 6.7.x, 7.1.x, or 7.2.x across runtime lifecycle, readiness, configuration, idempotency, CORS, multi-branch TDD, CI, or private Maven workflows.
 ---
 
 # DDD4J Javalin Production Hardening

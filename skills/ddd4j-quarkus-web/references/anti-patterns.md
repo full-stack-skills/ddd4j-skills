@@ -5,4 +5,3 @@
 3. **BOM 即运行**：验证 Bean/BuildItem。
 4. **容器即成功**：要求真实行为。
 5. **Security 假绿**：SKIPPED 不等于 PASS。
-

@@ -7,4 +7,3 @@
 - Realm 和 SessionManager 属于运行时配置，不放进领域层。
 - 线程池和请求结束必须解除 Shiro ThreadContext。
 - 用 ShiroSubjectProviderTest/ShiroSubjectTest 校正行为。
-

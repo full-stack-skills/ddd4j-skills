@@ -9,4 +9,3 @@
 - ddd4j-parent/dependencies/bom：构建和消费治理。
 
 使用时以当前根 POM和 CodeGraph 为准。
-

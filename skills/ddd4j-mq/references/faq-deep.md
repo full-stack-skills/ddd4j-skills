@@ -10,4 +10,3 @@
 8. **ONS/TDMQ 能容器测吗？** 托管服务需明确替代/排除。
 9. **Spring Cloud Stream 在哪？** ddd4j-cloud-stream 负责 Binder。
 10. **完成证明是什么？** 真 Broker round-trip、可靠性和生命周期测试。
-

@@ -7,4 +7,3 @@
 - OrderBy：默认排序元数据。
 
 验证链：注解→DomainModelInfo/TableInfo→Repository/Interceptor→真实数据库行为。
-

@@ -9,4 +9,3 @@
 | 主要风险 | 账号体系混用 | ThreadLocal 清理 | Filter/Context 生命周期 |
 
 选定一个主 SubjectProvider；多框架共存必须显式定义优先级。
-

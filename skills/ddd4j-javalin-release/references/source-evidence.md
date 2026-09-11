@@ -3,4 +3,3 @@
 主要来源：workflows、POM、target/resume.properties 和远端 consumer 证据。
 
 根目录：/Users/wandl/workspaces/workspace-ddd4j/workspace-ddd4j-boot/ddd4j-javalin。使用时刷新分支、SHA、POM、CodeGraph 和测试代码。
-

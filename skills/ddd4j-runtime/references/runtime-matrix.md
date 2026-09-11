@@ -9,4 +9,3 @@
 - Dropwizard：Bundle/Environment 生命周期。
 
 具体 API 以当前 adapter 源码和 runtime-testkit 为准。
-

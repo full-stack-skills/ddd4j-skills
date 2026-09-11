@@ -7,4 +7,3 @@
 5. 超限 dead-letter。
 6. 消费/发布以 event/message id 幂等。
 7. 崩溃恢复测试覆盖 claim 后、send 后、confirm 前窗口。
-

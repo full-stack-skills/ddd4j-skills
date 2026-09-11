@@ -7,4 +7,3 @@
 5. 观测：hit/miss/error 与业务状态一致。
 
 Docker 不可用或容器 skip 必须标记 BLOCKED/SKIPPED。
-

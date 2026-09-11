@@ -12,4 +12,3 @@
 - CreateEvent、UpdateEvent、DeleteEvent：方法级事件意图。
 
 每项都要追踪实际扫描器/拦截器；注解存在不是行为证据。
-

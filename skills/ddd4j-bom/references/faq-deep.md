@@ -10,4 +10,3 @@
 8. **BOM 可解析等于 JAR 齐全吗？** 不等于。
 9. **如何检查导入冲突？** 运行项目脚本并检查 effective POM/dependency tree。
 10. **enforcer.skip 能用于发布吗？** 不能，只能是限定诊断证据。
-

@@ -7,4 +7,3 @@
 5. Web 在请求边界绑定并释放 Context/Subject。
 6. MQ/Cache 实现必须声明单机、集群和原子语义。
 7. Parent/BOM 管理构建，不替代功能实现。
-

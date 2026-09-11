@@ -6,4 +6,3 @@
 - 超限进入 dead-letter。
 - producer 发送与业务事务之间需要 Outbox 等可靠桥。
 - consumer 按 message/event id 幂等。
-

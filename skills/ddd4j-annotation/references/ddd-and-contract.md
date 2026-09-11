@@ -5,4 +5,3 @@
 - DDDAnnotation：通用 DDD 元数据入口。
 
 不要假设 DDDAnnotation 自动注册 Spring/CDI Bean。运行时融合由对应 Runtime 模块验证。
-
