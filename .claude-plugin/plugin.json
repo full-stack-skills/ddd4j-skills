@@ -13,6 +13,7 @@
     "./skills/ddd4j-version-selection",
     "./skills/ddd4j-architecture",
     "./skills/ddd4j-annotation",
+    "./skills/ddd4j-bom",
     "./skills/ddd4j-core",
     "./skills/ddd4j-jackson",
     "./skills/ddd4j-mybatis",

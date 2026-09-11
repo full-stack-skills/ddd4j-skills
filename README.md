@@ -24,13 +24,14 @@ Install one skill:
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## Skills (9)
+## Skills (10)
 
 | Skill | Use when |
 |---|---|
 | `ddd4j-version-selection` | Selecting compatible ddd4j, Boot, Cloud, Javalin, Quarkus, JDK, Maven, and POM versions |
 | `ddd4j-architecture` | Designing and reviewing ddd4j module boundaries, DDD/CQRS layers, ports, adapters, and runtimes |
 | `ddd4j-annotation` | Selecting and reviewing ddd4j DDD, CQRS, API, and ORM annotations and their consumers |
+| `ddd4j-bom` | Governing ddd4j parent, dependencies, BOM imports, Maven models, and version ownership |
 | `ddd4j-core` | Working with AggregateRoot, CQRS, DomainEvent, Repository, Context, Subject, or Cache contracts |
 | `ddd4j-jackson` | Working with Jackson 3, JsonKit, event payloads, safe deserialization, or version compatibility |
 | `ddd4j-mybatis` | Building native MyBatis/MyBatis-Plus aggregate repositories, Domain/PO mapping, tenant or data-scope behavior |
