@@ -100,3 +100,5 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE).
+
+Third-party attribution notices: see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).

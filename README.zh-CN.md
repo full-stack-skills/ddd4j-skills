@@ -100,3 +100,5 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ## 许可证
 
 Apache-2.0，详见 [LICENSE](LICENSE)。
+
+第三方组件归属声明：详见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。
