@@ -193,6 +193,16 @@ Skill-group order (smaller first to validate the pattern):
 
 After each group: re-run link audit and TRACE on that group before committing.
 
+## Outcome note (2026-09-11)
+
+Trace result after translation: 62/62 scored, package average overall ≈ 3.91
+(was ≈ 4.06 with identical content in Chinese). The entire delta is the T2
+(国内适配性) sub-item, which mechanically scores `has_chinese=false` as 2.0/5.0
+by design — an intentional scorer bias toward China-domestic adaptation, not a
+content regression. The ≥ 4.5 target in this spec is unattainable for pure-English
+skills under the current T2 rule; treat ddd4j-skills TRACE numbers as comparable
+only against other English packages.
+
 ## Self-review
 
 Spec check (inline, before user review):
