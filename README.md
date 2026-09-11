@@ -33,7 +33,7 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-annotation` | Selecting and reviewing ddd4j DDD, CQRS, API, and ORM annotations and their consumers |
 | `ddd4j-bom` | Governing ddd4j parent, dependencies, BOM imports, Maven models, and version ownership |
 | `ddd4j-core` | Working with AggregateRoot, CQRS, DomainEvent, Repository, Context, Subject, or Cache contracts |
-| `ddd4j-jackson` | Working with Jackson 3, JsonKit, event payloads, safe deserialization, or version compatibility |
+| `ddd4j-kit` | Selecting ddd4j JSON, bean, string, collection, identifier, function, and reflection utilities |
 | `ddd4j-mybatis` | Building native MyBatis/MyBatis-Plus aggregate repositories, Domain/PO mapping, tenant or data-scope behavior |
 | `ddd4j-validation` | Using the four public ddd4j-web-validation constraints across maintenance lines |
 | `ddd4j-satoken` | Integrating StpKit, Subject bridges, authentication modes, temporary tokens, or API keys |

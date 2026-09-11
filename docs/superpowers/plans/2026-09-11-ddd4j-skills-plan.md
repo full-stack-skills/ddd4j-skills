@@ -63,10 +63,10 @@
 - Create: skills/ddd4j-annotation/
 - Create: skills/ddd4j-bom/
 
-- [ ] **Step 1:** CodeGraph 提取模块调用方向、注解消费者和版本所有权。
-- [ ] **Step 2:** architecture 只讲边界；annotation 只讲语义与扫描；bom 只讲版本治理。
-- [ ] **Step 3:** 验证领域层依赖框架、重复注解、版本泄漏和 Model 4.1 错用场景。
-- [ ] **Step 4:** 更新插件/README，TRACE 后提交。
+- [x] **Step 1:** CodeGraph 提取模块调用方向、注解消费者和版本所有权。
+- [x] **Step 2:** architecture 只讲边界；annotation 只讲语义与扫描；bom 只讲版本治理。
+- [x] **Step 3:** 验证领域层依赖框架、重复注解、版本泄漏和 Model 4.1 错用场景。
+- [x] **Step 4:** 更新插件/README，TRACE 后提交。
 
 ### Task 3: 重构 core 与创建 kit
 
@@ -75,10 +75,10 @@
 - Create: skills/ddd4j-kit/
 - Delete after migration: skills/ddd4j-jackson/
 
-- [ ] **Step 1:** core 保留聚合、CQRS、事件、仓储和上下文，其他内容只路由。
-- [ ] **Step 2:** kit 覆盖 JsonKit、BeanKit、StrKit、CollKit、IdKit 和 Jackson 安全边界。
-- [ ] **Step 3:** 验证所有旧 Jackson 场景由 kit 或 data reference 接管。
-- [ ] **Step 4:** 删除旧入口、检查断链并提交。
+- [x] **Step 1:** core 保留聚合、CQRS、事件、仓储和上下文，其他内容只路由。
+- [x] **Step 2:** kit 覆盖 JsonKit、BeanKit、StrKit、CollKit、IdKit 和 Jackson 安全边界。
+- [x] **Step 3:** 验证所有旧 Jackson 场景由 kit 或 data reference 接管。
+- [x] **Step 4:** 删除旧入口、检查断链并提交。
 
 ### Task 4: 创建 auth 与 cache
 
