@@ -50,11 +50,11 @@
 - Consumes: 五仓库 POM、Wrapper、workflow、矩阵和远端制品证据。
 - Produces: 推荐、备选、不兼容、未验证四态的完整版本元组。
 
-- [ ] **Step 1:** 写三个失败基线：盲选最新版、旧线误用 Maven 4、未发布坐标被称为可用。
-- [ ] **Step 2:** 创建只描述触发条件的 frontmatter，并在正文收集 JDK、Maven、运行时、现有版本和项目类型。
-- [ ] **Step 3:** 逐行写入来源路径、SHA、验证级别和日期。
-- [ ] **Step 4:** 用 Boot、Cloud、Javalin、Quarkus 各一个场景验证完整元组输出。
-- [ ] **Step 5:** TRACE 后提交：feat: 添加 ddd4j 版本选择技能。
+- [x] **Step 1:** 写三个失败基线：盲选最新版、旧线误用 Maven 4、未发布坐标被称为可用。
+- [x] **Step 2:** 创建只描述触发条件的 frontmatter，并在正文收集 JDK、Maven、运行时、现有版本和项目类型。
+- [x] **Step 3:** 逐行写入来源路径、SHA、验证级别和日期。
+- [x] **Step 4:** 用 Boot、Cloud、Javalin、Quarkus 各一个场景验证完整元组输出。
+- [x] **Step 5:** TRACE 后提交：feat: 添加 ddd4j 版本选择技能。
 
 ### Task 2: 创建 architecture、annotation、bom
 
@@ -122,4 +122,3 @@
 - [ ] **Step 3:** Runtime 比较 Spring/Guice/Quarkus CDI 的 SPI 与生命周期。
 - [ ] **Step 4:** Extensions 按功能介绍 Jackson/Excel/Akka/PF4J/QLExpress/QR/Monitor。
 - [ ] **Step 5:** 全量场景、TRACE、插件、README 和安装发现验证后提交。
-
