@@ -11,6 +11,7 @@
   "source": "./",
   "skills": [
     "./skills/ddd4j-version-selection",
+    "./skills/ddd4j-architecture",
     "./skills/ddd4j-core",
     "./skills/ddd4j-jackson",
     "./skills/ddd4j-mybatis",

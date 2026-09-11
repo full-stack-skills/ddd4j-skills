@@ -24,11 +24,12 @@ npx skills add full-stack-skills/ddd4j-skills
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## 技能列表（7）
+## 技能列表（8）
 
 | 技能 | 适用场景 |
 |---|---|
 | `ddd4j-version-selection` | 选择兼容的 ddd4j、Boot、Cloud、Javalin、Quarkus、JDK、Maven 和 POM 版本 |
+| `ddd4j-architecture` | 设计和审查 ddd4j 模块边界、DDD/CQRS 分层、端口、适配器和运行时 |
 | `ddd4j-core` | AggregateRoot、CQRS、DomainEvent、Repository、Context、Subject、Cache 等核心契约 |
 | `ddd4j-jackson` | Jackson 3、JsonKit、事件载荷、安全反序列化和代际兼容 |
 | `ddd4j-mybatis` | 原生 MyBatis/MyBatis-Plus 聚合仓储、Domain/PO 映射、租户与数据权限 |
