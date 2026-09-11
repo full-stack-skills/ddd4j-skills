@@ -24,7 +24,7 @@ npx skills add full-stack-skills/ddd4j-skills
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## 技能列表（14）
+## 技能列表（15）
 
 | 技能 | 适用场景 |
 |---|---|
@@ -41,6 +41,7 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-mq` | 选择和运行 Kafka、RabbitMQ、Pulsar、RocketMQ、MQTT、NATS、SQS、ACK 与生命周期 |
 | `ddd4j-metrics` | 设计 Projection、Web、MQ、Cache、Runtime 和 OpenTelemetry 指标 |
 | `ddd4j-runtime` | 集成 Spring、Guice、Quarkus CDI、Micronaut、Vert.x、Helidon 和 Dropwizard 运行时 |
+| `ddd4j-extensions` | 选择 Excel、License、Monitor、OpenTelemetry、PF4J、QLExpress、QR Code 和 Validation 扩展 |
 | `ddd4j-javalin-production-hardening` | ddd4j-javalin 多分支生产加固、TDD、CI 与私有 Maven 发布 |
 
 ## 边界
