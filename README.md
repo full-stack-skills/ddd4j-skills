@@ -24,7 +24,7 @@ Install one skill:
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## Skills (13)
+## Skills (14)
 
 | Skill | Use when |
 |---|---|
@@ -40,6 +40,7 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-cache` | Choosing local, Redis, Redisson, JetCache, Memcached, TTL, locking, and CAS behavior |
 | `ddd4j-mq` | Choosing and operating Kafka, RabbitMQ, Pulsar, RocketMQ, MQTT, NATS, SQS, acknowledgments, and lifecycle |
 | `ddd4j-metrics` | Instrumenting projection, Web, MQ, cache, runtime, and OpenTelemetry metrics |
+| `ddd4j-runtime` | Integrating Spring, Guice, Quarkus CDI, Micronaut, Vert.x, Helidon, and Dropwizard runtimes |
 | `ddd4j-javalin-production-hardening` | Hardening and releasing ddd4j-javalin across its maintenance branches |
 
 ## Boundaries

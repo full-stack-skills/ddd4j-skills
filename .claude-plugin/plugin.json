@@ -22,6 +22,7 @@
     "./skills/ddd4j-cache",
     "./skills/ddd4j-mq",
     "./skills/ddd4j-metrics",
+    "./skills/ddd4j-runtime",
     "./skills/ddd4j-javalin-production-hardening"
   ]
 }
