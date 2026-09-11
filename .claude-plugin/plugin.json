@@ -11,6 +11,7 @@
   "source": "./",
   "skills": [
     "./skills/ddd4j-version-selection",
+    "./skills/ddd4j-boot-version-selection",
     "./skills/ddd4j-architecture",
     "./skills/ddd4j-annotation",
     "./skills/ddd4j-bom",

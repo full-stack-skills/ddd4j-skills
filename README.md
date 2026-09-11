@@ -24,11 +24,12 @@ Install one skill:
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## Skills (15)
+## Skills (16)
 
 | Skill | Use when |
 |---|---|
 | `ddd4j-version-selection` | Selecting compatible ddd4j, Boot, Cloud, Javalin, Quarkus, JDK, Maven, and POM versions |
+| `ddd4j-boot-version-selection` | Selecting one of the 13 ddd4j-boot maintenance lines for a Spring Boot/JDK/Maven baseline |
 | `ddd4j-architecture` | Designing and reviewing ddd4j module boundaries, DDD/CQRS layers, ports, adapters, and runtimes |
 | `ddd4j-annotation` | Selecting and reviewing ddd4j DDD, CQRS, API, and ORM annotations and their consumers |
 | `ddd4j-bom` | Governing ddd4j parent, dependencies, BOM imports, Maven models, and version ownership |
