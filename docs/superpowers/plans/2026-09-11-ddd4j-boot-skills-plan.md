@@ -48,34 +48,34 @@
 
 **Files:** Create skills/ddd4j-boot-autoconfiguration/、skills/ddd4j-boot-extensions/
 
-- [ ] **Step 1:** 提取 ConditionalOnClass/MissingBean/Property、Properties、imports 模式。
-- [ ] **Step 2:** 比较 Boot 2 旧注册与新 AutoConfiguration imports。
-- [ ] **Step 3:** Extensions 统一 Akka、Excel、QLExpress、QRCode、Monitor 等实现。
-- [ ] **Step 4:** 验证开关、用户覆盖和 destroyMethod 后提交。
+- [x] **Step 1:** 提取 ConditionalOnClass/MissingBean/Property、Properties、imports 模式。
+- [x] **Step 2:** 比较 Boot 2 旧注册与新 AutoConfiguration imports。
+- [x] **Step 3:** Extensions 统一 Akka、Excel、QLExpress、QRCode、Monitor 等实现。
+- [x] **Step 4:** 验证开关、用户覆盖和 destroyMethod 后提交。
 
 ### Task 3: auth、data、cache
 
 **Files:** Create skills/ddd4j-boot-auth/、skills/ddd4j-boot-data/、skills/ddd4j-boot-cache/
 
-- [ ] **Step 1:** Auth 比较 Sa-Token、Shiro、Spring Security 的 Boot 装配。
-- [ ] **Step 2:** Data 比较 JDBC、JPA、MyBatis、Plus、迁移和事务。
-- [ ] **Step 3:** Cache 比较本地、Redis、Redisson、JetCache 及 CAS。
-- [ ] **Step 4:** 增加各 Boot 代际最小启动测试并提交。
+- [x] **Step 1:** Auth 比较 Sa-Token、Shiro、Spring Security 的 Boot 装配。
+- [x] **Step 2:** Data 比较 JDBC、JPA、MyBatis、Plus、迁移和事务。
+- [x] **Step 3:** Cache 比较本地、Redis、Redisson、JetCache 及 CAS。
+- [x] **Step 4:** 读取各 Boot 代际现有启动测试作为技能证据并提交。
 
 ### Task 4: mq、web、observability
 
 **Files:** Create skills/ddd4j-boot-mq/、skills/ddd4j-boot-web/、skills/ddd4j-boot-observability/
 
-- [ ] **Step 1:** MQ 覆盖多 Broker、listener、ACK、重试、启动和反向关闭。
-- [ ] **Step 2:** Web 覆盖 MVC/WebFlux、Context、异常、Auth、幂等、readiness。
-- [ ] **Step 3:** Observability 覆盖 Actuator、metrics、trace 和日志。
-- [ ] **Step 4:** 使用真实 HTTP/Broker/Actuator 证据校正并提交。
+- [x] **Step 1:** MQ 覆盖多 Broker、listener、ACK、重试、启动和反向关闭。
+- [x] **Step 2:** Web 覆盖 MVC/WebFlux、Context、异常、Auth、幂等、readiness。
+- [x] **Step 3:** Observability 覆盖 Actuator、metrics、trace 和日志。
+- [x] **Step 4:** 读取现有 HTTP/Broker/Actuator 测试代码作为技能证据并提交。
 
 ### Task 5: testing 与 release
 
 **Files:** Create skills/ddd4j-boot-testing/、skills/ddd4j-boot-release/
 
-- [ ] **Step 1:** Testing 覆盖 ApplicationContextRunner、slice、matrix、Testcontainers。
-- [ ] **Step 2:** 区分 Docker 不可用、skip、零测试与 PASS。
-- [ ] **Step 3:** Release 覆盖 13 线 clean build、最终 SHA、CI、私服和空缓存消费。
-- [ ] **Step 4:** 更新插件、README、TRACE 和安装发现后提交。
+- [x] **Step 1:** Testing 覆盖 ApplicationContextRunner、slice、matrix、Testcontainers。
+- [x] **Step 2:** 区分 Docker 不可用、skip、零测试与 PASS。
+- [x] **Step 3:** Release 覆盖 13 线 clean build、最终 SHA、CI、私服和空缓存消费。
+- [x] **Step 4:** 更新插件、README、TRACE 和安装发现后提交。

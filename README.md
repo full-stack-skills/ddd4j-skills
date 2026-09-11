@@ -24,7 +24,7 @@ Install one skill:
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## Skills (18)
+## Skills (28)
 
 | Skill | Use when |
 |---|---|
@@ -32,6 +32,16 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-boot-version-selection` | Selecting one of the 13 ddd4j-boot maintenance lines for a Spring Boot/JDK/Maven baseline |
 | `ddd4j-boot-architecture` | Designing ddd4j-boot module boundaries and Spring Boot integration responsibilities |
 | `ddd4j-boot-bom` | Managing ddd4j-boot parent, dependencies, BOM, effective POM, and version ownership |
+| `ddd4j-boot-autoconfiguration` | Building conditional auto-configurations, properties, user overrides, imports, and lifecycle |
+| `ddd4j-boot-auth` | Integrating Sa-Token, Shiro, and Spring Security in ddd4j-boot |
+| `ddd4j-boot-data` | Integrating JDBC, JPA, MyBatis, migrations, transactions, projections, and Outbox |
+| `ddd4j-boot-cache` | Configuring local, Redis, Redisson, JetCache, TTL, CAS, and idempotency caches |
+| `ddd4j-boot-mq` | Configuring multi-broker MQ, listeners, acknowledgment, retry, readiness, and shutdown |
+| `ddd4j-boot-web` | Building MVC/WebFlux context, errors, auth, validation, idempotency, CORS, and readiness |
+| `ddd4j-boot-observability` | Configuring Actuator, health, metrics, tracing, logging, monitoring, and OpenTelemetry |
+| `ddd4j-boot-extensions` | Integrating Akka, Excel, QLExpress, QR code, monitor, and other optional extensions |
+| `ddd4j-boot-testing` | Testing auto-configurations, maintenance matrices, HTTP, databases, Redis, and brokers |
+| `ddd4j-boot-release` | Validating and publishing 13 maintenance lines with CI and clean-cache consumption |
 | `ddd4j-architecture` | Designing and reviewing ddd4j module boundaries, DDD/CQRS layers, ports, adapters, and runtimes |
 | `ddd4j-annotation` | Selecting and reviewing ddd4j DDD, CQRS, API, and ORM annotations and their consumers |
 | `ddd4j-bom` | Governing ddd4j parent, dependencies, BOM imports, Maven models, and version ownership |

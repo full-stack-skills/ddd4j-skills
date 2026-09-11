@@ -24,7 +24,7 @@ npx skills add full-stack-skills/ddd4j-skills
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## 技能列表（18）
+## 技能列表（28）
 
 | 技能 | 适用场景 |
 |---|---|
@@ -32,6 +32,16 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-boot-version-selection` | 按 Spring Boot、JDK、Maven 基线选择 13 条 ddd4j-boot 维护线 |
 | `ddd4j-boot-architecture` | 设计 ddd4j-boot 模块边界和 Spring Boot 集成职责 |
 | `ddd4j-boot-bom` | 管理 ddd4j-boot parent、dependencies、BOM、effective POM 和版本所有权 |
+| `ddd4j-boot-autoconfiguration` | 开发条件自动配置、Properties、用户覆盖、imports 和生命周期 |
+| `ddd4j-boot-auth` | 在 ddd4j-boot 中集成 Sa-Token、Shiro 和 Spring Security |
+| `ddd4j-boot-data` | 集成 JDBC、JPA、MyBatis、迁移、事务、Projection 和 Outbox |
+| `ddd4j-boot-cache` | 配置本地缓存、Redis、Redisson、JetCache、TTL、CAS 和幂等 |
+| `ddd4j-boot-mq` | 配置多 Broker、Listener、ACK、重试、Readiness 和关闭 |
+| `ddd4j-boot-web` | 构建 MVC/WebFlux Context、错误、认证、校验、幂等、CORS 和 Readiness |
+| `ddd4j-boot-observability` | 配置 Actuator、健康、指标、追踪、日志、监控和 OpenTelemetry |
+| `ddd4j-boot-extensions` | 集成 Akka、Excel、QLExpress、QR Code、Monitor 等扩展 |
+| `ddd4j-boot-testing` | 测试自动配置、维护矩阵、HTTP、数据库、Redis 和 Broker |
+| `ddd4j-boot-release` | 验证和发布 13 条维护线、CI 与空缓存消费 |
 | `ddd4j-architecture` | 设计和审查 ddd4j 模块边界、DDD/CQRS 分层、端口、适配器和运行时 |
 | `ddd4j-annotation` | 选择和审查 ddd4j 的 DDD、CQRS、API、ORM 注解及其消费者 |
 | `ddd4j-bom` | 治理 ddd4j parent、dependencies、BOM 导入、Maven 模型和版本所有权 |
