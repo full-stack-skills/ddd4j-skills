@@ -20,6 +20,7 @@
     "./skills/ddd4j-validation",
     "./skills/ddd4j-auth",
     "./skills/ddd4j-cache",
+    "./skills/ddd4j-mq",
     "./skills/ddd4j-javalin-production-hardening"
   ]
 }

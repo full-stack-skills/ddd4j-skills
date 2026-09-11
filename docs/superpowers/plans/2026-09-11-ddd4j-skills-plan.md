@@ -103,10 +103,10 @@
 - Create: skills/ddd4j-mq/
 - Delete after migration: skills/ddd4j-mybatis/
 
-- [ ] **Step 1:** Data 建立 JDBC/JDBI/JPA/MyBatis/Plus/R2DBC/Panache 选择矩阵。
-- [ ] **Step 2:** 单列 EventStore、Projection、Outbox 的事务和一致性边界。
-- [ ] **Step 3:** MQ 建立 Broker、ACK、重试、死信、幂等、生命周期和 Testcontainers 章节。
-- [ ] **Step 4:** 使用真实数据库/Broker测试报告校正陈述并提交。
+- [x] **Step 1:** Data 建立 JDBC/JDBI/JPA/MyBatis/Plus/R2DBC/Panache 选择矩阵。
+- [x] **Step 2:** 单列 EventStore、Projection、Outbox 的事务和一致性边界。
+- [x] **Step 3:** MQ 建立 Broker、ACK、重试、死信、幂等、生命周期和 Testcontainers 章节。
+- [x] **Step 4:** 使用真实数据库/Broker测试报告校正陈述并提交。
 
 ### Task 6: 创建 web、metrics、runtime、extensions
 
