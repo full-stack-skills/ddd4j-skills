@@ -1,6 +1,6 @@
 ---
 name: ddd4j-boot-web
-description: Use when building ddd4j Spring MVC or WebFlux applications with unified errors, request context, authentication, validation, idempotency, CORS, limits, and readiness.
+description: Use when building ddd4j Spring MVC or WebFlux applications with unified errors, request context, authentication, validation, idempotency, CORS, limits, and readiness. 中文触发词：Web 集成、MVC/WebFlux、Context 绑定、统一错误、校验、幂等、CORS、就绪检查。
 license: Apache-2.0
 ---
 
@@ -10,6 +10,31 @@ license: Apache-2.0
 
 Covers Spring MVC, WebFlux, Context, errors, authentication, Validation, idempotency, CORS, and Readiness uniformly, not split per artifact. Before use, confirm the maintenance line through ddd4j-boot-version-selection.
 
+## When to Use
+
+- Choosing Spring MVC versus WebFlux for a ddd4j-boot service and assembling it from the `ddd4j-web-webmvc` / `ddd4j-webflux` modules.
+- Unifying the error contract so domain and framework failures return one consistent response shape.
+- Binding the ddd4j request `Context` (Subject, tenant) into the web request lifecycle — and releasing it on every exit path.
+- Configuring validation, idempotency keys, CORS allowlists, and rate/concurrency limits through the boot web auto-configuration.
+- Wiring readiness so it aggregates real dependency health instead of a hardcoded READY.
+- Diagnosing web-layer issues on a specific Boot line (2.3–4.1): errors leaking stack traces, context not bound on async paths, or readiness reporting healthy while a dependency is down.
+
+## When NOT to Use
+
+Do not use this skill when:
+
+- **The error response contract or context contract itself needs designing** — use `ddd4j-core` (context/subject contracts) or `ddd4j-web` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-web`.
+- **The authentication framework choice and SubjectProvider assembly are the question** — use `ddd4j-boot-auth` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-boot-auth`.
+- **Generic auto-configuration mechanics are the question, not the web layer** — use `ddd4j-boot-autoconfiguration` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-boot-autoconfiguration`.
+- **The runtime is Javalin, Quarkus, or Spring Cloud** — use the matching `ddd4j-javalin-web`, `ddd4j-quarkus-web`, or `ddd4j-cloud-web` skill instead; the MVC/WebFlux assembly does not transfer.
+- **The project is plain Spring Boot without ddd4j** — generic Spring MVC / WebFlux skills apply; the ddd4j context binding and error contract do not exist there.
+- **Metrics, traces, and health endpoints need building** — use `ddd4j-boot-observability` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-boot-observability`.
+
+## Trigger Keywords
+
+**English**: web integration, MVC/WebFlux, context binding, unified errors, validation, idempotency, CORS, readiness
+
+**中文**: Web 集成, MVC/WebFlux, Context 绑定, 统一错误, 校验, 幂等, CORS, 就绪检查
 ## Core Scope
 
 Spring MVC, WebFlux, Context, errors, authentication, Validation, idempotency, CORS, Readiness.
@@ -44,11 +69,35 @@ Spring MVC, WebFlux, Context, errors, authentication, Validation, idempotency, C
 
 ## Workflow
 
-1. Select the version line.
-2. Locate the feature's aggregator and concrete implementations.
-3. Compare implementations, defaults, overrides, and degradation.
-4. Execute target context and behavior tests.
-5. Output version, configuration, lifecycle, evidence, and risks.
+### Step 1: Confirm the source of truth
+
+Run `ddd4j-boot-version-selection` to fix the line, then locate the web AutoConfiguration, its Properties, and the `ddd4j-web-webmvc` / `ddd4j-webflux` modules on that line.
+
+### Step 2: Select the web stack
+
+Choose Spring MVC or WebFlux against the workload's blocking profile, and confirm the context binding, error handling, and authentication wiring for that stack — the two stacks bind and release the request `Context` differently.
+
+### Step 3: Verify the wiring
+
+Check conditional wiring, default beans, and user bean override points. Confirm validation, idempotency, the CORS allowlist, limits, and readiness are configured from the line's Properties — each with a real off switch that skips assembly.
+
+### Step 4: Test the HTTP contract
+
+Execute context tests plus HTTP contract tests covering normal, error, replay (idempotency), and async paths. Confirm readiness aggregates real dependency checks and never hardcodes READY, and that the request `Context` is released on success, error, and async completion.
+
+### Step 5: Report with separated evidence
+
+Report the chosen web stack with configuration keys, the AutoConfiguration entry and override points, test results, and evidence state — configuration presence, bean creation, behavior, CI, and publish reported separately — plus risks and missing inputs.
+
+## Gotchas
+
+- MVC and WebFlux bind and release the request `Context` at different points; wiring tuned for MVC leaks or misses the context on WebFlux async paths even when "the filter is registered".
+- A readiness endpoint that returns hardcoded READY passes every smoke test and lies precisely when it is needed — readiness must aggregate real dependency checks.
+- A unified error handler registered as one bean does not cover validation failures raised before the handler chain — the error contract must be tested for the validation path specifically.
+- MVC and WebFlux cannot both be fully assembled; the second starter on the classpath typically wins silently and the "wrong" stack serves the requests.
+- Idempotency replay behavior differs per line's Properties semantics; a replay test (same key, same body) must be run, not inferred from the config key existing.
+- A CORS allowlist read from environment-specific config that falls back to `*` in an unconfigured environment passes local tests and is wide open in staging.
+- Printing web configuration for troubleshooting can leak hosts, keys, and tokens — sensitive values must be redacted.
 
 ## Output and Exceptions
 
@@ -63,7 +112,8 @@ When information is missing, output "missing: target line/implementation/configu
 
 ## Privacy and Security
 
-Never output credentials, tokens, production connection strings, or sensitive business data.
+
+Never output credentials, tokens, production connection strings, or sensitive business data. 本技能不访问、不收集、不存储、不传输任何用户数据、凭据或密钥；请求与响应示例均为脱敏的虚构数据。
 
 ## Quick Start
 

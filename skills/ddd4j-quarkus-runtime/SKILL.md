@@ -1,6 +1,6 @@
 ---
 name: ddd4j-quarkus-runtime
-description: Use when integrating ddd4j with Quarkus CDI and Arc, including CommandBus, DomainEventPublisher, SubjectProvider, context, startup observers, duplicate registration, readiness, and shutdown.
+description: Use when integrating ddd4j with Quarkus CDI and Arc, including CommandBus, DomainEventPublisher, SubjectProvider, context, startup observers, duplicate registration, readiness, and shutdown. 中文触发词：CDI/Arc 集成、CommandBus、DomainEventPublisher、SubjectProvider、请求上下文、启动和关闭、就绪检查、重复注册。
 license: Apache-2.0
 ---
 
@@ -9,6 +9,32 @@ license: Apache-2.0
 ## Overview
 
 Covers CDI/Arc, CommandBus, DomainEventPublisher, SubjectProvider, Context, and startup/shutdown uniformly, not split per artifact. Choose 3.3.x or 4.0.x first, then read the current source.
+
+## When to Use
+
+- Producing `CommandBus`, `DomainEventPublisher`, or `SubjectProvider` beans for ddd4j SPIs via CDI producers or BuildItems in a Quarkus application.
+- Binding request-scoped `Context` and restoring it on success, exception, and async completion paths.
+- Owning ddd4j resource lifecycle with startup/shutdown observers: drain, reverse-order close, idempotent close.
+- Diagnosing duplicate SPI registrations or an Arc `unsatisfied dependency` build failure for a ddd4j port.
+- Aggregating readiness from real dependencies instead of a hardcoded state.
+- Reviewing an application's Arc wiring against Quarkus (not Spring) registration semantics on either line.
+
+## When NOT to Use
+
+Do not use this skill when:
+
+- **Authoring a new extension with Processor, BuildItems, or Recorder** — use `ddd4j-quarkus-extension-authoring` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-quarkus-extension-authoring`; do not use this skill to write build steps.
+- **Choosing or wiring an authentication mechanism (JWT, OIDC, Shiro, Sa-Token)** — use `ddd4j-quarkus-auth` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-quarkus-auth`.
+- **The SPI contracts themselves (CommandBus dispatch semantics, DomainEvent publication rules)** — use `ddd4j-core` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-core`.
+- **Spring Boot auto-configuration wiring of the same SPIs** — use `ddd4j-boot-autoconfiguration` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-boot-autoconfiguration`.
+- **Javalin wiring of the same SPIs** — use `ddd4j-javalin-runtime` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-javalin-runtime`.
+- **The project is a plain Quarkus application without ddd4j** — generic Quarkus/Arc guidance applies; do not use the ddd4j SPI port list on a non-ddd4j stack.
+
+## Trigger Keywords
+
+**English**: CDI Arc wiring, CommandBus, DomainEventPublisher, SubjectProvider, request context, startup shutdown observers, readiness check, duplicate registration
+
+**中文**: CDI/Arc 集成, CommandBus, DomainEventPublisher, SubjectProvider, 请求上下文, 启动和关闭, 就绪检查, 重复注册
 
 ## Core Scope
 
@@ -44,11 +70,34 @@ CDI/Arc, CommandBus, DomainEventPublisher, SubjectProvider, Context, startup/shu
 
 ## Workflow
 
-1. Select the version line.
-2. Locate runtime/deployment or feature modules.
-3. Verify CDI scope, configuration, and lifecycle.
-4. Read the appropriate Arc/QuarkusTest/contract evidence.
-5. Output version, implementation, evidence, and risks.
+### Step 1: Confirm the source of truth
+
+Fix the line via `ddd4j-quarkus-version-selection`, then locate `runtime-quarkus`, its configuration, and the Arc tests in that checkout. Registration idioms are per line.
+
+### Step 2: Register the SPI ports
+
+Produce `CommandBus`, `DomainEventPublisher`, and `SubjectProvider` beans via producers/BuildItems, and fail fast on duplicate registrations — a second producer for the same port is a wiring bug, not a fallback.
+
+### Step 3: Bind request context
+
+Establish request-scoped `Context` binding and restoration on success, exception, and async completion, and confirm startup/shutdown observers own the resource lifecycle rather than constructors.
+
+### Step 4: Verify readiness and shutdown
+
+Aggregate readiness from real dependencies and confirm drain and idempotent close, including native image boundaries where the deployment target requires them.
+
+### Step 5: Verify
+
+Run Arc/QuarkusTest suites covering startup, request context, shutdown, and duplicate registration, then produce a report with registration points, lifecycle owners, evidence state, and remaining risk.
+
+## Gotchas
+
+- CDI bean discovery in Quarkus is build-time: Arc validates injection points during the build, so a missing bean-defining annotation or producer is a build failure — there is no runtime lookup that can recover.
+- A class present in source but never discovered produces no bean; "the class exists in our codebase" is not evidence a `CommandBus` producer is registered.
+- Two producers for the same SPI port surface as an ambiguous-resolution build failure, not a silent "last one wins" — which is why duplicate registrations should fail fast by design.
+- A request-scoped `Context` released only on the success path leaks the previous request's Subject onto pooled worker threads; the exception and async-completion paths each need their own restore.
+- Resource lifecycle belongs in startup/shutdown observers; logic placed in a bean constructor runs before readiness and cannot be undone by close-on-shutdown logic alone.
+- Native image requires explicit registration; reflection-based context propagation that works in JVM mode can fail at native build.
 
 ## Output and Exceptions
 
@@ -63,7 +112,7 @@ When input is missing, output "missing: target line/extension/runtime; how to pr
 
 ## Privacy and Security
 
-Never output tokens, OIDC secrets, or database, broker, or private repository credentials.
+Never output tokens, OIDC secrets, or database, broker, or private repository credentials. 本技能不访问、不收集、不存储、不传输任何用户数据、凭据或密钥；Subject 与租户示例均为脱敏虚构数据。
 
 ## Quick Start
 

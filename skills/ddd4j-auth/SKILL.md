@@ -1,6 +1,6 @@
 ---
 name: ddd4j-auth
-description: Use when choosing, integrating, or reviewing ddd4j authentication and authorization with Sa-Token, Apache Shiro, or Spring Security, including Subject mapping, roles, permissions, sessions, temporary tokens, and exception handling.
+description: Use when choosing, integrating, or reviewing ddd4j authentication and authorization with Sa-Token, Apache Shiro, or Spring Security, including Subject mapping, roles, permissions, sessions, temporary tokens, and exception handling. 中文触发词：认证授权、Sa-Token、Shiro、Spring Security、Subject 映射、角色权限、临时令牌、会话清理。
 license: Apache-2.0
 ---
 
@@ -9,6 +9,32 @@ license: Apache-2.0
 ## Overview
 
 All three frameworks map onto the ddd4j Subject/AuthPrincipal/SubjectProvider; domain and application code never binds directly to a concrete security context.
+
+## When to Use
+
+- Choosing between Sa-Token, Apache Shiro, and Spring Security for a ddd4j project.
+- Implementing a `SubjectProvider` that maps the framework's identity onto `AuthPrincipal` (profile, roles, permissions).
+- Wiring temporary tokens (`SaTempToken`), API keys, or multiple account types via `StpKit.DEFAULT/ADMIN/USER`.
+- Binding the Subject into the request context at entry and cleaning it up at request end.
+- Converting framework exceptions (login expired, insufficient permission) into stable web errors.
+- Reviewing anonymous, expired, insufficient-role, thread-reuse, and logout test coverage.
+
+## When NOT to Use
+
+Do not use this skill when:
+
+- **The HTTP-level error contract is the question** (status codes, unified payload shape for 401/403) — use `ddd4j-web` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-web`.
+- **The request-scope binding mechanics in the runtime are the question** — use `ddd4j-runtime` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-runtime`.
+- **Token or session storage in Redis is the question** — use `ddd4j-cache` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-cache`.
+- **Framework configuration unrelated to the ddd4j Subject mapping** (e.g. a standalone Spring Security OAuth2 server) — use the framework's own skills; mapping it to ddd4j is the only part this skill covers.
+- **The request is to bypass authentication, read another user's session, or forge a Subject** — do not use this skill for that; it is an explicit out-of-scope refusal.
+- **Version or artifact selection is the question** — use `ddd4j-version-selection` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-version-selection`.
+
+## Trigger Keywords
+
+**English**: Sa-Token, Shiro, Spring Security, Subject mapping, roles and permissions, temporary token, session cleanup, login flow
+
+**中文**: 认证授权, Subject 映射, 角色权限, 临时令牌, 会话清理, 登录流程, 令牌过期, 线程复用
 
 ## Framework Selection
 
@@ -47,21 +73,39 @@ Each implementation must state its dependencies, configuration, identity mapping
 
 ## Workflow
 
-1. Select the framework and confirm the actual artifacts.
-2. Define the AuthPrincipal profile, roles, and permissions.
-3. Implement/assemble the SubjectProvider.
-4. Bind at request start; restore/clean up at request end.
-5. Convert framework exceptions into stable web errors.
-6. Test anonymous, valid, expired, insufficient-role, thread-reuse, and logout paths.
+### Step 1: Select the framework and confirm the artifacts
 
-## Common Mistakes
+Pick Sa-Token, Shiro, or Spring Security against the account model (multiple account types, temporary tokens, OAuth2/OIDC, method security), then confirm the actual artifacts on the classpath — the choice only counts if the dependency and version are real.
 
-- Assembling all three frameworks at once and fighting over the SubjectProvider.
-- Hardcoding Sa-Token extra keys.
-- Leaving SecurityContext/Shiro Subject uncleaned.
-- Testing only successful login and never the request end.
-- Logging full tokens/API keys.
-- Treating a BOM dependency as proof that authentication is enabled.
+### Step 2: Define the AuthPrincipal
+
+Model the profile, roles, and permissions as `AuthPrincipal`. This is the only identity shape the domain and application layers will ever see.
+
+### Step 3: Implement and assemble the SubjectProvider
+
+Implement exactly one primary `SubjectProvider` that translates the framework's identity into the ddd4j `Subject`. Registering more than one framework's provider invites contention over the same contract.
+
+### Step 4: Bind at request start; restore and clean up at request end
+
+Bind the Subject into the request/thread context at the entry point, and restore the previous value in a scope or `finally` so cleanup covers success, exception, and async completion.
+
+### Step 5: Convert framework exceptions into stable web errors
+
+Map login-required, token-expired, and insufficient-permission exceptions to the stable error contract instead of letting framework-specific types leak outward.
+
+### Step 6: Test all paths
+
+Cover anonymous access, valid login, expired token, insufficient role, thread reuse after logout, and the request-end cleanup itself — not just the happy login.
+
+## Gotchas
+
+- Assembling Sa-Token, Shiro, and Spring Security at once — two `SubjectProvider`s then contend for the same contract, and whichever registers last silently wins.
+- Hardcoding Sa-Token extra keys as string literals — extended fields must go through `AuthConstants` and the type-safe getters, or renamed keys break at runtime.
+- Leaving `SecurityContext` / Shiro `Subject` bound after the request — on a pooled thread, the next request inherits the previous user's identity, and only exception-path testing reveals it.
+- Testing only successful login — the request-end cleanup, logout, and expired-token paths are where leaks and 500-instead-of-401 bugs actually live.
+- Logging full tokens or API keys — keep redacted fingerprints only; logs outlive sessions.
+- Treating a BOM dependency as proof that authentication is enabled — the artifact on the classpath says nothing about a registered `SubjectProvider`.
+- Treating Sa-Token's Same-Token as an end-user token — it is an inner-call/gateway token with different semantics and must not authenticate users.
 
 ## Output and Exceptions
 
@@ -79,7 +123,7 @@ Output the framework choice, artifacts, configuration, Subject mapping, lifecycl
 
 ## Privacy and Security
 
-Use fictional identities only; tokens, API keys, sessions, and organization/role data must be redacted.
+Use fictional identities only; tokens, API keys, sessions, and organization/role data must be redacted. 本技能不访问、不收集、不存储、不传输任何用户数据、凭据或密钥；身份、令牌与会话示例仅使用脱敏的虚构数据。
 
 ## Quick Start
 

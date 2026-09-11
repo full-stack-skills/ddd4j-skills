@@ -1,6 +1,6 @@
 ---
 name: ddd4j-data
-description: Use when choosing, implementing, or reviewing ddd4j persistence with JDBC, JDBI, JPA, MyBatis, MyBatis-Plus, R2DBC, Panache, EventStore, Projection, Outbox, transactions, tenants, or Domain-to-PO mapping.
+description: Use when choosing, implementing, or reviewing ddd4j persistence with JDBC, JDBI, JPA, MyBatis, MyBatis-Plus, R2DBC, Panache, EventStore, Projection, Outbox, transactions, tenants, or Domain-to-PO mapping. 中文触发词：持久化选型、EventStore、Projection、Outbox、事务边界、租户隔离、领域对象映射、乐观并发。
 license: Apache-2.0
 ---
 
@@ -9,6 +9,31 @@ license: Apache-2.0
 ## Overview
 
 Pick the persistence model first, then the technology. Snapshot Repository, Event Sourcing, Projection, and Outbox are distinct responsibilities that may be combined but must not blur transaction boundaries.
+
+## When to Use
+
+- Choosing the persistence technology: JDBC, JDBI, JPA, MyBatis/MyBatis-Plus, R2DBC, Panache, or ESDB EventStore.
+- Mapping between `AggregateRoot` and PO/Entity classes, and wiring `Query<M>` persistence scopes.
+- Implementing the `EventStore` / `AsyncEventStore` port with expected-version checks and atomic batch appends.
+- Building read models with `ProjectionRunner` / `ProjectionService` and `ProjectionPositionRepository`.
+- Implementing the Transactional Outbox with claim / send / confirm semantics.
+- Defining transaction boundaries, tenant scoping, encrypted fields, and auditing at the persistence layer.
+
+## When NOT to Use
+
+Do not use this skill when:
+
+- **The aggregate or domain model itself must be designed** (Active Record vs Event Sourcing semantics, event handlers) — use `ddd4j-core` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-core`.
+- **ORM field metadata is the question** (`@BizKey`, `@TenantId`, `@OnCreate` consumers) — use `ddd4j-annotation` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-annotation`.
+- **Reliable event delivery to a broker after commit is the question** — use `ddd4j-mq` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-mq` (this skill owns the Outbox write side only).
+- **Generic MyBatis-Plus or JPA usage with no ddd4j contracts involved** — use the framework's own skills; do not map ddd4j port names onto an unrelated persistence setup.
+- **An H2 unit test is being offered as production database proof** — do not use this skill to bless that; dialect, transaction, and concurrency claims require a real database.
+
+## Trigger Keywords
+
+**English**: persistence selection, EventStore, Projection, Outbox, transaction boundary, tenant isolation, Domain PO mapping, optimistic version
+
+**中文**: 持久化选型, EventStore, Projection, Outbox, 事务边界, 租户隔离, 领域对象映射, 乐观并发
 
 ## Technology Selection
 
@@ -56,21 +81,39 @@ Pick the persistence model first, then the technology. Snapshot Repository, Even
 
 ## Workflow
 
-1. Choose snapshot or event sourcing.
-2. Define the Aggregate / PO / Query mapping.
-3. Choose JDBC, JDBI, JPA, MyBatis, R2DBC, or Panache.
-4. Define transactions, tenants, encryption, and auditing.
-5. When read models or publishing are needed, add Projection or Outbox.
-6. Run real-database, rollback, concurrency, and recovery tests.
+### Step 1: Choose snapshot or event sourcing
 
-## Common Mistakes
+Decide the persistence model per aggregate: snapshot Repository (`save`/`load`) or Event Store append with `loadFromHistory`. Record the choice; never mix tracks on one aggregate.
 
-- `AggregateRoot` becoming the framework PO directly.
-- Raw MyBatis in-memory filtering going to production.
-- EventStore and business writes committing separately.
-- `MAX(position)+1` allocating global positions under concurrency.
-- Projection advancing the cursor before writing the read model.
-- Outbox marked as sent but unconfirmed / sent again without idempotency.
+### Step 2: Define the Aggregate / PO / Query mapping
+
+Keep `AggregateRoot` free of persistence annotations; map to PO explicitly, and bind `Query<M>` to the domain model with PO fields exposed only through an explicit persistence scope or metadata.
+
+### Step 3: Choose the technology
+
+Select JDBC/JDBI for synchronous SQL, JPA or MyBatis/MyBatis-Plus for ORM/mapper styles, R2DBC or Panache for reactive/Quarkus, and one of the JDBI/JPA/R2DBC/Panache/EventStoreDB implementations for the `EventStore` port.
+
+### Step 4: Define transactions, tenants, encryption, and auditing
+
+Fix the transaction boundary per use case, add tenant scoping to keys and queries, mark encrypted fields, and wire audit population — each through the adapter, never through the domain.
+
+### Step 5: Add Projection or Outbox when needed
+
+For read models, pair `ProjectionRunner`/`ProjectionService` with `ProjectionPositionRepository` under explicit transactions. For reliable publishing, share one transaction among business write, event, and Outbox row, then claim/send/confirm independently.
+
+### Step 6: Run real-database tests
+
+Cover dialect behavior, rollback, concurrency (`AggregateVersionConflictException`), ordering, and crash recovery against a real database container — an H2 unit test is not production proof.
+
+## Gotchas
+
+- `AggregateRoot` doubling as the framework PO because "it's faster" — the aggregate then carries persistence annotations into the domain, and every framework upgrade leaks into business logic.
+- Raw MyBatis in-memory filtering reaching production — a `Wrapper` that paginates in memory after loading the full table passes every small test set and times out on the first real dataset.
+- EventStore append and the business write committing in separate transactions — a crash between them yields an aggregate with no events, or events with no aggregate, and no test fails until the first real failure.
+- `MAX(position)+1` position allocation — two concurrent projections read the same MAX and collide; the allocator must be atomic (unique constraint with retry or an atomic allocator).
+- Projection advancing `ProjectionPositionRepository` before the read-model write commits — a crash in between permanently skips that event in the read model.
+- Outbox rows marked "sent" on send and re-sent after a crash before confirm — without idempotent consumption keyed on event/message id, the duplicate is delivered twice.
+- Declaring database proof from an H2 suite — H2 agrees with your dialect assumptions by accident; real-database tests exist because H2 does not emulate locking, concurrency, or visibility behavior.
 
 ## Deep Reference
 
@@ -84,7 +127,7 @@ Pick the persistence model first, then the technology. Snapshot Repository, Even
 
 ## Privacy and Security
 
-Test data must be masked. SQL, event, and Outbox logs must not expose credentials or private payloads.
+Test data must be masked. SQL, event, and Outbox logs must not expose credentials or private payloads. 本技能不访问、不收集、不存储、不传输任何用户数据、凭据或密钥；SQL、事件与 Outbox 示例仅使用脱敏的虚构数据。
 
 ## Quick Start
 

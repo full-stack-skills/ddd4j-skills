@@ -1,6 +1,6 @@
 ---
 name: ddd4j-javalin-runtime
-description: Use when implementing or reviewing ddd4j-javalin startup, configuration validation, SPI registration, lifecycle participants, readiness, drain, rollback, shutdown hooks, or close behavior.
+description: Use when implementing or reviewing ddd4j-javalin startup, configuration validation, SPI registration, lifecycle participants, readiness, drain, rollback, shutdown hooks, or close behavior. 中文触发词：启动流程、生命周期、SPI 注册、就绪检查、Drain、回滚、Hook、优雅关闭。
 license: Apache-2.0
 ---
 
@@ -9,6 +9,32 @@ license: Apache-2.0
 ## Overview
 
 Covers start, validate, initialize, SPI, readiness, drain, rollback, shutdown hook, and close uniformly. Confirm the maintenance line with ddd4j-javalin-version-selection first, then read the current branch source.
+
+## When to Use
+
+- Implementing or reviewing `Ddd4jJavalinRuntime` and its `start → validate → initialize → ready → drain → close` path on 6.7.x, 7.1.x, or 7.2.x.
+- Designing rollback after partial initialization: which `JavalinLifecycleParticipant`s were initialized and in what reverse order they must close.
+- Registering SPI providers and lifecycle participants, including required-versus-optional dependency semantics and readiness contribution.
+- Implementing real configuration loading and startup validation that rejects invalid production configuration instead of falling back to defaults.
+- Fixing shutdown-hook accumulation across repeated starts or embedded tests, or making `close()` idempotent.
+- Separating aggregated readiness (DB, MQ, OIDC, Outbox) from process-only liveness.
+
+## When NOT to Use
+
+Do not use this skill when:
+
+- **HTTP behavior served by the runtime is the question (routes, CORS, errors, idempotency)** — use `ddd4j-javalin-web` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-javalin-web`.
+- **A specific participant's internals are the question (EMF/Outbox, MQ consumers, auth provider)** — use `ddd4j-javalin-data`, `ddd4j-javalin-mq`, or `ddd4j-javalin-auth` instead for the matching capability skill.
+- **A cross-capability review, plan approval, or release gate is needed** — use `ddd4j-javalin-production-hardening` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-javalin-production-hardening`.
+- **Core domain or lifecycle SPI contracts are the question** — use `ddd4j-core` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-core`.
+- **Spring Boot auto-configuration and startup wiring is the question** — use `ddd4j-boot-autoconfiguration` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-boot-autoconfiguration`. Quarkus runtime: `ddd4j-quarkus-runtime`; Spring Cloud lifecycle: `ddd4j-cloud-architecture`.
+- **The project is a plain Javalin embedded server without ddd4j** — do not use this skill; use `java-skills` instead, since `Ddd4jJavalinRuntime` and its participant SPI do not exist there.
+
+## Trigger Keywords
+
+**English**: startup lifecycle, SPI registration, readiness, drain, rollback, shutdown hook, graceful close, lifecycle participants
+
+**中文**: 启动流程, 生命周期, SPI 注册, 就绪检查, Drain, 回滚, Hook, 优雅关闭
 
 ## Core Scope
 
@@ -44,11 +70,35 @@ start, validate, initialize, SPI, readiness, drain, rollback, shutdown hook, clo
 
 ## Workflow
 
-1. Select the version line.
-2. Locate feature modules, entry points, and providers.
-3. Compare implementations, configuration, overrides, and degradation.
-4. Read/execute the appropriate contract evidence.
-5. Output version, behavior, lifecycle, and risks.
+### Step 1: Confirm the source of truth
+
+Fix the maintenance line with `ddd4j-javalin-version-selection`, then locate `Ddd4jJavalinRuntime`, its lifecycle participants, and their tests in the current checkout.
+
+### Step 2: Review the lifecycle path
+
+Verify the coherent `start → validate → initialize → ready → drain → close` sequence, rollback of initialized resources in reverse order after partial failure, and that close is idempotent with no accumulating shutdown hooks.
+
+### Step 3: Verify readiness and context
+
+Confirm readiness aggregates required and optional participants while liveness stays process-only, and that Context/Subject cleanup happens on success, exception, and async terminal states.
+
+### Step 4: Test the lifecycle
+
+Exercise startup success, partial failure with rollback, restart, and repeated starts in embedded tests. Run behavior tests for configuration validation and SPI registration, not just happy-path construction.
+
+### Step 5: Report the lifecycle state
+
+Produce a single report: lifecycle path with registration and ownership points (file paths and line numbers), readiness contributors with required/optional classification, tests executed with evidence state per tier, and violations with proposed fixes.
+
+## Gotchas
+
+- `JavalinLifecycleParticipant` shutdown runs in reverse registration order; resources created first must close last.
+- A shutdown hook registered per start accumulates across embedded tests and repeated starts — one hook per process, or proven removal on every stop.
+- Readiness must aggregate real dependencies (DB, MQ, OIDC, Outbox); liveness must remain process-only — conflating them turns every downstream outage into a restart storm.
+- Rollback after partial initialization must close only the participants that actually initialized, in reverse order; closing an uninitialized participant masks the real failure.
+- `close()` must be idempotent: drain and embedded-test teardown invoke it more than once by design.
+- Real configuration loading and startup validation are required — default-object construction plus port parsing silently accepts broken production configuration.
+- Javalin 6 and Javalin 7 APIs differ — startup and lifecycle code copied between maintenance lines must be re-verified per line.
 
 ## Output and Exceptions
 
@@ -64,6 +114,8 @@ When input is missing, output "missing: target line/implementation/configuration
 ## Privacy and Security
 
 Never output tokens, cookies, OIDC secrets, or database or private repository credentials.
+
+本技能不访问、不收集、不存储、不传输任何用户数据、凭据或密钥；生命周期示例仅使用脱敏的虚构数据。
 
 ## Quick Start
 

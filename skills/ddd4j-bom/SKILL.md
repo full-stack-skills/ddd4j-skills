@@ -1,6 +1,6 @@
 ---
 name: ddd4j-bom
-description: Use when choosing or changing ddd4j parent, dependencies, BOM imports, Maven model, version ownership, dependency properties, release-line alignment, or consumer dependency management.
+description: Use when choosing or changing ddd4j parent, dependencies, BOM imports, Maven model, version ownership, dependency properties, release-line alignment, or consumer dependency management. 中文触发词：版本所有权、BOM 导入、effective POM、Maven 模型、依赖管理、空缓存消费、发布验证。
 license: Apache-2.0
 ---
 
@@ -9,6 +9,31 @@ license: Apache-2.0
 ## Overview
 
 `parent` owns the build, `dependencies` owns third-party versions, `BOM` owns ddd4j consumer coordinates. The three have distinct responsibilities. Adapter-project BOMs own only their own ecosystem versions.
+
+## When to Use
+
+- Deciding whether a change belongs in `ddd4j-parent`, `ddd4j-dependencies`, or the `ddd4j-bom`.
+- Adding a new module or property and keeping versions out of concrete module POMs.
+- Migrating or checking the Maven model: POM 4.0 `<modules>` vs POM 4.1 `<subprojects>`, Maven 3 vs Maven 4.
+- Diagnosing version conflicts caused by BOM import order or property leakage.
+- Verifying that a published line is actually consumable from a clean local repository.
+- Aligning dependency properties across the 1.0.x, 2.0.x, and 3.0.x lines.
+
+## When NOT to Use
+
+Do not use this skill when:
+
+- **Choosing which ddd4j line or adapter project a new project should adopt is the question** — use `ddd4j-version-selection` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-version-selection`.
+- **Runtime wiring after the artifacts resolve is the question** — use `ddd4j-runtime` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-runtime`.
+- **Application code has a compile or runtime problem unrelated to Maven governance** — use the generic `java-skills` or the relevant dimension skill; a build governance skill does not debug business code.
+- **The request is to silently bump versions, force-publish, or skip the enforcer** — do not use this skill for that; silent version changes and publishing require explicit authorization.
+- **A single downstream project's internal dependency hygiene is the question** (not ddd4j governance) — generic Maven guidance applies instead.
+
+## Trigger Keywords
+
+**English**: version ownership, BOM import, effective POM, Maven model, dependency management, clean-cache consumption, release verification, maintenance line
+
+**中文**: 版本所有权, BOM 导入, effective POM, Maven 模型, 依赖管理, 空缓存消费, 发布验证, 维护线
 
 ## Quick Selection
 
@@ -59,14 +84,36 @@ license: Apache-2.0
 - `scripts/check-bom-alignment.sh`
 - Clean-cache consumer `dependency:go-offline` / `compile`
 
-## Common Mistakes
+## Workflow
 
-- Mixing BOM and parent responsibilities.
-- Scattered numeric versions inside concrete modules.
-- Keeping `<modules>` in Maven 4 aggregator POMs.
-- Reading the source POM without checking the effective POM.
-- Claiming a full release after only some modules uploaded.
-- A warm private-repository cache masking missing parent / BOM artifacts.
+### Step 1: Decide the scope and ownership
+
+Identify whether the change touches `parent` (build/plugin conventions), `dependencies` (third-party versions), or the `BOM` (consumer-facing ddd4j coordinates), and confirm the maintenance line's JDK / Maven / POM Model contract. Edit only the file that owns the change.
+
+### Step 2: Make the model-correct edit
+
+Use `<modules>` / `<module>` on POM 4.0 lines and `<subprojects>` / `<subproject>` on the Maven 4 / POM 4.1 line. Never pin a third-party version inside a concrete module that `ddd4j-dependencies` already manages.
+
+### Step 3: Run the validation gates
+
+Execute the model-contract, property-layout, import-conflict, and alignment scripts (`scripts/test_maven4_model_contract.py`, `test_dependency_property_layout.py`, `test_bom_import_conflicts.py`, `test_dependency_alignment.py`, `check-bom-alignment.sh`).
+
+### Step 4: Verify consumption on a clean cache
+
+Generate `help:effective-pom` in a consumer project, then run `dependency:go-offline` and `compile` with `-U` against an empty local repository. A warm cache hides missing artifacts, so the clean-cache resolve is the real gate.
+
+### Step 5: Report with evidence grades
+
+Report the maintenance line, JDK, Maven, POM Model, changed ownership, effective-POM excerpts, script outputs, and the consumption result — each tagged SOURCE / TEST / CI / PUBLISHED / CONSUMED.
+
+## Gotchas
+
+- Mixing BOM and parent responsibilities — plugin and build config placed in a BOM looks harmless until a consumer imports the BOM and inherits build behavior it never asked for.
+- Scattered numeric versions inside concrete modules — each pin silently overrides `ddd4j-dependencies`, and the effective version depends on declaration order rather than the platform.
+- Keeping `<modules>` in a Maven 4 aggregator — POM 4.1 dropped it for `<subprojects>`; the element is ignored or fails depending on the Maven build, not the source.
+- Reading only the source POM — BOM import order and parent chains rewrite versions; the effective POM is the only truth about what a consumer actually gets.
+- Claiming a full release after partial upload — "the deploy started" and "the artifacts are consumable" are different claims; only a clean-cache resolve proves the latter.
+- A warm private-repository cache masking missing parent / BOM artifacts — CI resolves fine locally and fails only on a machine that has never seen the artifacts.
 
 ## Output and Exceptions
 
@@ -82,7 +129,7 @@ Return `maintenance line, JDK, Maven, POM Model, version owners, effective POM, 
 
 ## Privacy and Security
 
-Never print `settings.xml`, server passwords, or private-repository tokens.
+Never print `settings.xml`, server passwords, or private-repository tokens. 本技能不访问、不收集、不存储、不传输任何用户数据、凭据或密钥；仓库地址与认证信息仅以脱敏形式输出。
 
 ## Quick Start
 

@@ -1,6 +1,6 @@
 ---
 name: ddd4j-cloud-context
-description: Use when implementing or reviewing ddd4j-cloud request header, ThreadContext, asynchronous task, Reactor context, Feign propagation, restoration, or cleanup behavior.
+description: Use when implementing or reviewing ddd4j-cloud request header, ThreadContext, asynchronous task, Reactor context, Feign propagation, restoration, or cleanup behavior. 中文触发词：上下文传播、线程上下文、异步传播、Reactor 上下文、Feign 传播、上下文清理。
 license: Apache-2.0
 ---
 
@@ -9,6 +9,32 @@ license: Apache-2.0
 ## Overview
 
 Covers request headers, ThreadContext, async threads, Reactor, Feign, restoration, and cleanup uniformly, not split per artifact. Choose the Cloud→Boot→ddd4j primary combination first, then read the current branch.
+
+## When to Use
+
+- Propagating request headers into `ThreadContext` at service entry in a ddd4j-cloud service.
+- Making context survive `@Async` executors, Reactor operators, or Feign calls.
+- Verifying restoration on sync, async, Reactor, and Feign terminal states.
+- Auditing cleanup on success, exception, and thread-pool reuse paths.
+- Reviewing the core/data/web/feign context filters and their tests on a line.
+- Diagnosing cross-request data bleed on pooled threads or missing headers after a Feign hop.
+
+## When NOT to Use
+
+Do not use this skill when:
+
+- **Tenant isolation semantics are the question** (data scope, SQL filtering, ignore rules) — use `ddd4j-cloud-tenant` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-cloud-tenant`.
+- **Feign plumbing is the question** (interceptor registration, error decoder factory, retry policy) — use `ddd4j-cloud-feign` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-cloud-feign`.
+- **The ThreadLocal/Subject SPI contracts themselves are the question** — use `ddd4j-core` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-core`.
+- **The wiring is plain Spring Boot ddd4j with no Cloud modules** — use `ddd4j-boot-web` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-boot-web`.
+- **The runtime is Javalin or Quarkus** — use the matching `ddd4j-javalin-*` / `ddd4j-quarkus-*` skill instead (for example `ddd4j-javalin-web`, `ddd4j-quarkus-runtime`).
+- **Generic Spring Cloud context propagation without ddd4j** — do not use this skill; apply generic `spring-cloud` guidance instead (no install command).
+
+## Trigger Keywords
+
+**English**: context propagation, thread context, async propagation, Reactor context, Feign propagation, context restoration, context cleanup
+
+**中文**: 上下文传播, 线程上下文, 异步传播, Reactor 上下文, Feign 传播, 上下文清理
 
 ## Core Scope
 
@@ -44,11 +70,34 @@ Request headers, ThreadContext, async threads, Reactor, Feign, restoration, and 
 
 ## Workflow
 
-1. Select the primary version combination.
-2. Locate extensions, entry points, and upstream/downstream dependencies.
-3. Compare implementations, propagation, degradation, and lifecycle.
-4. Read the appropriate contract/verified-consumer evidence.
-5. Output version, implementation, external dependencies, and risks.
+### Step 1: Confirm the source of truth
+
+Run `ddd4j-cloud-version-selection` to fix the combination, then locate the core/data/web/feign context filters and their tests on the confirmed branch and SHA.
+
+### Step 2: Map the propagation surface
+
+Enumerate the entry points — request headers, `ThreadContext`, async executors, Reactor, and Feign calls — and identify which extension owns each hop.
+
+### Step 3: Verify restoration and cleanup
+
+Confirm restoration on sync, async, Reactor, and Feign terminal states, and cleanup on success, exception, and thread-pool reuse — no residue may survive across requests.
+
+### Step 4: Test the hops
+
+Run propagation tests across every hop, deliberately including exception and pool-reuse paths, and verify cross-service headers survive a real Feign round-trip.
+
+### Step 5: Report the propagation map
+
+Output the propagation map (hop → mechanism → owner) with file paths, restoration/cleanup coverage per terminal state, tests executed with evidence state per tier, and violations with proposed fixes.
+
+## Gotchas
+
+- A `ThreadLocal`-backed context does not cross an `@Async` boundary or a Reactor operator — each hop needs explicit propagation, and Reactor can hop threads between operators, so restoring only at subscription start is insufficient.
+- Feign client calls run on a different thread than the originating request — context must be captured before the call and cleared after, and each retry attempt re-enters that cycle.
+- Cleanup wired only on the success path leaks on exceptions: a pooled thread returns with the previous request's Subject or tenant bound and serves it to the next request.
+- A context filter class existing in source proves nothing — it must be registered in the filter chain for the line, in the right order.
+- Two context mechanisms on the classpath (for example a surviving old `cmpt` filter) can each restore half the state and mask each other's failures.
+- Propagated headers need an allowlist — blindly forwarding all inbound headers leaks credentials to downstream services.
 
 ## Output and Exceptions
 
@@ -63,7 +112,7 @@ When input is missing, output "missing: Cloud line/upstream/external services; h
 
 ## Privacy and Security
 
-Never output Nacos/Redis/broker/database/private repository credentials or real tenant data.
+Never output Nacos/Redis/broker/database/private repository credentials or real tenant data. 本技能不访问、不收集、不存储、不传输任何用户数据、凭据或密钥；上下文与用户标识示例均为虚构数据。
 
 ## Quick Start
 

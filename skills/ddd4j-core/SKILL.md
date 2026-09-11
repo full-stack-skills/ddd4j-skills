@@ -1,6 +1,6 @@
 ---
 name: ddd4j-core
-description: Use when implementing or reviewing current ddd4j domain models, aggregate roots, CQRS commands/queries, domain events, repository SPI, context, subject, cache, or health contracts; not for legacy io.hiwepy.boot CRUD conventions.
+description: Use when implementing or reviewing current ddd4j domain models, aggregate roots, CQRS commands/queries, domain events, repository SPI, context, subject, cache, or health contracts; not for legacy io.hiwepy.boot CRUD conventions. 中文触发词：聚合根、领域事件、命令总线、仓储接口、上下文清理、事件溯源。
 license: Apache-2.0
 ---
 
@@ -9,6 +9,33 @@ license: Apache-2.0
 ## Overview
 
 Guide domain modeling and framework-agnostic code against the current `io.ddd4j.core` public contracts. The core boundary is: `ddd4j-core` defines DDD / CQRS / SPI; Spring, Guice, Quarkus, Javalin, MyBatis, and friends only assemble in the adapter layer.
+
+## When to Use
+
+- Modeling or reviewing a ddd4j domain aggregate (`AggregateRoot<ID>`) in Active Record or Event Sourcing mode.
+- Implementing the write side — `Command`, `CommandExecutor`, `CommandBus`, `Result<R>`.
+- Implementing the read side — `Query<M>`, `PersistenceQueryScope<M, P>`, `Repository<M, ID>`.
+- Working with `DomainEvent<ID>` metadata, publication, or replay.
+- Deciding whether a dependency belongs in the domain or in the adapter layer.
+- Resolving `Contexts`, `ThreadContext`, `Subject`, or `Cache` SPI contracts.
+
+## When NOT to Use
+
+Do not use this skill when:
+
+- **Module boundaries or dependency direction are the question** — use `ddd4j-architecture` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-architecture`.
+- **Annotation retention, targets, or consumers are the question** — use `ddd4j-annotation` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-annotation`.
+- **Maven parent, BOM, or version ownership is the question** — use `ddd4j-bom` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-bom`.
+- **JSON, bean, string, collection, or ID utilities are the question** — use `ddd4j-kit` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-kit`.
+- **A concrete ORM, broker, or cache product must be configured** — use `ddd4j-data`, `ddd4j-mq`, or `ddd4j-cache`.
+- **The project is not on ddd4j** — generic DDD and Java skills apply; do not retrofit ddd4j types onto a non-ddd4j codebase.
+- **The code still uses `io.hiwepy.boot` CRUD base classes** — that is a legacy contract, not the current `ddd4j-core` API.
+
+## Trigger Keywords
+
+**English**: aggregate root, domain event, CQRS command, query, repository SPI, event sourcing, context cleanup, subject
+
+**中文**: 聚合根, 领域事件, 命令总线, 查询, 仓储接口, 事件溯源, 上下文清理, 主题
 
 ## Quick Start
 
@@ -87,20 +114,35 @@ When using event sourcing, persist `pullDomainEvents()` and stop calling snapsho
 
 ## Workflow
 
-1. Confirm the maintenance-line contract from current source and tests.
-2. Decide whether the aggregate uses snapshot or event sourcing.
-3. Keep Domain depending only on core APIs and SPIs.
-4. Implement the repository, bus, and publisher in the data / runtime module.
-5. Verify with aggregate invariants, event replay, command result, and context cleanup tests.
+### Step 1: Confirm the maintenance line
 
-## Common Mistakes
+Identify the current branch (`1.0.x`, `2.0.x`, or `3.0.x`) and read the active `AggregateRoot`, `Command`, `Query`, `Repository`, and `DomainEvent` source. The three lines are not interchangeable by name.
 
-- Continuing the legacy `BaseEntity / Model<T>` inheritance chain.
+### Step 2: Choose the persistence mode
+
+Decide Active Record (snapshot `save()`) or Event Sourcing (`pullDomainEvents()` plus `loadFromHistory`). Decide once per aggregate and record the choice; never mix both on the same aggregate.
+
+### Step 3: Model the aggregate
+
+Extend `AggregateRoot<ID>`, keep all mutations inside the aggregate body, register events with `registerEvent(...)`, apply them in `@EventHandler` methods, and preserve a no-arg constructor on every event subclass.
+
+### Step 4: Wire the contracts
+
+Define `Command` / `CommandExecutor` for the write path and `Query<M>` for the read path. The domain depends only on the `Repository` SPI; concrete data adapters register the implementations.
+
+### Step 5: Verify behavior
+
+Run aggregate invariant tests, event replay tests, command result tests, and context cleanup tests. Confirm the domain layer compiles without framework imports.
+
+## Gotchas
+
+- Continuing the legacy `BaseEntity / Model<T>` inheritance chain — the current contract is `AggregateRoot<ID>`.
 - Importing Spring or MyBatis Wrapper types directly into the core domain layer.
-- Persisting both aggregate snapshots and uncommitted events.
-- Treating `DomainEvent.source()` as a complete `EntityIdPath`.
-- Assuming `Repository` default methods work without testing the actual adapter — they may throw `UnsupportedOperationException`.
-- Binding `ThreadContext` but failing to clean it up in a `finally` block or scope close.
+- Persisting both aggregate snapshots and uncommitted events on the same aggregate.
+- Treating `DomainEvent.source()` as a complete `EntityIdPath` — it is a string-compatible view only.
+- Assuming `Repository` default methods work without testing the actual adapter; they may throw `UnsupportedOperationException`.
+- Binding `ThreadContext` but failing to clean it up in a `finally` block or scope close, leaking Subject or tenant data.
+- Copying `3.0.x` Java, Jackson, or API semantics directly onto older lines without re-verification.
 
 ## Output and Exceptions
 
@@ -116,6 +158,8 @@ Cite specific package names, source paths, and maintenance lines. When a symbol 
 ## Privacy and Security
 
 Examples use fictitious orders and identifiers. Never output real tokens, tenant data, user profiles, or private-repository credentials.
+
+本技能不访问、不收集、不存储、不传输任何用户数据、凭据或密钥；示例仅使用脱敏的虚构数据。
 
 ## FAQ
 

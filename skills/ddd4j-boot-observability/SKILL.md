@@ -1,6 +1,6 @@
 ---
 name: ddd4j-boot-observability
-description: Use when configuring or reviewing ddd4j-boot Actuator, health, readiness, metrics, tracing, logging, monitoring, or OpenTelemetry integration.
+description: Use when configuring or reviewing ddd4j-boot Actuator, health, readiness, metrics, tracing, logging, monitoring, or OpenTelemetry integration. 中文触发词：可观测性、Actuator、健康检查、指标、追踪、日志、监控、OpenTelemetry。
 license: Apache-2.0
 ---
 
@@ -10,6 +10,31 @@ license: Apache-2.0
 
 Covers Actuator, liveness/readiness, metrics, trace, logging, monitor, and OpenTelemetry uniformly, not split per artifact. Before use, confirm the maintenance line through ddd4j-boot-version-selection.
 
+## When to Use
+
+- Configuring Actuator exposure and separating liveness from readiness probes, with readiness aggregating real dependency checks.
+- Wiring metrics (and the ddd4j metrics bridge) so domain and framework counters actually increment.
+- Setting up tracing with OpenTelemetry and verifying the collector/exporter truly receives spans — not just that the SDK initializes.
+- Deciding log formats and correlation (trace IDs in logs) across a Boot line's logging setup.
+- Reviewing exporter lifecycle: exporters must have owners with idempotent close so shutdown does not drop or corrupt telemetry.
+- Diagnosing "monitoring is configured but empty": beans present, endpoints responding, yet the backend shows no data.
+
+## When NOT to Use
+
+Do not use this skill when:
+
+- **Metric names or the metrics SPI contract itself need designing** — use `ddd4j-metrics` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-metrics`.
+- **The readiness endpoint's HTTP contract or the web-layer error contract is the question** — use `ddd4j-boot-web` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-boot-web`.
+- **Generic auto-configuration mechanics are the question, not telemetry** — use `ddd4j-boot-autoconfiguration` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-boot-autoconfiguration`.
+- **The runtime is Quarkus, Javalin, or Spring Cloud** — use the matching `ddd4j-quarkus-*`, `ddd4j-javalin-*`, or `ddd4j-cloud-observability` skill instead; the Actuator assembly does not transfer.
+- **The project is plain Spring Boot without ddd4j** — generic Actuator / Micrometer / OpenTelemetry skills apply.
+- **Operational incident response on the live monitoring backend** — do not auto-expand into production operations; this skill configures and verifies, it does not operate.
+
+## Trigger Keywords
+
+**English**: observability, Actuator, health probes, metrics, tracing, logging, monitoring, OpenTelemetry
+
+**中文**: 可观测性, Actuator, 健康检查, 指标, 追踪, 日志, 监控, OpenTelemetry
 ## Core Scope
 
 Actuator, liveness/readiness, metrics, trace, logging, monitor, OpenTelemetry.
@@ -44,11 +69,35 @@ Actuator, liveness/readiness, metrics, trace, logging, monitor, OpenTelemetry.
 
 ## Workflow
 
-1. Select the version line.
-2. Locate the feature's aggregator and concrete implementations.
-3. Compare implementations, defaults, overrides, and degradation.
-4. Execute target context and behavior tests.
-5. Output version, configuration, lifecycle, evidence, and risks.
+### Step 1: Confirm the source of truth
+
+Run `ddd4j-boot-version-selection` to fix the line, then locate the Actuator, monitor, metrics, and OpenTelemetry AutoConfiguration and Properties on that line.
+
+### Step 2: Design the observability set
+
+Separate liveness from readiness — liveness must not fail because a dependency is down. Make readiness aggregate the real dependency checks, and plan the metrics, trace, and logging exporters against the actual observability backend.
+
+### Step 3: Verify the wiring
+
+Check conditional wiring, default beans, and user bean override points. Confirm the off switch truly skips assembly, and that exporters have explicit owners with rollback on failure and idempotent close.
+
+### Step 4: Test the delivery
+
+Execute context tests plus behavior tests: probe responses under dependency failure, metric increments on real operations, and export delivery verified at the collector/backend — not just at the SDK boundary.
+
+### Step 5: Report with separated evidence
+
+Report the chosen exporters and endpoints with configuration keys, the AutoConfiguration entry and override points, test results, and evidence state — configuration presence, bean creation, behavior, CI, and publish reported separately — plus risks and missing inputs.
+
+## Gotchas
+
+- An OTel SDK that initializes without errors proves nothing about delivery — spans can vanish at the exporter/collector boundary while the app logs nothing; verify at the backend.
+- Liveness and readiness are different contracts: folding dependency checks into liveness makes a database hiccup restart every pod.
+- Metrics endpoints responding 200 does not mean the counters are correct — increments must be tested against real operations, not endpoint availability.
+- A user-declared metrics registry or exporter bean silently replaces the assembled default, and the boot module keeps exporting to a registry nobody reads.
+- Actuator endpoint exposure and availability are separate settings on Boot 2/3/4 lines; an exposed-but-disabled endpoint (or vice versa) answers 404 while the config "looks enabled".
+- Batched or buffered exporters that never close drop the last telemetry window at shutdown — the loss appears exactly during deploys and crashes.
+- Printing Actuator or OTel configuration can leak endpoints, keys, and sampled payloads — sensitive values must be redacted.
 
 ## Output and Exceptions
 
@@ -63,7 +112,8 @@ When information is missing, output "missing: target line/implementation/configu
 
 ## Privacy and Security
 
-Never output credentials, tokens, production connection strings, or sensitive business data.
+
+Never output credentials, tokens, production connection strings, or sensitive business data. 本技能不访问、不收集、不存储、不传输任何用户数据、凭据或密钥；指标与日志示例均已脱敏。
 
 ## Quick Start
 

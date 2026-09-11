@@ -1,6 +1,6 @@
 ---
 name: ddd4j-quarkus-data
-description: Use when integrating Panache, JPA, JDBI, R2DBC, repositories, composite keys, tenants, transactions, EventStore, Projection, or Outbox with ddd4j-quarkus.
+description: Use when integrating Panache, JPA, JDBI, R2DBC, repositories, composite keys, tenants, transactions, EventStore, Projection, or Outbox with ddd4j-quarkus. 中文触发词：数据访问集成、Panache、JPA、JDBI、R2DBC、租户隔离、事务边界、EventStore、Outbox。
 license: Apache-2.0
 ---
 
@@ -9,6 +9,32 @@ license: Apache-2.0
 ## Overview
 
 Covers Panache, JPA, JDBI, R2DBC, Repository, composite keys, tenants, transactions, EventStore, Projection, and Outbox uniformly, not split per artifact. Choose 3.3.x or 4.0.x first, then read the current source.
+
+## When to Use
+
+- Choosing among Panache, JPA, JDBI, and R2DBC for a ddd4j-quarkus service and wiring the `Repository` SPI.
+- Defining composite keys, tenant isolation, and transaction boundaries for Quarkus data access.
+- Implementing EventStore, Projection, or Outbox behavior on Quarkus with real transactional guarantees.
+- Owning datasource lifecycle: startup/shutdown observers and idempotent close.
+- Confirming reflection/serialization registrations for entity classes under native image.
+- Testing against real databases with QuarkusTest — transactions, rollback, EventStore round-trips, startup failure.
+
+## When NOT to Use
+
+Do not use this skill when:
+
+- **Spring Boot data access (MyBatis, MyBatis-Plus, Flyway)** — use `ddd4j-boot-data` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-boot-data`; do not use this skill to port Boot mappers to Quarkus piecemeal.
+- **Javalin data access** — use `ddd4j-javalin-data` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-javalin-data`.
+- **The `Repository`/`Query` SPI contracts themselves are the question** — use `ddd4j-core` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-core`.
+- **Caching query results or idempotency keys** — use `ddd4j-quarkus-cache` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-quarkus-cache`.
+- **Build-time internals of a data extension (BuildItems, Recorders)** — use `ddd4j-quarkus-extension-authoring` instead. Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-quarkus-extension-authoring`.
+- **The project is plain Quarkus + Hibernate without ddd4j** — generic Quarkus/Hibernate guidance applies; do not use the ddd4j Repository SPI model on a non-ddd4j stack.
+
+## Trigger Keywords
+
+**English**: data access integration, Panache, JPA, JDBI, R2DBC, tenant isolation, transaction boundary, EventStore, Outbox, composite key
+
+**中文**: 数据访问集成, Panache, JPA, JDBI, R2DBC, 租户隔离, 事务边界, EventStore, Outbox, 复合主键
 
 ## Core Scope
 
@@ -44,11 +70,34 @@ Panache, JPA, JDBI, R2DBC, Repository, composite keys, tenants, transactions, Ev
 
 ## Workflow
 
-1. Select the version line.
-2. Locate runtime/deployment or feature modules.
-3. Verify CDI scope, configuration, and lifecycle.
-4. Read the appropriate Arc/QuarkusTest/contract evidence.
-5. Output version, implementation, evidence, and risks.
+### Step 1: Confirm the source of truth
+
+Fix the line via `ddd4j-quarkus-version-selection`, then locate `ddd4j-quarkus-data` and the Quarkus/Panache adapters in that checkout. The supported access stacks are per line.
+
+### Step 2: Select the access stack
+
+Choose Panache, JPA, JDBI, or R2DBC against the consistency and reactive requirements, confirm `Repository` wiring, and define composite keys, tenant isolation, and transaction boundaries up front.
+
+### Step 3: Verify lifecycle and native support
+
+Confirm datasource owners, startup/shutdown observers, and idempotent close, plus the reflection/serialization registrations needed for native image.
+
+### Step 4: Test against real databases
+
+Run QuarkusTest suites against real databases covering transactions, EventStore, Projection, and Outbox behavior, including startup failure and rollback paths — an H2-only suite does not prove production behavior.
+
+### Step 5: Report
+
+Produce a single report: chosen stack with configuration keys, lifecycle owners and native registrations, tests executed and evidence state per tier, and risks with proposed fixes and missing inputs.
+
+## Gotchas
+
+- `quarkus.hibernate-orm`-style configuration is build-time fixed: some properties cannot be changed at runtime, and a `%prod.runtime` override for them silently does nothing or fails the build.
+- Panache active-record patterns must not leak into the ddd4j domain — the domain depends on the `Repository` SPI; entities stay in the data adapter.
+- EventStore persistence and snapshot `save()` on the same aggregate mix persistence tracks; the Outbox writes what `pullDomainEvents()` produced, nothing else.
+- Native image requires explicit registration for entity classes reached reflectively; JVM-mode data tests pass while the native build fails on the first mapped entity.
+- Testcontainers suites need Docker, and Docker detection is special across Quarkus's classloaders — an unavailable Docker run is BLOCKED/SKIPPED, never PASS.
+- Datasource close must be idempotent and owned by a shutdown observer; closing twice during shutdown (observer plus framework) masks the real shutdown error.
 
 ## Output and Exceptions
 
@@ -63,7 +112,7 @@ When input is missing, output "missing: target line/extension/runtime; how to pr
 
 ## Privacy and Security
 
-Never output tokens, OIDC secrets, or database, broker, or private repository credentials.
+Never output tokens, OIDC secrets, or database, broker, or private repository credentials. 本技能不访问、不收集、不存储、不传输任何用户数据、凭据或密钥；数据源配置示例仅使用脱敏占位符。
 
 ## Quick Start
 
