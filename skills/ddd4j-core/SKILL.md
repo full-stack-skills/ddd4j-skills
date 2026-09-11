@@ -106,6 +106,13 @@ public final class Order extends AggregateRoot<OrderId> {
 
 引用具体包名、源码路径和维护线。找不到符号时输出“缺少：当前分支中的符号或模块；补充方式：确认分支、POM 与源码路径”，不得用旧项目类型代替。
 
+## 能力路由
+
+- 模块边界和依赖方向：交给 **`ddd4j-architecture`**。Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-architecture`。
+- 注解语义和消费者：交给 **`ddd4j-annotation`**。Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-annotation`。
+- Maven/BOM/版本所有权：交给 **`ddd4j-bom`**。Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-bom`。
+- JSON、Bean、字符串、集合与 ID 工具：交给 **`ddd4j-kit`**。Install: `npx skills add full-stack-skills/ddd4j-skills --skill ddd4j-kit`。
+
 ## 隐私与安全
 
 示例使用虚构订单和标识；不要输出真实 Token、租户数据、用户资料或私服凭据。

@@ -1,6 +1,6 @@
 ---
 name: ddd4j-javalin-production-hardening
-description: Audit, plan, implement, verify, and privately release production-hardening changes across the ddd4j-javalin 6.7.x, 7.1.x, and 7.2.x maintenance lines. Use for Javalin runtime lifecycle, readiness, configuration, idempotency, CORS, multi-branch TDD, CI, or private Maven release work; do not use for generic ddd4j or Quarkus releases.
+description: Use when hardening or releasing ddd4j-javalin 6.7.x, 7.1.x, or 7.2.x across runtime lifecycle, readiness, configuration, idempotency, CORS, multi-branch TDD, CI, or private Maven workflows.
 ---
 
 # DDD4J Javalin Production Hardening
@@ -77,6 +77,10 @@ When required material is missing, report it in Chinese as “缺少：具体项
 - Convert each risk into an observable contract: fail first, implement the smallest behavior, then run focused and affected regression tests.
 - Keep evidence tiers separate: source review → focused tests → per-line clean reactor → runtime/container tests → Git/remote SHA → CI → private publication → isolated remote consumption → production acceptance.
 - Never expose repository credentials, settings files, tokens, private URLs containing secrets, or raw environment values. Report only credential presence/source and redact sensitive output.
+
+## 功能技能路由
+
+详细实现分别交给 `ddd4j-javalin-runtime`、`ddd4j-javalin-auth`、`ddd4j-javalin-data`、`ddd4j-javalin-web`、`ddd4j-javalin-mq`、`ddd4j-javalin-cache`、`ddd4j-javalin-testing` 和 `ddd4j-javalin-release`。本技能只保留跨能力审查、计划审批、TDD 编排和生产发布门禁。
 
 ## Hardening model
 

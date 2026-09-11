@@ -24,16 +24,72 @@ npx skills add full-stack-skills/ddd4j-skills
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## 技能列表（6）
+## 技能列表（62）
 
 | 技能 | 适用场景 |
 |---|---|
+| `ddd4j-version-selection` | 选择兼容的 ddd4j、Boot、Cloud、Javalin、Quarkus、JDK、Maven 和 POM 版本 |
+| `ddd4j-boot-version-selection` | 按 Spring Boot、JDK、Maven 基线选择 13 条 ddd4j-boot 维护线 |
+| `ddd4j-boot-architecture` | 设计 ddd4j-boot 模块边界和 Spring Boot 集成职责 |
+| `ddd4j-boot-bom` | 管理 ddd4j-boot parent、dependencies、BOM、effective POM 和版本所有权 |
+| `ddd4j-boot-autoconfiguration` | 开发条件自动配置、Properties、用户覆盖、imports 和生命周期 |
+| `ddd4j-boot-auth` | 在 ddd4j-boot 中集成 Sa-Token、Shiro 和 Spring Security |
+| `ddd4j-boot-data` | 集成 JDBC、JPA、MyBatis、迁移、事务、Projection 和 Outbox |
+| `ddd4j-boot-cache` | 配置本地缓存、Redis、Redisson、JetCache、TTL、CAS 和幂等 |
+| `ddd4j-boot-mq` | 配置多 Broker、Listener、ACK、重试、Readiness 和关闭 |
+| `ddd4j-boot-web` | 构建 MVC/WebFlux Context、错误、认证、校验、幂等、CORS 和 Readiness |
+| `ddd4j-boot-observability` | 配置 Actuator、健康、指标、追踪、日志、监控和 OpenTelemetry |
+| `ddd4j-boot-extensions` | 集成 Akka、Excel、QLExpress、QR Code、Monitor 等扩展 |
+| `ddd4j-boot-testing` | 测试自动配置、维护矩阵、HTTP、数据库、Redis 和 Broker |
+| `ddd4j-boot-release` | 验证和发布 13 条维护线、CI 与空缓存消费 |
+| `ddd4j-architecture` | 设计和审查 ddd4j 模块边界、DDD/CQRS 分层、端口、适配器和运行时 |
+| `ddd4j-annotation` | 选择和审查 ddd4j 的 DDD、CQRS、API、ORM 注解及其消费者 |
+| `ddd4j-bom` | 治理 ddd4j parent、dependencies、BOM 导入、Maven 模型和版本所有权 |
 | `ddd4j-core` | AggregateRoot、CQRS、DomainEvent、Repository、Context、Subject、Cache 等核心契约 |
-| `ddd4j-jackson` | Jackson 3、JsonKit、事件载荷、安全反序列化和代际兼容 |
-| `ddd4j-mybatis` | 原生 MyBatis/MyBatis-Plus 聚合仓储、Domain/PO 映射、租户与数据权限 |
-| `ddd4j-validation` | ddd4j-web-validation 四个公开约束及维护线兼容 |
-| `ddd4j-satoken` | StpKit、Subject Bridge、认证模式、临时 Token 和 API Key |
+| `ddd4j-kit` | 选择 ddd4j JSON、Bean、字符串、集合、标识、函数和反射工具 |
+| `ddd4j-data` | 选择 JDBC、JDBI、JPA、MyBatis、R2DBC、Panache、EventStore、Projection、Outbox 和事务 |
+| `ddd4j-web` | 在多运行时应用统一 HTTP、Context、错误、校验、认证、幂等、CORS 和 Readiness 契约 |
+| `ddd4j-auth` | 通过 ddd4j Subject 统一选择和集成 Sa-Token、Shiro、Spring Security |
+| `ddd4j-cache` | 选择本地缓存、Redis、Redisson、JetCache、Memcached、TTL、锁和 CAS |
+| `ddd4j-mq` | 选择和运行 Kafka、RabbitMQ、Pulsar、RocketMQ、MQTT、NATS、SQS、ACK 与生命周期 |
+| `ddd4j-metrics` | 设计 Projection、Web、MQ、Cache、Runtime 和 OpenTelemetry 指标 |
+| `ddd4j-runtime` | 集成 Spring、Guice、Quarkus CDI、Micronaut、Vert.x、Helidon 和 Dropwizard 运行时 |
+| `ddd4j-extensions` | 选择 Excel、License、Monitor、OpenTelemetry、PF4J、QLExpress、QR Code 和 Validation 扩展 |
 | `ddd4j-javalin-production-hardening` | ddd4j-javalin 多分支生产加固、TDD、CI 与私有 Maven 发布 |
+| `ddd4j-javalin-version-selection` | 选择 6.7.x、7.1.x、7.2.x Javalin 维护线 |
+| `ddd4j-javalin-architecture` | 设计 Javalin 模块与集成边界 |
+| `ddd4j-javalin-runtime` | 管理启动、SPI、Readiness、Drain、回滚、Hook 和关闭 |
+| `ddd4j-javalin-auth` | 集成 Sa-Token、Shiro、OIDC/Keycloak |
+| `ddd4j-javalin-data` | 集成 MyBatis、JPA/PostgreSQL、Repository、事务、EventStore 和 Outbox |
+| `ddd4j-javalin-web` | 构建路由、Context、错误、CORS、认证、校验、幂等和健康检查 |
+| `ddd4j-javalin-mq` | 装配 MQ Listener、ACK、重试、Readiness 和关闭 |
+| `ddd4j-javalin-cache` | 选择本地/分布式缓存、CAS、TTL 和幂等后端 |
+| `ddd4j-javalin-extensions` | 组合 Guice Module、业务覆盖和扩展生命周期 |
+| `ddd4j-javalin-testing` | 测试 HTTP、Keycloak、PostgreSQL、MQ、Docker、端口和生命周期 |
+| `ddd4j-javalin-release` | 验证和发布三条维护线 |
+| `ddd4j-quarkus-version-selection` | 选择 3.3.x/4.0.x 适配线和兼容 Quarkus Platform |
+| `ddd4j-quarkus-architecture` | 设计 Quarkus parent、BOM、扩展、认证、数据、MQ、Web、Cache 边界 |
+| `ddd4j-quarkus-extension-authoring` | 开发 runtime/deployment、Processor、BuildItem、Recorder 和 Native 支持 |
+| `ddd4j-quarkus-runtime` | 集成 CDI/Arc、Bus、Publisher、SubjectProvider、Context、启动和关闭 |
+| `ddd4j-quarkus-auth` | 集成 JWT、OIDC、Shiro 和 Sa-Token 支持边界 |
+| `ddd4j-quarkus-data` | 集成 Panache、JPA、JDBI、R2DBC、租户、事务、EventStore 和 Outbox |
+| `ddd4j-quarkus-web` | 构建 Quarkus REST Context、错误、认证、校验、幂等、CORS 和 Readiness |
+| `ddd4j-quarkus-mq` | 集成 Kafka、NATS、其他 Broker、ACK、生命周期和容器 |
+| `ddd4j-quarkus-cache` | 集成 Quarkus Cache、Redis、ddd4j Cache SPI、TTL、CAS 和幂等 |
+| `ddd4j-quarkus-testing` | 测试 QuarkusTest、TestResource、Arc、Docker、ClassLoader 和 Native 路径 |
+| `ddd4j-quarkus-release` | 验证和发布 3.3.x/4.0.x、CI、Security 与空缓存消费 |
+| `ddd4j-cloud-version-selection` | 选择 Cloud、Boot、ddd4j、JDK、Maven 和 POM 维护组合 |
+| `ddd4j-cloud-architecture` | 设计 Cloud parent、BOM、扩展、兼容、验证和上游边界 |
+| `ddd4j-cloud-bom` | 管理 Cloud/Alibaba BOM、Boot parent、ddd4j 导入和 effective POM |
+| `ddd4j-cloud-context` | 传播和清理请求、线程、Reactor、异步和 Feign Context |
+| `ddd4j-cloud-tenant` | 实现租户/系统隔离、数据范围、SQL 和跨服务传播 |
+| `ddd4j-cloud-data` | 集成数据源、MyBatis、JPA、事务、Seata、租户和迁移 |
+| `ddd4j-cloud-feign` | 配置 Header、Interceptor、ErrorDecoder、重试和清理 |
+| `ddd4j-cloud-stream` | 集成 StreamBridge、Binding、Destination、ACK、Kafka、RabbitMQ、Pulsar 和 RocketMQ |
+| `ddd4j-cloud-web` | 构建 MVC/WebFlux i18n、错误、Context、租户、认证、校验和 Readiness |
+| `ddd4j-cloud-observability` | 配置 Nacos、Sentinel、Monitor、Trace、Metrics、Logging 和 Health |
+| `ddd4j-cloud-testing` | 测试兼容、MySQL、Context、Feign、Binder、Broker 和远端消费者 |
+| `ddd4j-cloud-release` | 验证和发布八条维护线、上游与空缓存证明 |
 
 ## 边界
 

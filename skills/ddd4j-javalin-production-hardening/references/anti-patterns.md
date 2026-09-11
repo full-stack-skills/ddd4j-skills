@@ -5,4 +5,3 @@
 3. **固定 READY**：readiness 不检查依赖；聚合 required/optional participant 状态。
 4. **本地幂等冒充集群幂等**：生产多实例继续使用 Caffeine；要求共享 CAS 实现。
 5. **活动冒充完成**：push、CI 启动或上传日志被当成功；等待终态并做空缓存消费。
-
