@@ -16,7 +16,7 @@
     "./skills/ddd4j-bom",
     "./skills/ddd4j-core",
     "./skills/ddd4j-kit",
-    "./skills/ddd4j-mybatis",
+    "./skills/ddd4j-data",
     "./skills/ddd4j-validation",
     "./skills/ddd4j-auth",
     "./skills/ddd4j-cache",

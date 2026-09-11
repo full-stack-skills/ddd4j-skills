@@ -91,10 +91,10 @@
 - Create: skills/ddd4j-cache/
 - Delete after migration: skills/ddd4j-satoken/
 
-- [ ] **Step 1:** Auth 先讲统一 Subject/AuthPrincipal，再比较三框架。
-- [ ] **Step 2:** 每框架覆盖依赖、配置、身份映射、权限、异常、上下文清理和测试。
-- [ ] **Step 3:** Cache 覆盖本地/分布式实现、TTL、CAS 和集群幂等。
-- [ ] **Step 4:** 验证 Sa-Token 场景完整迁移后删除旧入口并提交。
+- [x] **Step 1:** Auth 先讲统一 Subject/AuthPrincipal，再比较三框架。
+- [x] **Step 2:** 每框架覆盖依赖、配置、身份映射、权限、异常、上下文清理和测试。
+- [x] **Step 3:** Cache 覆盖本地/分布式实现、TTL、CAS 和集群幂等。
+- [x] **Step 4:** 验证 Sa-Token 场景完整迁移后删除旧入口并提交。
 
 ### Task 5: 创建 data 与 mq
 
