@@ -1,0 +1,20 @@
+{
+  "name": "ddd4j-skills",
+  "version": "1.0.0",
+  "description": "Source-aligned Agent Skills for the ddd4j Java ecosystem",
+  "author": {
+    "name": "PartMe.AI",
+    "email": "partmeai@gmail.com"
+  },
+  "homepage": "https://github.com/full-stack-skills/ddd4j-skills",
+  "repository": "https://github.com/full-stack-skills/ddd4j-skills",
+  "source": "./",
+  "skills": [
+    "./skills/ddd4j-core",
+    "./skills/ddd4j-jackson",
+    "./skills/ddd4j-mybatis",
+    "./skills/ddd4j-validation",
+    "./skills/ddd4j-satoken",
+    "./skills/ddd4j-javalin-production-hardening"
+  ]
+}

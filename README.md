@@ -1,0 +1,46 @@
+<div align="center">
+
+# ddd4j-skills
+
+**Source-aligned Agent Skills for ddd4j maintenance and production delivery**
+
+[简体中文](./README.zh-CN.md)
+
+</div>
+
+## Overview
+
+This package separates ddd4j-specific contracts from generic Java guidance and general DDD methodology. Every skill must be verified against the target maintenance line's source, POMs, tests, and runtime evidence.
+
+## Install
+
+```bash
+npx skills add full-stack-skills/ddd4j-skills
+```
+
+Install one skill:
+
+```bash
+npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
+```
+
+## Skills (6)
+
+| Skill | Use when |
+|---|---|
+| `ddd4j-core` | Working with AggregateRoot, CQRS, DomainEvent, Repository, Context, Subject, or Cache contracts |
+| `ddd4j-jackson` | Working with Jackson 3, JsonKit, event payloads, safe deserialization, or version compatibility |
+| `ddd4j-mybatis` | Building native MyBatis/MyBatis-Plus aggregate repositories, Domain/PO mapping, tenant or data-scope behavior |
+| `ddd4j-validation` | Using the four public ddd4j-web-validation constraints across maintenance lines |
+| `ddd4j-satoken` | Integrating StpKit, Subject bridges, authentication modes, temporary tokens, or API keys |
+| `ddd4j-javalin-production-hardening` | Hardening and releasing ddd4j-javalin across its maintenance branches |
+
+## Boundaries
+
+- Use `java-skills` for generic Java libraries and conventions.
+- Use `ddd-skills` for general DDD architecture and modeling.
+- Use this package for ddd4j source contracts, adapters, maintenance lines, and release gates.
+
+## License
+
+Apache-2.0. See [LICENSE](LICENSE).
