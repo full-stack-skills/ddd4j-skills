@@ -39,10 +39,10 @@
 
 **Files:** Create skills/ddd4j-boot-version-selection/、skills/ddd4j-boot-architecture/、skills/ddd4j-boot-bom/
 
-- [ ] **Step 1:** 提取 13 条 Boot→ddd4j→JDK/Maven/POM 完整矩阵。
-- [ ] **Step 2:** 标明主组合、备选、不兼容和未验证。
-- [ ] **Step 3:** 解释 parent/dependencies/BOM 与具体模块的所有权。
-- [ ] **Step 4:** 用 Boot 2.7、3.5、4.1 三场景验证并提交。
+- [x] **Step 1:** 提取 13 条 Boot→ddd4j→JDK/Maven/POM 完整矩阵。
+- [x] **Step 2:** 标明主组合、备选、不兼容和未验证。
+- [x] **Step 3:** 解释 parent/dependencies/BOM 与具体模块的所有权。
+- [x] **Step 4:** 用 Boot 2.7、3.5、4.1 三场景验证并提交。
 
 ### Task 2: 自动配置与 extensions
 

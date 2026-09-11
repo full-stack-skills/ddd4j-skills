@@ -24,12 +24,14 @@ npx skills add full-stack-skills/ddd4j-skills
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## 技能列表（16）
+## 技能列表（18）
 
 | 技能 | 适用场景 |
 |---|---|
 | `ddd4j-version-selection` | 选择兼容的 ddd4j、Boot、Cloud、Javalin、Quarkus、JDK、Maven 和 POM 版本 |
 | `ddd4j-boot-version-selection` | 按 Spring Boot、JDK、Maven 基线选择 13 条 ddd4j-boot 维护线 |
+| `ddd4j-boot-architecture` | 设计 ddd4j-boot 模块边界和 Spring Boot 集成职责 |
+| `ddd4j-boot-bom` | 管理 ddd4j-boot parent、dependencies、BOM、effective POM 和版本所有权 |
 | `ddd4j-architecture` | 设计和审查 ddd4j 模块边界、DDD/CQRS 分层、端口、适配器和运行时 |
 | `ddd4j-annotation` | 选择和审查 ddd4j 的 DDD、CQRS、API、ORM 注解及其消费者 |
 | `ddd4j-bom` | 治理 ddd4j parent、dependencies、BOM 导入、Maven 模型和版本所有权 |
