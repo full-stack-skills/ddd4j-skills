@@ -35,7 +35,7 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-core` | AggregateRoot、CQRS、DomainEvent、Repository、Context、Subject、Cache 等核心契约 |
 | `ddd4j-kit` | 选择 ddd4j JSON、Bean、字符串、集合、标识、函数和反射工具 |
 | `ddd4j-data` | 选择 JDBC、JDBI、JPA、MyBatis、R2DBC、Panache、EventStore、Projection、Outbox 和事务 |
-| `ddd4j-validation` | ddd4j-web-validation 四个公开约束及维护线兼容 |
+| `ddd4j-web` | 在多运行时应用统一 HTTP、Context、错误、校验、认证、幂等、CORS 和 Readiness 契约 |
 | `ddd4j-auth` | 通过 ddd4j Subject 统一选择和集成 Sa-Token、Shiro、Spring Security |
 | `ddd4j-cache` | 选择本地缓存、Redis、Redisson、JetCache、Memcached、TTL、锁和 CAS |
 | `ddd4j-mq` | 选择和运行 Kafka、RabbitMQ、Pulsar、RocketMQ、MQTT、NATS、SQS、ACK 与生命周期 |

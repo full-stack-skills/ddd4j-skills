@@ -35,7 +35,7 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-core` | Working with AggregateRoot, CQRS, DomainEvent, Repository, Context, Subject, or Cache contracts |
 | `ddd4j-kit` | Selecting ddd4j JSON, bean, string, collection, identifier, function, and reflection utilities |
 | `ddd4j-data` | Choosing JDBC, JDBI, JPA, MyBatis, R2DBC, Panache, EventStore, Projection, Outbox, and transactions |
-| `ddd4j-validation` | Using the four public ddd4j-web-validation constraints across maintenance lines |
+| `ddd4j-web` | Applying common HTTP, context, error, validation, auth, idempotency, CORS, and readiness contracts across runtimes |
 | `ddd4j-auth` | Choosing and integrating Sa-Token, Shiro, or Spring Security through ddd4j Subject contracts |
 | `ddd4j-cache` | Choosing local, Redis, Redisson, JetCache, Memcached, TTL, locking, and CAS behavior |
 | `ddd4j-mq` | Choosing and operating Kafka, RabbitMQ, Pulsar, RocketMQ, MQTT, NATS, SQS, acknowledgments, and lifecycle |
