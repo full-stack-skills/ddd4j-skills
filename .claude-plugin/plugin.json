@@ -38,5 +38,16 @@
     "./skills/ddd4j-runtime",
     "./skills/ddd4j-extensions",
     "./skills/ddd4j-javalin-production-hardening"
+    ,"./skills/ddd4j-javalin-version-selection"
+    ,"./skills/ddd4j-javalin-architecture"
+    ,"./skills/ddd4j-javalin-runtime"
+    ,"./skills/ddd4j-javalin-auth"
+    ,"./skills/ddd4j-javalin-data"
+    ,"./skills/ddd4j-javalin-web"
+    ,"./skills/ddd4j-javalin-mq"
+    ,"./skills/ddd4j-javalin-cache"
+    ,"./skills/ddd4j-javalin-extensions"
+    ,"./skills/ddd4j-javalin-testing"
+    ,"./skills/ddd4j-javalin-release"
   ]
 }

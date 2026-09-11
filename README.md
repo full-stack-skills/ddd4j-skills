@@ -24,7 +24,7 @@ Install one skill:
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## Skills (28)
+## Skills (39)
 
 | Skill | Use when |
 |---|---|
@@ -56,6 +56,17 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-runtime` | Integrating Spring, Guice, Quarkus CDI, Micronaut, Vert.x, Helidon, and Dropwizard runtimes |
 | `ddd4j-extensions` | Choosing optional Excel, license, monitor, OpenTelemetry, PF4J, QLExpress, QR code, and validation extensions |
 | `ddd4j-javalin-production-hardening` | Hardening and releasing ddd4j-javalin across its maintenance branches |
+| `ddd4j-javalin-version-selection` | Selecting the 6.7.x, 7.1.x, or 7.2.x Javalin maintenance line |
+| `ddd4j-javalin-architecture` | Designing Javalin module and integration boundaries |
+| `ddd4j-javalin-runtime` | Managing startup, SPI, readiness, drain, rollback, hooks, and close |
+| `ddd4j-javalin-auth` | Integrating Sa-Token, Shiro, or OIDC/Keycloak |
+| `ddd4j-javalin-data` | Integrating MyBatis, JPA/PostgreSQL, repositories, transactions, EventStore, and Outbox |
+| `ddd4j-javalin-web` | Building routes, context, errors, CORS, auth, validation, idempotency, and health |
+| `ddd4j-javalin-mq` | Wiring MQ listeners, acknowledgment, retry, readiness, and shutdown |
+| `ddd4j-javalin-cache` | Selecting local or distributed cache, CAS, TTL, and idempotency backends |
+| `ddd4j-javalin-extensions` | Composing Guice modules, business overrides, and extension lifecycle |
+| `ddd4j-javalin-testing` | Testing HTTP, Keycloak, PostgreSQL, MQ, Docker, ports, and lifecycle |
+| `ddd4j-javalin-release` | Validating and publishing all three maintenance lines |
 
 ## Boundaries
 

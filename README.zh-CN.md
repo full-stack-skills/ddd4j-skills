@@ -24,7 +24,7 @@ npx skills add full-stack-skills/ddd4j-skills
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## 技能列表（28）
+## 技能列表（39）
 
 | 技能 | 适用场景 |
 |---|---|
@@ -56,6 +56,17 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-runtime` | 集成 Spring、Guice、Quarkus CDI、Micronaut、Vert.x、Helidon 和 Dropwizard 运行时 |
 | `ddd4j-extensions` | 选择 Excel、License、Monitor、OpenTelemetry、PF4J、QLExpress、QR Code 和 Validation 扩展 |
 | `ddd4j-javalin-production-hardening` | ddd4j-javalin 多分支生产加固、TDD、CI 与私有 Maven 发布 |
+| `ddd4j-javalin-version-selection` | 选择 6.7.x、7.1.x、7.2.x Javalin 维护线 |
+| `ddd4j-javalin-architecture` | 设计 Javalin 模块与集成边界 |
+| `ddd4j-javalin-runtime` | 管理启动、SPI、Readiness、Drain、回滚、Hook 和关闭 |
+| `ddd4j-javalin-auth` | 集成 Sa-Token、Shiro、OIDC/Keycloak |
+| `ddd4j-javalin-data` | 集成 MyBatis、JPA/PostgreSQL、Repository、事务、EventStore 和 Outbox |
+| `ddd4j-javalin-web` | 构建路由、Context、错误、CORS、认证、校验、幂等和健康检查 |
+| `ddd4j-javalin-mq` | 装配 MQ Listener、ACK、重试、Readiness 和关闭 |
+| `ddd4j-javalin-cache` | 选择本地/分布式缓存、CAS、TTL 和幂等后端 |
+| `ddd4j-javalin-extensions` | 组合 Guice Module、业务覆盖和扩展生命周期 |
+| `ddd4j-javalin-testing` | 测试 HTTP、Keycloak、PostgreSQL、MQ、Docker、端口和生命周期 |
+| `ddd4j-javalin-release` | 验证和发布三条维护线 |
 
 ## 边界
 

@@ -78,6 +78,10 @@ When required material is missing, report it in Chinese as “缺少：具体项
 - Keep evidence tiers separate: source review → focused tests → per-line clean reactor → runtime/container tests → Git/remote SHA → CI → private publication → isolated remote consumption → production acceptance.
 - Never expose repository credentials, settings files, tokens, private URLs containing secrets, or raw environment values. Report only credential presence/source and redact sensitive output.
 
+## 功能技能路由
+
+详细实现分别交给 `ddd4j-javalin-runtime`、`ddd4j-javalin-auth`、`ddd4j-javalin-data`、`ddd4j-javalin-web`、`ddd4j-javalin-mq`、`ddd4j-javalin-cache`、`ddd4j-javalin-testing` 和 `ddd4j-javalin-release`。本技能只保留跨能力审查、计划审批、TDD 编排和生产发布门禁。
+
 ## Hardening model
 
 Investigate these concerns when relevant; do not force them into unrelated work:
