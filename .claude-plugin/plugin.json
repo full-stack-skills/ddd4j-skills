@@ -49,5 +49,16 @@
     ,"./skills/ddd4j-javalin-extensions"
     ,"./skills/ddd4j-javalin-testing"
     ,"./skills/ddd4j-javalin-release"
+    ,"./skills/ddd4j-quarkus-version-selection"
+    ,"./skills/ddd4j-quarkus-architecture"
+    ,"./skills/ddd4j-quarkus-extension-authoring"
+    ,"./skills/ddd4j-quarkus-runtime"
+    ,"./skills/ddd4j-quarkus-auth"
+    ,"./skills/ddd4j-quarkus-data"
+    ,"./skills/ddd4j-quarkus-web"
+    ,"./skills/ddd4j-quarkus-mq"
+    ,"./skills/ddd4j-quarkus-cache"
+    ,"./skills/ddd4j-quarkus-testing"
+    ,"./skills/ddd4j-quarkus-release"
   ]
 }

@@ -24,7 +24,7 @@ npx skills add full-stack-skills/ddd4j-skills
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## 技能列表（39）
+## 技能列表（50）
 
 | 技能 | 适用场景 |
 |---|---|
@@ -67,6 +67,17 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-javalin-extensions` | 组合 Guice Module、业务覆盖和扩展生命周期 |
 | `ddd4j-javalin-testing` | 测试 HTTP、Keycloak、PostgreSQL、MQ、Docker、端口和生命周期 |
 | `ddd4j-javalin-release` | 验证和发布三条维护线 |
+| `ddd4j-quarkus-version-selection` | 选择 3.3.x/4.0.x 适配线和兼容 Quarkus Platform |
+| `ddd4j-quarkus-architecture` | 设计 Quarkus parent、BOM、扩展、认证、数据、MQ、Web、Cache 边界 |
+| `ddd4j-quarkus-extension-authoring` | 开发 runtime/deployment、Processor、BuildItem、Recorder 和 Native 支持 |
+| `ddd4j-quarkus-runtime` | 集成 CDI/Arc、Bus、Publisher、SubjectProvider、Context、启动和关闭 |
+| `ddd4j-quarkus-auth` | 集成 JWT、OIDC、Shiro 和 Sa-Token 支持边界 |
+| `ddd4j-quarkus-data` | 集成 Panache、JPA、JDBI、R2DBC、租户、事务、EventStore 和 Outbox |
+| `ddd4j-quarkus-web` | 构建 Quarkus REST Context、错误、认证、校验、幂等、CORS 和 Readiness |
+| `ddd4j-quarkus-mq` | 集成 Kafka、NATS、其他 Broker、ACK、生命周期和容器 |
+| `ddd4j-quarkus-cache` | 集成 Quarkus Cache、Redis、ddd4j Cache SPI、TTL、CAS 和幂等 |
+| `ddd4j-quarkus-testing` | 测试 QuarkusTest、TestResource、Arc、Docker、ClassLoader 和 Native 路径 |
+| `ddd4j-quarkus-release` | 验证和发布 3.3.x/4.0.x、CI、Security 与空缓存消费 |
 
 ## 边界
 

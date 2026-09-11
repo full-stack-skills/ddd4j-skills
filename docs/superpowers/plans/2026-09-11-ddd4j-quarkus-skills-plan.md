@@ -37,43 +37,43 @@
 
 **Files:** Create skills/ddd4j-quarkus-version-selection/、skills/ddd4j-quarkus-architecture/
 
-- [ ] **Step 1:** 从两分支 POM、Wrapper 和 workflow 提取版本元组。
-- [ ] **Step 2:** 区分当前 patch、后续稳定线和未验证前瞻版本。
-- [ ] **Step 3:** 解释 parent/dependencies/BOM/extension-parent。
-- [ ] **Step 4:** 用新项目和已有项目场景验证并提交。
+- [x] **Step 1:** 从两分支 POM、Wrapper 和 workflow 提取版本元组。
+- [x] **Step 2:** 区分当前 patch、后续稳定线和未验证前瞻版本。
+- [x] **Step 3:** 解释 parent/dependencies/BOM/extension-parent。
+- [x] **Step 4:** 用新项目和已有项目场景验证并提交。
 
 ### Task 2: extension-authoring 与 runtime
 
 **Files:** Create skills/ddd4j-quarkus-extension-authoring/、skills/ddd4j-quarkus-runtime/
 
-- [ ] **Step 1:** 提取 runtime/deployment 配对、processor、BuildItem、Recorder。
-- [ ] **Step 2:** 写明 CDI bean-defining scope、Arc validation、native image。
-- [ ] **Step 3:** Runtime 覆盖 CommandBus、Publisher、SubjectProvider、上下文和关闭。
-- [ ] **Step 4:** 验证启动、重复注册、请求清理后提交。
+- [x] **Step 1:** 提取 runtime/deployment 配对、processor、BuildItem、Recorder。
+- [x] **Step 2:** 写明 CDI bean-defining scope、Arc validation、native image。
+- [x] **Step 3:** Runtime 覆盖 CommandBus、Publisher、SubjectProvider、上下文和关闭。
+- [x] **Step 4:** 验证启动、重复注册、请求清理后提交。
 
 ### Task 3: auth、data、cache
 
 **Files:** Create skills/ddd4j-quarkus-auth/、skills/ddd4j-quarkus-data/、skills/ddd4j-quarkus-cache/
 
-- [ ] **Step 1:** Auth 建立 JWT/OIDC/Shiro/Sa-Token 支持矩阵，未实现项明确标注。
-- [ ] **Step 2:** 验证 JWT Subject、SubjectKit、SubjectProvider 同请求一致。
-- [ ] **Step 3:** Data 统一 Panache/JPA/JDBI/R2DBC、复合键、租户和事务。
-- [ ] **Step 4:** Cache 比较 Quarkus Cache、Redis、ddd4j SPI 后提交。
+- [x] **Step 1:** Auth 建立 JWT/OIDC/Shiro/Sa-Token 支持矩阵，未实现项明确标注。
+- [x] **Step 2:** 验证 JWT Subject、SubjectKit、SubjectProvider 同请求一致。
+- [x] **Step 3:** Data 统一 Panache/JPA/JDBI/R2DBC、复合键、租户和事务。
+- [x] **Step 4:** Cache 比较 Quarkus Cache、Redis、ddd4j SPI 后提交。
 
 ### Task 4: web 与 mq
 
 **Files:** Create skills/ddd4j-quarkus-web/、skills/ddd4j-quarkus-mq/
 
-- [ ] **Step 1:** Web 覆盖 JAX-RS、Context、异常、Auth、幂等和 HTTP contract。
-- [ ] **Step 2:** MQ 覆盖 Kafka、NATS 和其他当前实现的生命周期。
-- [ ] **Step 3:** 不把 BOM 引入当运行时 Bean 已装配。
-- [ ] **Step 4:** 执行 round-trip 或明确 BLOCKED 后提交。
+- [x] **Step 1:** Web 覆盖 JAX-RS、Context、异常、Auth、幂等和 HTTP contract。
+- [x] **Step 2:** MQ 覆盖 Kafka、NATS 和其他当前实现的生命周期。
+- [x] **Step 3:** 不把 BOM 引入当运行时 Bean 已装配。
+- [x] **Step 4:** 执行 round-trip 或明确 BLOCKED 后提交。
 
 ### Task 5: testing 与 release
 
 **Files:** Create skills/ddd4j-quarkus-testing/、skills/ddd4j-quarkus-release/
 
-- [ ] **Step 1:** Testing 覆盖 QuarkusTest、TestResource、Arc、Docker/ClassLoader。
-- [ ] **Step 2:** 保留 docker info 优先、DockerClientFactory 回退语义。
-- [ ] **Step 3:** Release 记录双线 Maven 3/4、CI、Security、私服和空缓存消费。
-- [ ] **Step 4:** 更新插件、README、TRACE 和远端 SHA 后提交。
+- [x] **Step 1:** Testing 覆盖 QuarkusTest、TestResource、Arc、Docker/ClassLoader。
+- [x] **Step 2:** 保留 docker info 优先、DockerClientFactory 回退语义。
+- [x] **Step 3:** Release 记录双线 Maven 3/4、CI、Security、私服和空缓存消费。
+- [x] **Step 4:** 更新插件、README、TRACE 和远端 SHA 后提交。

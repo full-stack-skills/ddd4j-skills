@@ -24,7 +24,7 @@ Install one skill:
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## Skills (39)
+## Skills (50)
 
 | Skill | Use when |
 |---|---|
@@ -67,6 +67,17 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-javalin-extensions` | Composing Guice modules, business overrides, and extension lifecycle |
 | `ddd4j-javalin-testing` | Testing HTTP, Keycloak, PostgreSQL, MQ, Docker, ports, and lifecycle |
 | `ddd4j-javalin-release` | Validating and publishing all three maintenance lines |
+| `ddd4j-quarkus-version-selection` | Selecting the 3.3.x or 4.0.x adapter line and compatible Quarkus Platform |
+| `ddd4j-quarkus-architecture` | Designing Quarkus parent, BOM, extension, auth, data, MQ, Web, and cache boundaries |
+| `ddd4j-quarkus-extension-authoring` | Building runtime/deployment modules, processors, BuildItems, recorders, and native support |
+| `ddd4j-quarkus-runtime` | Integrating CDI/Arc, buses, publishers, Subject providers, context, startup, and shutdown |
+| `ddd4j-quarkus-auth` | Integrating JWT, OIDC, Shiro, and Sa-Token support boundaries |
+| `ddd4j-quarkus-data` | Integrating Panache, JPA, JDBI, R2DBC, tenants, transactions, EventStore, and Outbox |
+| `ddd4j-quarkus-web` | Building Quarkus REST context, errors, auth, validation, idempotency, CORS, and readiness |
+| `ddd4j-quarkus-mq` | Integrating Kafka, NATS, other brokers, acknowledgment, lifecycle, and containers |
+| `ddd4j-quarkus-cache` | Integrating Quarkus Cache, Redis, ddd4j Cache SPI, TTL, CAS, and idempotency |
+| `ddd4j-quarkus-testing` | Testing QuarkusTest, TestResource, Arc, Docker, classloaders, and native paths |
+| `ddd4j-quarkus-release` | Validating and publishing 3.3.x/4.0.x with CI, Security, and clean-cache consumption |
 
 ## Boundaries
 
