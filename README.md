@@ -24,7 +24,7 @@ Install one skill:
 npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 ```
 
-## Skills (10)
+## Skills (11)
 
 | Skill | Use when |
 |---|---|
@@ -37,6 +37,7 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-mybatis` | Building native MyBatis/MyBatis-Plus aggregate repositories, Domain/PO mapping, tenant or data-scope behavior |
 | `ddd4j-validation` | Using the four public ddd4j-web-validation constraints across maintenance lines |
 | `ddd4j-auth` | Choosing and integrating Sa-Token, Shiro, or Spring Security through ddd4j Subject contracts |
+| `ddd4j-cache` | Choosing local, Redis, Redisson, JetCache, Memcached, TTL, locking, and CAS behavior |
 | `ddd4j-javalin-production-hardening` | Hardening and releasing ddd4j-javalin across its maintenance branches |
 
 ## Boundaries
