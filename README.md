@@ -36,7 +36,7 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-kit` | Selecting ddd4j JSON, bean, string, collection, identifier, function, and reflection utilities |
 | `ddd4j-mybatis` | Building native MyBatis/MyBatis-Plus aggregate repositories, Domain/PO mapping, tenant or data-scope behavior |
 | `ddd4j-validation` | Using the four public ddd4j-web-validation constraints across maintenance lines |
-| `ddd4j-satoken` | Integrating StpKit, Subject bridges, authentication modes, temporary tokens, or API keys |
+| `ddd4j-auth` | Choosing and integrating Sa-Token, Shiro, or Spring Security through ddd4j Subject contracts |
 | `ddd4j-javalin-production-hardening` | Hardening and releasing ddd4j-javalin across its maintenance branches |
 
 ## Boundaries

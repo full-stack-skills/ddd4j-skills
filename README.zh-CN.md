@@ -36,7 +36,7 @@ npx skills add full-stack-skills/ddd4j-skills --skill <skill-name>
 | `ddd4j-kit` | 选择 ddd4j JSON、Bean、字符串、集合、标识、函数和反射工具 |
 | `ddd4j-mybatis` | 原生 MyBatis/MyBatis-Plus 聚合仓储、Domain/PO 映射、租户与数据权限 |
 | `ddd4j-validation` | ddd4j-web-validation 四个公开约束及维护线兼容 |
-| `ddd4j-satoken` | StpKit、Subject Bridge、认证模式、临时 Token 和 API Key |
+| `ddd4j-auth` | 通过 ddd4j Subject 统一选择和集成 Sa-Token、Shiro、Spring Security |
 | `ddd4j-javalin-production-hardening` | ddd4j-javalin 多分支生产加固、TDD、CI 与私有 Maven 发布 |
 
 ## 边界

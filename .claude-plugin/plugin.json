@@ -18,7 +18,7 @@
     "./skills/ddd4j-kit",
     "./skills/ddd4j-mybatis",
     "./skills/ddd4j-validation",
-    "./skills/ddd4j-satoken",
+    "./skills/ddd4j-auth",
     "./skills/ddd4j-javalin-production-hardening"
   ]
 }
