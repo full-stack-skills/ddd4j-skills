@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Autoconfiguration"
+  short_description: "ddd4j Boot Autoconfiguration：自动配置、条件装配、配置属性、用户覆盖、imports 注册、…"
+  default_prompt: "使用 $ddd4j-boot-autoconfiguration，围绕“ddd4j Boot Autoconfiguration：自动配置、条件装配、配置属性、用户覆盖、imports 注册”处理我的当前需求。"

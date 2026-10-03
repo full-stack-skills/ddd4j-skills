@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Quarkus Cache"
+  short_description: "ddd4j Quarkus Cache：缓存集成、Quarkus Cache、Redis、Cache SPI、TTL、CAS、…"
+  default_prompt: "使用 $ddd4j-quarkus-cache，围绕“ddd4j Quarkus Cache：缓存集成、Quarkus Cache、Redis、Cache SPI、TTL、CAS”处理我的当前需求。"

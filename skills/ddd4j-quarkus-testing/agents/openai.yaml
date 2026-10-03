@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Quarkus Testing"
+  short_description: "ddd4j Quarkus Testing：QuarkusTest、TestResource、Arc 校验、Docker 检测…"
+  default_prompt: "使用 $ddd4j-quarkus-testing，围绕“ddd4j Quarkus Testing：QuarkusTest、TestResource、Arc 校验、Docker 检测”处理我的当前需求。"

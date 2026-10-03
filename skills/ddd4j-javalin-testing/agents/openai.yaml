@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Javalin Testing"
+  short_description: "ddd4j Javalin Testing：测试、Testcontainers、Docker、端口绑定、生命周期测试、HTTP…"
+  default_prompt: "使用 $ddd4j-javalin-testing，围绕“ddd4j Javalin Testing：测试、Testcontainers、Docker、端口绑定、生命周期测试、HTTP”处理我的当前需求。"

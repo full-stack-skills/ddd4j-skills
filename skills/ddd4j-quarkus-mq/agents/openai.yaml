@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Quarkus Mq"
+  short_description: "ddd4j Quarkus Mq：消息集成、Kafka、NATS、Broker、ACK 确认、监听器、重试死信、生命周期、容器…"
+  default_prompt: "使用 $ddd4j-quarkus-mq，围绕“ddd4j Quarkus Mq：消息集成、Kafka、NATS、Broker、ACK 确认、监听器、重试死信、生命周期、容器”处理我的当前需求。"

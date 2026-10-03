@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Cache"
+  short_description: "ddd4j Boot Cache：缓存、本地缓存、Redis、Redisson、JetCache、TTL、CAS、幂等"
+  default_prompt: "使用 $ddd4j-boot-cache，围绕“ddd4j Boot Cache：缓存、本地缓存、Redis、Redisson、JetCache、TTL、CAS、幂等”处理我的当前需求。"

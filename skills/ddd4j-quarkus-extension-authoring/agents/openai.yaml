@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Quarkus Extension Authoring"
+  short_description: "ddd4j Quarkus Extension Authoring：扩展开发、runtime/deployment 模块、…"
+  default_prompt: "使用 $ddd4j-quarkus-extension-authoring，围绕“ddd4j Quarkus Extension Authoring：扩展开发、runtime/deployment 模块”处理我的当前需求。"

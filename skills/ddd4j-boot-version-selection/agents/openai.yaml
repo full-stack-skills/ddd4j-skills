@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Version Selection"
+  short_description: "ddd4j Boot Version Selection：版本选择、维护线、兼容矩阵、JDK 对应、Maven 版本、POM…"
+  default_prompt: "使用 $ddd4j-boot-version-selection，围绕“ddd4j Boot Version Selection：版本选择、维护线、兼容矩阵、JDK 对应、Maven 版本、POM”处理我的当前需求。"

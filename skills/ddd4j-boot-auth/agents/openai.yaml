@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Auth"
+  short_description: "ddd4j Boot Auth：认证集成、Sa-Token、Shiro、Spring Security、Subject 映射、…"
+  default_prompt: "使用 $ddd4j-boot-auth，围绕“ddd4j Boot Auth：认证集成、Sa-Token、Shiro、Spring Security、Subject 映射”处理我的当前需求。"

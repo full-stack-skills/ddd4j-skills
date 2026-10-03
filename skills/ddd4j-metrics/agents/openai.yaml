@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Metrics"
+  short_description: "ddd4j Metrics：指标设计、OpenTelemetry、Projection 指标、标签基数、监控告警、可观测性、…"
+  default_prompt: "使用 $ddd4j-metrics，围绕“ddd4j Metrics：指标设计、OpenTelemetry、Projection 指标、标签基数、监控告警、可观测性”处理我的当前需求。"

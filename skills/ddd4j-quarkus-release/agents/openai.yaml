@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Quarkus Release"
+  short_description: "ddd4j Quarkus Release：验证发布、CI 门禁、Security 扫描、空缓存消费、私有仓库、模块清单、…"
+  default_prompt: "使用 $ddd4j-quarkus-release，围绕“ddd4j Quarkus Release：验证发布、CI 门禁、Security 扫描、空缓存消费、私有仓库、模块清单”处理我的当前需求。"

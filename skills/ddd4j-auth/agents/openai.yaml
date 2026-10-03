@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Auth"
+  short_description: "ddd4j Auth：认证授权、Sa-Token、Shiro、Spring Security、Subject 映射、角色权限、…"
+  default_prompt: "使用 $ddd4j-auth，围绕“ddd4j Auth：认证授权、Sa-Token、Shiro、Spring Security、Subject 映射、角色权限”处理我的当前需求。"

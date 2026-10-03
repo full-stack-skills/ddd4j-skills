@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Testing"
+  short_description: "ddd4j Boot Testing：测试、自动配置测试、维护矩阵、HTTP 契约、数据库、Redis、Broker、…"
+  default_prompt: "使用 $ddd4j-boot-testing，围绕“ddd4j Boot Testing：测试、自动配置测试、维护矩阵、HTTP 契约、数据库、Redis、Broker”处理我的当前需求。"

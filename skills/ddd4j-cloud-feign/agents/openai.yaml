@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Feign"
+  short_description: "ddd4j Cloud Feign：服务调用、拦截器、Header 传播、错误解码、重试、请求清理"
+  default_prompt: "使用 $ddd4j-cloud-feign，围绕“ddd4j Cloud Feign：服务调用、拦截器、Header 传播、错误解码、重试、请求清理”处理我的当前需求。"

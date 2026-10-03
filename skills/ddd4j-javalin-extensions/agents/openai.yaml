@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Javalin Extensions"
+  short_description: "ddd4j Javalin Extensions：Guice Module、业务覆盖、SPI Provider、扩展生命周期、…"
+  default_prompt: "使用 $ddd4j-javalin-extensions，围绕“ddd4j Javalin Extensions：Guice Module、业务覆盖、SPI Provider、扩展生命周期”处理我的当前需求。"

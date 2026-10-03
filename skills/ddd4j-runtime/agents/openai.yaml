@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Runtime"
+  short_description: "ddd4j Runtime：运行时集成、SPI 注册、依赖注入、启动回滚、就绪检查、上下文绑定、优雅关闭、Guice…"
+  default_prompt: "使用 $ddd4j-runtime，围绕“ddd4j Runtime：运行时集成、SPI 注册、依赖注入、启动回滚、就绪检查、上下文绑定、优雅关闭、Guice”处理我的当前需求。"

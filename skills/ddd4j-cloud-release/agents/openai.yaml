@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Release"
+  short_description: "ddd4j Cloud Release：发布验证、八条维护线、私有仓库、空缓存消费、上游可用性、CI 检查、Maven 版本"
+  default_prompt: "使用 $ddd4j-cloud-release，围绕“ddd4j Cloud Release：发布验证、八条维护线、私有仓库、空缓存消费、上游可用性、CI 检查、Maven 版本”处理我的当前需求。"

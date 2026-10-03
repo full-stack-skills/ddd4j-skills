@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Bom"
+  short_description: "ddd4j Boot Bom：版本所有权、BOM 导入、effective POM、依赖管理、parent POM、导入顺序、…"
+  default_prompt: "使用 $ddd4j-boot-bom，围绕“ddd4j Boot Bom：版本所有权、BOM 导入、effective POM、依赖管理、parent POM、导入顺序”处理我的当前需求。"

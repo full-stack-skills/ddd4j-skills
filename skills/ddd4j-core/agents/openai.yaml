@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Core"
+  short_description: "ddd4j Core：聚合根、领域事件、命令总线、仓储接口、上下文清理、事件溯源"
+  default_prompt: "使用 $ddd4j-core，围绕“ddd4j Core：聚合根、领域事件、命令总线、仓储接口、上下文清理、事件溯源”处理我的当前需求。"

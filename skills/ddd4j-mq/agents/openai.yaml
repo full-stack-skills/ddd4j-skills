@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Mq"
+  short_description: "ddd4j Mq：消息队列、Broker 选型、ACK 确认、重试与死信、幂等消费、监听器生命周期、RocketMQ、Kafka"
+  default_prompt: "使用 $ddd4j-mq，围绕“ddd4j Mq：消息队列、Broker 选型、ACK 确认、重试与死信、幂等消费、监听器生命周期、RocketMQ、Kafka”处理我的当前需求。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Mq"
+  short_description: "ddd4j Boot Mq：消息队列、多 Broker、Listener、ACK 确认、重试、死信、就绪检查、优雅关闭"
+  default_prompt: "使用 $ddd4j-boot-mq，围绕“ddd4j Boot Mq：消息队列、多 Broker、Listener、ACK 确认、重试、死信、就绪检查、优雅关闭”处理我的当前需求。"

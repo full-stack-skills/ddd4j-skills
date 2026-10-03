@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Web"
+  short_description: "ddd4j Boot Web：Web 集成、MVC/WebFlux、Context 绑定、统一错误、校验、幂等、CORS、就绪…"
+  default_prompt: "使用 $ddd4j-boot-web，围绕“ddd4j Boot Web：Web 集成、MVC/WebFlux、Context 绑定、统一错误、校验、幂等、CORS、就绪”处理我的当前需求。"

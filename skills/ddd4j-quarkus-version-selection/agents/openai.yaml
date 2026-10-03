@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Quarkus Version Selection"
+  short_description: "ddd4j Quarkus Version Selection：版本选择、适配线、维护线、兼容矩阵、Quarkus…"
+  default_prompt: "使用 $ddd4j-quarkus-version-selection，围绕“ddd4j Quarkus Version Selection：版本选择、适配线、维护线、兼容矩阵、Quarkus”处理我的当前需求。"

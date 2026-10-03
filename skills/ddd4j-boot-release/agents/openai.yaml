@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Release"
+  short_description: "ddd4j Boot Release：发布验证、13 条维护线、CI 门槛、私服部署、空缓存消费、Git SHA、远端可用性"
+  default_prompt: "使用 $ddd4j-boot-release，围绕“ddd4j Boot Release：发布验证、13 条维护线、CI 门槛、私服部署、空缓存消费、Git SHA、远端可用性”处理我的当前需求。"

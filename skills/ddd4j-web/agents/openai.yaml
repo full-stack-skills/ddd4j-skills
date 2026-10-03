@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Web"
+  short_description: "ddd4j Web：HTTP 契约、统一响应、错误处理、上下文透传、认证、幂等、CORS、就绪检查、参数校验"
+  default_prompt: "使用 $ddd4j-web，围绕“ddd4j Web：HTTP 契约、统一响应、错误处理、上下文透传、认证、幂等、CORS、就绪检查、参数校验”处理我的当前需求。"

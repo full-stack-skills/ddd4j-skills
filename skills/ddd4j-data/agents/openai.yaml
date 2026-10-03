@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Data"
+  short_description: "ddd4j Data：持久化选型、EventStore、Projection、Outbox、事务边界、租户隔离、领域对象映射、…"
+  default_prompt: "使用 $ddd4j-data，围绕“ddd4j Data：持久化选型、EventStore、Projection、Outbox、事务边界、租户隔离、领域对象映射”处理我的当前需求。"

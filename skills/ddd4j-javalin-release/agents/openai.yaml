@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Javalin Release"
+  short_description: "ddd4j Javalin Release：发布验证、CI 门禁、私服发布、空缓存消费、Maven 4 断点续传、安全扫描、维…"
+  default_prompt: "使用 $ddd4j-javalin-release，围绕“ddd4j Javalin Release：发布验证、CI 门禁、私服发布、空缓存消费、Maven 4 断点续传、安全扫描、维”处理我的当前需求。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Kit"
+  short_description: "ddd4j Kit：工具类、JSON 序列化、Bean 拷贝、字符串处理、集合工具、ID 生成、反射工具、Jackson"
+  default_prompt: "使用 $ddd4j-kit，围绕“ddd4j Kit：工具类、JSON 序列化、Bean 拷贝、字符串处理、集合工具、ID 生成、反射工具、Jackson”处理我的当前需求。"

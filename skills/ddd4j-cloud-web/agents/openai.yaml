@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Web"
+  short_description: "ddd4j Cloud Web：国际化响应、统一错误、认证、校验、就绪检查、健康检查"
+  default_prompt: "使用 $ddd4j-cloud-web，围绕“ddd4j Cloud Web：国际化响应、统一错误、认证、校验、就绪检查、健康检查”处理我的当前需求。"

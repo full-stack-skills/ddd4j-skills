@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Annotation"
+  short_description: "ddd4j Annotation：注解选择、幂等注解、租户字段、审计字段、ORM 映射、事件注解、注解消费者"
+  default_prompt: "使用 $ddd4j-annotation，围绕“ddd4j Annotation：注解选择、幂等注解、租户字段、审计字段、ORM 映射、事件注解、注解消费者”处理我的当前需求。"

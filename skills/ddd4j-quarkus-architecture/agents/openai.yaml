@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Quarkus Architecture"
+  short_description: "ddd4j Quarkus Architecture：模块边界、parent、BOM、extension-parent、扩展边…"
+  default_prompt: "使用 $ddd4j-quarkus-architecture，围绕“ddd4j Quarkus Architecture：模块边界、parent、BOM、extension-parent、扩展边”处理我的当前需求。"

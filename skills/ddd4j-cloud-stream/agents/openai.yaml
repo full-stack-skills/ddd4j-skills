@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Stream"
+  short_description: "ddd4j Cloud Stream：消息集成、绑定、目的地、消息确认、死信、Kafka、RabbitMQ、RocketMQ"
+  default_prompt: "使用 $ddd4j-cloud-stream，围绕“ddd4j Cloud Stream：消息集成、绑定、目的地、消息确认、死信、Kafka、RabbitMQ、RocketMQ”处理我的当前需求。"

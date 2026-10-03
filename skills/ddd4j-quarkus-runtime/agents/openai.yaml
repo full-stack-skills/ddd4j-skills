@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Quarkus Runtime"
+  short_description: "ddd4j Quarkus Runtime：CDI/Arc 集成、CommandBus、…"
+  default_prompt: "使用 $ddd4j-quarkus-runtime，围绕“ddd4j Quarkus Runtime：CDI/Arc 集成、CommandBus”处理我的当前需求。"

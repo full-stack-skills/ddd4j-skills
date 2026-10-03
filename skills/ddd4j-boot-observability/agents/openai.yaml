@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Observability"
+  short_description: "ddd4j Boot Observability：可观测性、Actuator、健康检查、指标、追踪、日志、监控、…"
+  default_prompt: "使用 $ddd4j-boot-observability，围绕“ddd4j Boot Observability：可观测性、Actuator、健康检查、指标、追踪、日志、监控”处理我的当前需求。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Context"
+  short_description: "ddd4j Cloud Context：上下文传播、线程上下文、异步传播、Reactor 上下文、Feign 传播、上下文清理"
+  default_prompt: "使用 $ddd4j-cloud-context，围绕“ddd4j Cloud Context：上下文传播、线程上下文、异步传播、Reactor 上下文、Feign 传播、上下文清理”处理我的当前需求。"

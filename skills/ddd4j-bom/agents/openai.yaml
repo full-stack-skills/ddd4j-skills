@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Bom"
+  short_description: "ddd4j Bom：版本所有权、BOM 导入、effective POM、Maven 模型、依赖管理、空缓存消费、发布验证"
+  default_prompt: "使用 $ddd4j-bom，围绕“ddd4j Bom：版本所有权、BOM 导入、effective POM、Maven 模型、依赖管理、空缓存消费、发布验证”处理我的当前需求。"

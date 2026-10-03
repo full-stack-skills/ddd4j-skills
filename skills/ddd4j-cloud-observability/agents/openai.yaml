@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Observability"
+  short_description: "ddd4j Cloud Observability：注册中心、配置中心、熔断限流、链路追踪、监控指标、日志、健康检查"
+  default_prompt: "使用 $ddd4j-cloud-observability，围绕“ddd4j Cloud Observability：注册中心、配置中心、熔断限流、链路追踪、监控指标、日志、健康检查”处理我的当前需求。"

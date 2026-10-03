@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cache"
+  short_description: "ddd4j Cache：本地缓存、Redis、Redisson、JetCache、TTL、分布式锁、CAS 幂等、缓存键"
+  default_prompt: "使用 $ddd4j-cache，围绕“ddd4j Cache：本地缓存、Redis、Redisson、JetCache、TTL、分布式锁、CAS 幂等、缓存键”处理我的当前需求。"

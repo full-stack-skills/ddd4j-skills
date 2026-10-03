@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Bom"
+  short_description: "ddd4j Cloud Bom：BOM 导入、版本所有权、effective POM、Boot parent、…"
+  default_prompt: "使用 $ddd4j-cloud-bom，围绕“ddd4j Cloud Bom：BOM 导入、版本所有权、effective POM、Boot parent”处理我的当前需求。"

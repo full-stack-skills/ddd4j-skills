@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Javalin Web"
+  short_description: "ddd4j Javalin Web：路由、Context、错误处理、CORS、校验、幂等、限流、健康检查"
+  default_prompt: "使用 $ddd4j-javalin-web，围绕“ddd4j Javalin Web：路由、Context、错误处理、CORS、校验、幂等、限流、健康检查”处理我的当前需求。"

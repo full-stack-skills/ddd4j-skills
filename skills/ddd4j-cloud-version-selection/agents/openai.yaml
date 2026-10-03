@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Version Selection"
+  short_description: "ddd4j Cloud Version Selection：版本选择、兼容矩阵、维护组合、维护线、JDK 对应、Maven 版…"
+  default_prompt: "使用 $ddd4j-cloud-version-selection，围绕“ddd4j Cloud Version Selection：版本选择、兼容矩阵、维护组合、维护线、JDK 对应、Maven 版”处理我的当前需求。"

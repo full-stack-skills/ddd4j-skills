@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Javalin Cache"
+  short_description: "ddd4j Javalin Cache：本地缓存、分布式缓存、CAS、TTL、幂等后端、Caffeine"
+  default_prompt: "使用 $ddd4j-javalin-cache，围绕“ddd4j Javalin Cache：本地缓存、分布式缓存、CAS、TTL、幂等后端、Caffeine”处理我的当前需求。"

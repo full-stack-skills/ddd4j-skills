@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Javalin Version Selection"
+  short_description: "ddd4j Javalin Version Selection：版本选择、维护线、兼容矩阵、JDK 对应、Maven 版本、…"
+  default_prompt: "使用 $ddd4j-javalin-version-selection，围绕“ddd4j Javalin Version Selection：版本选择、维护线、兼容矩阵、JDK 对应、Maven 版本”处理我的当前需求。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Extensions"
+  short_description: "ddd4j Boot Extensions：扩展集成、Akka、Excel、QLExpress、QR Code、Monitor…"
+  default_prompt: "使用 $ddd4j-boot-extensions，围绕“ddd4j Boot Extensions：扩展集成、Akka、Excel、QLExpress、QR Code、Monitor”处理我的当前需求。"

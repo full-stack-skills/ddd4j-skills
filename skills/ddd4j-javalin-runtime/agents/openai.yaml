@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Javalin Runtime"
+  short_description: "ddd4j Javalin Runtime：启动流程、生命周期、SPI 注册、就绪检查、Drain、回滚、Hook、优雅关闭"
+  default_prompt: "使用 $ddd4j-javalin-runtime，围绕“ddd4j Javalin Runtime：启动流程、生命周期、SPI 注册、就绪检查、Drain、回滚、Hook、优雅关闭”处理我的当前需求。"

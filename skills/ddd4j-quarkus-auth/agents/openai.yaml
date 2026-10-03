@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Quarkus Auth"
+  short_description: "ddd4j Quarkus Auth：认证集成、JWT、OIDC、Shiro、Sa-Token、SubjectProvider…"
+  default_prompt: "使用 $ddd4j-quarkus-auth，围绕“ddd4j Quarkus Auth：认证集成、JWT、OIDC、Shiro、Sa-Token、SubjectProvider”处理我的当前需求。"

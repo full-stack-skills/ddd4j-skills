@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Version Selection"
+  short_description: "ddd4j Version Selection：版本选择、兼容矩阵、JDK 对应、Maven 版本、POM 模型、升级路径、维…"
+  default_prompt: "使用 $ddd4j-version-selection，围绕“ddd4j Version Selection：版本选择、兼容矩阵、JDK 对应、Maven 版本、POM 模型、升级路径、维”处理我的当前需求。"

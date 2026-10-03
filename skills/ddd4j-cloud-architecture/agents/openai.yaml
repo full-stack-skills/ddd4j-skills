@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Architecture"
+  short_description: "ddd4j Cloud Architecture：模块边界、上游边界、Cloud 扩展、兼容验证、验证消费者、维护线"
+  default_prompt: "使用 $ddd4j-cloud-architecture，围绕“ddd4j Cloud Architecture：模块边界、上游边界、Cloud 扩展、兼容验证、验证消费者、维护线”处理我的当前需求。"

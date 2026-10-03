@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Quarkus Web"
+  short_description: "ddd4j Quarkus Web：REST 接口、请求上下文、错误处理、认证、校验、幂等、CORS、就绪检查"
+  default_prompt: "使用 $ddd4j-quarkus-web，围绕“ddd4j Quarkus Web：REST 接口、请求上下文、错误处理、认证、校验、幂等、CORS、就绪检查”处理我的当前需求。"

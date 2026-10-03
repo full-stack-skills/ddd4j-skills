@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Boot Data"
+  short_description: "ddd4j Boot Data：数据访问、MyBatis、MyBatis-Plus、JPA、事务、数据库迁移、…"
+  default_prompt: "使用 $ddd4j-boot-data，围绕“ddd4j Boot Data：数据访问、MyBatis、MyBatis-Plus、JPA、事务、数据库迁移”处理我的当前需求。"

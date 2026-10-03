@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Extensions"
+  short_description: "ddd4j Extensions：扩展集成、Excel 导出、License 校验、插件系统、规则表达式、二维码、可选依赖、降级"
+  default_prompt: "使用 $ddd4j-extensions，围绕“ddd4j Extensions：扩展集成、Excel 导出、License 校验、插件系统、规则表达式、二维码、可选依赖、降级”处理我的当前需求。"

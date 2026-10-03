@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Tenant"
+  short_description: "ddd4j Cloud Tenant：租户隔离、数据权限、数据范围、SQL 过滤、跨服务传播、忽略规则、系统上下文"
+  default_prompt: "使用 $ddd4j-cloud-tenant，围绕“ddd4j Cloud Tenant：租户隔离、数据权限、数据范围、SQL 过滤、跨服务传播、忽略规则、系统上下文”处理我的当前需求。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Architecture"
+  short_description: "ddd4j Architecture：模块边界、依赖方向、端口与适配器、DDD/CQRS 分层、运行时集成、架构评审"
+  default_prompt: "使用 $ddd4j-architecture，围绕“ddd4j Architecture：模块边界、依赖方向、端口与适配器、DDD/CQRS 分层、运行时集成、架构评审”处理我的当前需求。"

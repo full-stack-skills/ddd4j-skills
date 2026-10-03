@@ -1,0 +1,4 @@
+interface:
+  display_name: "ddd4j Cloud Testing"
+  short_description: "ddd4j Cloud Testing：兼容测试、集成测试、维护矩阵、远端消费者、证据分级、测试报告"
+  default_prompt: "使用 $ddd4j-cloud-testing，围绕“ddd4j Cloud Testing：兼容测试、集成测试、维护矩阵、远端消费者、证据分级、测试报告”处理我的当前需求。"
